@@ -1,16 +1,21 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby";
+import Form from "../components/form"
+const Page = ({data}) => (
+  <div>
+  <h1>{data.datoCmsArticle.title}</h1>
+  <p>{data.datoCmsArticle.text}</p>
+  <Form></Form>
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+  </div>
+  
+);
+export default Page;
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
-
-export default SecondPage
+export const query = graphql`
+query ProjectQuery {
+  datoCmsArticle{
+    title
+    text
+  }
+}`
