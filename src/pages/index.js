@@ -4,13 +4,15 @@ import Nav from "../components/nav";
 import Form from "../components/form";
 import Footer from "../components/footer";
 import StyledBackgroundImage from "../components/styledBackgroundImage"
+import BodyTest from "../components/bodyTest";
 
 const Page = ({data}) => (
   <div>
     <StyledBackgroundImage></StyledBackgroundImage>
-  <Nav/>
+    <Nav/>
     <p>{data.datoCmsPage.body}</p>
     <Form></Form>
+    <BodyTest>test</BodyTest>
     <Footer></Footer>
     </div>
 );

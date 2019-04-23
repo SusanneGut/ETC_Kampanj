@@ -31,7 +31,7 @@ const Background = ({className}) => (
             <BackgroundImage fluid={imageData} className={className}>
                     <h1>{title} </h1>
                     <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}><Logo/></div>
-                    <button href="#form-mobil">{buttonText}</button>
+                    <a href="#form-mobil"><button>{buttonText}</button></a>
             </BackgroundImage>
         )}}
     />
