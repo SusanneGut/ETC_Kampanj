@@ -25,10 +25,10 @@ export default class Form extends React.Component {
     render(buttonText) {
         return(
             <div>Form
-            <h2>
+            <h4>
                 <a id="form-mobil"></a>
                 Byt till ETC Mobil
-            </h2>
+            </h4>
             
             <form onSubmit={this.handleSubmit}>
             <lable>{buttonText}

@@ -4,20 +4,34 @@ import {StaticQuery, graphql} from "gatsby"
 
 
 const BodyTest = () => (
-    <StaticQuery
+  <StaticQuery
     query={graphql`
-      query {
+      query{
         datoCmsPage{
           bodyTest{
-              ... on DatoCmsContent{
-                  text
-              }
+            ... on DatoCmsContent{
+              model{apiKey}
+              text
             }
+              
+          }
         }
       }
     `}
-    render={data =>data.datoCmsPage.BodyTest
-    }
+    render = {data => {
+      return (
+          <div>
+             {data.datoCmsPage.bodyTest.map((block) => (
+              <div key={block.id}>{
+                 block.model.apiKey === 'text' &&
+                 <div>{block.text}</div>
+              }
+           </div>
+         ))
+        }
+      </div>
+      )}
+    }    
   />
 )
 

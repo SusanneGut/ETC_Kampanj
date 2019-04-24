@@ -1,31 +1,41 @@
-import React from "react";
+import React from "react"
 import { graphql } from "gatsby";
-import Nav from "../components/nav";
-import Form from "../components/form";
-import Footer from "../components/footer";
-import StyledBackgroundImage from "../components/styledBackgroundImage"
-import BodyTest from "../components/bodyTest";
+import StyledBackgroundImage from "../components/styledBackgroundImage";
+import Nav from "../components/nav"
+import Form from "../components/form"
+import Footer from "../components/footer"
 
-const Page = ({data}) => (
-  <div>
-    <StyledBackgroundImage></StyledBackgroundImage>
-    <Nav/>
-    <p>{data.datoCmsPage.body}</p>
-    <Form></Form>
-    <BodyTest>test</BodyTest>
-    <Footer></Footer>
+export default function Index ({data}){
+  const {edges: article} = data.allDatoCmsArticle;
+  return (
+    <div>
+      <StyledBackgroundImage/>
+      <Nav/>
+    <div className = "articles">
+    {article
+    .map(({node: article}) =>{
+      return (
+        <div key={article.id}>
+        <h4>{article.title}</h4>
+        <p>{article.text}</p>
+        </div>
+      );
+      })}
     </div>
-);
-export default Page;
+    <Form/>
+    <Footer/>
+    </div>
+  )
+}
 
 export const query = graphql`
-query PageQuery {
-  datoCmsPage{
-    header
-    body
-    footer
-    
+query ProjectQuery {
+  allDatoCmsArticle{
+    edges{
+      node{
+        title
+        text
+      }
+    }
   }
-}
-`
-
+}`

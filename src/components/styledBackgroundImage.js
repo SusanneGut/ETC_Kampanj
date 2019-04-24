@@ -11,6 +11,7 @@ const Background = ({className}) => (
             query {
              datoCmsPage{
                  header
+                 subhead
                  body 
                  buttontext
                  backgroundimage{
@@ -25,11 +26,13 @@ const Background = ({className}) => (
         render = {data => {
             const imageData = data.datoCmsPage.backgroundimage.fluid;
             const title = data.datoCmsPage.header;
+            const subTitle = data.datoCmsPage.subhead;
             const buttonText = data.datoCmsPage.buttontext;
 
          return (
             <BackgroundImage fluid={imageData} className={className}>
                     <h1>{title} </h1>
+                    <h4>{subTitle}</h4>
                     <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}><Logo/></div>
                     <a href="#form-mobil"><button>{buttonText}</button></a>
             </BackgroundImage>
@@ -40,7 +43,7 @@ const Background = ({className}) => (
 
 const styledBackgroundImage = styled(Background)`
 width: 100%;
-height: 50vh;
+height: 60vh;
 background-position: relative;
 backgrond-size: cover;
 `
