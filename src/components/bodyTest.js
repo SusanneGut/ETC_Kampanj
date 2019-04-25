@@ -7,9 +7,8 @@ const BodyTest = () => (
     query={graphql`
       query{
         datoCmsPage{
-          bodyTest{
-            ... on DatoCmsContent{
-              model{apiKey}
+          content{
+            ... on DatoCmsHead{
               text
             }
           }
@@ -18,21 +17,20 @@ const BodyTest = () => (
     `}
     render = {data => {
       return (
-          <div>
-             {data.datoCmsPage.bodyTest.map((block) => (
-              <div key={block.id}>{
-                 block.model.apiKey === 'text' &&
+            <div>
+             {data.datoCmsPage.content.map((block) => (
+               <div>
+                 <h4>{block.head}</h4>
                  <div>{block.text}</div>
+                </div>
+               ))
               }
-           </div>
-         ))
-        }
-      </div>
-      )}
+          </div>
+          
+      ) }
     }    
   />
 )
 
 export default BodyTest
 
-//To do, print to screen?

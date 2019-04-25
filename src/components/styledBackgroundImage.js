@@ -43,7 +43,7 @@ const Background = ({className}) => (
 
 const styledBackgroundImage = styled(Background)`
 width: 100%;
-height: 60vh;
+height: 100vh;
 background-position: relative;
 backgrond-size: cover;
 `
