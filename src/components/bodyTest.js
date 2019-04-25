@@ -2,7 +2,6 @@ import React from "react"
 import "./layout.css"
 import {StaticQuery, graphql} from "gatsby"
 
-
 const BodyTest = () => (
   <StaticQuery
     query={graphql`
@@ -13,7 +12,6 @@ const BodyTest = () => (
               model{apiKey}
               text
             }
-              
           }
         }
       }
