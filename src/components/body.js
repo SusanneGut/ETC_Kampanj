@@ -2,7 +2,7 @@ import React from "react"
 import "./layout.css"
 import {StaticQuery, graphql} from "gatsby"
 
-const BodyTest = () => (
+const Body = () => (
   <StaticQuery
     query={graphql`
       query{
@@ -32,5 +32,4 @@ const BodyTest = () => (
   />
 )
 
-export default BodyTest
-
+export default Body

@@ -1,9 +1,9 @@
 import React from "react"
-import BodyTest from "../components/bodyTest";
+import Body from "../components/bodyTest";
 
 const Page = () => (
   <div>
-  <BodyTest></BodyTest>
+  <Body></Body>
   </div>
 )
 
