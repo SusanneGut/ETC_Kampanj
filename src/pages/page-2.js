@@ -1,5 +1,5 @@
 import React from "react"
-import Body from "../components/bodyTest";
+import Body from "../components/body";
 
 const Page = () => (
   <div>

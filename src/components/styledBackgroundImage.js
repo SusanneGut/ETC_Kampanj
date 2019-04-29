@@ -12,7 +12,6 @@ const Background = ({className}) => (
              datoCmsPage{
                  header
                  subhead
-                 body 
                  buttontext
                  backgroundimage{
                     fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto:"compress" }) {

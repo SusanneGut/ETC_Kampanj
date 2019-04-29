@@ -1,6 +1,7 @@
 import React from "react"
 import "./layout.css"
 import {StaticQuery, graphql} from "gatsby"
+import GatsbyImage from "gatsby-image"
 
 const Body = () => (
   <StaticQuery
@@ -9,7 +10,18 @@ const Body = () => (
         datoCmsPage{
           content{
             ... on DatoCmsHead{
-              text
+              h4
+            }
+            ... on DatoCmsBody{
+                text
+            }
+            ... on DatoCmsImage{
+                model{apiKey}
+                img{
+                    fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto:"compress" }) {
+                        ...GatsbyDatoCmsFluid
+                    }
+                }
             }
           }
         }
@@ -20,8 +32,11 @@ const Body = () => (
             <div>
              {data.datoCmsPage.content.map((block) => (
                <div>
-                 <h4>{block.head}</h4>
+                 <h4>{block.h4}</h4>
                  <div>{block.text}</div>
+                 <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}>
+                 <GatsbyImage fluid={block.img.fluid}/>
+                 </div>
                 </div>
                ))
               }
