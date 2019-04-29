@@ -10,11 +10,9 @@ const Body = () => (
         datoCmsPage{
           content{
             ... on DatoCmsHead{
-                model{apiKey}
               h4
             }
             ... on DatoCmsBody{
-                model{apiKey}
                 text
             }
             ... on DatoCmsImage{
@@ -36,20 +34,12 @@ const Body = () => (
             <div>
              {data.datoCmsPage.content.map((block) => (
                <div>
-                   {
-                       block.model.apiKey === 'h4' &&
                  <h4>{block.h4}</h4>
-                   }
-                   {
-                       block.model.apiKey === 'text' &&
-                       <div>{block.text}</div>
-                   }
-                   {
-                       block.model.apiKey === 'img' &&
+                <div>{block.text}</div>
                  <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}>
-                 <img src={block.img.url}/>
+                 <GatsbyImage fluid={img.url}/>
                  </div>
-                   }
+                   
                 </div>
                ))
               }
