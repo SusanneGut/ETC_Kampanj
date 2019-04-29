@@ -10,9 +10,11 @@ const Body = () => (
         datoCmsPage{
           content{
             ... on DatoCmsHead{
+                model{apiKey}
               h4
             }
             ... on DatoCmsBody{
+                model{apiKey}
                 text
             }
             ... on DatoCmsImage{
@@ -21,6 +23,7 @@ const Body = () => (
                     fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto:"compress" }) {
                         ...GatsbyDatoCmsFluid
                     }
+                    url
                 }
             }
           }
@@ -28,15 +31,25 @@ const Body = () => (
       }
     `}
     render = {data => {
+
       return (
             <div>
              {data.datoCmsPage.content.map((block) => (
                <div>
+                   {
+                       block.model.apiKey === 'h4' &&
                  <h4>{block.h4}</h4>
-                 <div>{block.text}</div>
+                   }
+                   {
+                       block.model.apiKey === 'text' &&
+                       <div>{block.text}</div>
+                   }
+                   {
+                       block.model.apiKey === 'img' &&
                  <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}>
-                 <GatsbyImage fluid={block.img.fluid}/>
+                 <img src={block.img.url}/>
                  </div>
+                   }
                 </div>
                ))
               }
