@@ -17,6 +17,9 @@ const Body = () => (
             }
             ... on DatoCmsImage{
                 img{
+                    fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto:"compress" }) {
+                        ...GatsbyDatoCmsFluid
+                    }
                     url
                     
                 }
@@ -33,7 +36,7 @@ const Body = () => (
                <div>
                    <h4>{block.h4}</h4>
                    <div>{block.text}</div>
-                    <img src={block.url}/>
+                    <GatsbyImage fluid={block.img}/>
                 </div>
                ))
               }
