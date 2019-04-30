@@ -30,10 +30,10 @@ const Body = () => (
       return (
             <div>
              {data.datoCmsPage.content.map((block) => (
-               <div key={block.id}>
+               <div>
                    <h4>{block.h4}</h4>
                    <div>{block.text}</div>
-                 <img src={block.url}/>
+                    <img src={block.url}/>
                 </div>
                ))
               }
