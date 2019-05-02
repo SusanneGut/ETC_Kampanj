@@ -23,8 +23,8 @@ const Body = () => (
                     }
                     url
                     
-                }
-            }
+                  }
+              }
           }
         }
       }
@@ -34,9 +34,9 @@ const Body = () => (
             <div>
              {data.datoCmsPage.content.map((block) => (
                <div style={{border: "1px solid black"}}>
-               {block.h4 ? <h4>{block.h4}</h4> : ''}
-               {block.text ? <p>{block.text}</p> : ''}
-               {block.img ? <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}><Img fluid={block.img.fluid}/> </div>: ''}
+               {block.h4 ? <h4><a id={block.h4}/><div>{block.h4}</div></h4> : ''}
+               {block.text ? <p dangerouslySetInnerHTML={{__html:block.text}}></p> : ''}
+               {block.img ? <div style={{maxWidth: `200px`, marginBottom: `1.45rem`}}><Img fluid={block.img.fluid}/> </div>: ''}
                 </div>
                ))
               }

@@ -22,9 +22,9 @@ const Nav = () => (
       {article
       .map(({node: article}) =>{
         return (
-          <ul style={{listStyleType: "none"}}>
-          <li style={{display: "inline", padding: "8px", textDecoration: "none", fontSize: "12px"}}>
-          <a href="#">{article.title}</a>
+          <ul style={{listStyle: "none"}}>
+          <li style={{display: "inline", padding: "8px", fontSize: "12px"}}>
+          <a href="#" style={{textDecoration: "none"}}>{article.title}</a>
           </li>
           </ul>
         );

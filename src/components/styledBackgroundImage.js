@@ -31,7 +31,7 @@ const Background = ({className}) => (
          return (
             <BackgroundImage fluid={imageData} className={className}>
                     <h1>{title} </h1>
-                    <h4>{subTitle}</h4>
+                    <p dangerouslySetInnerHTML={{__html:subTitle}}/>
                     <div style={{maxWidth: `100px`, marginBottom: `1.45rem`}}><Logo/></div>
                     <a href="#form-mobil"><button>{buttonText}</button></a>
             </BackgroundImage>

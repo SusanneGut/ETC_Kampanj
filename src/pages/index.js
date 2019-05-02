@@ -17,13 +17,14 @@ export default function Index ({data}){
       return (
         <div key={article.id}>
         <h4>{article.title}</h4>
-        <p>{article.text}</p>
+        <div dangerouslySetInnerHTML={{ __html: article.text }} />
         </div>
       );
       })}
     </div>
     <Form/>
     <Footer/>
+
     </div>
   )
 }

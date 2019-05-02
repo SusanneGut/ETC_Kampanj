@@ -12,10 +12,6 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-      options:{
-        name: `ìmages`,
-        path: `${__dirname}/src/images`,
-      }
     },
     {
     resolve: `gatsby-source-datocms`,
@@ -44,4 +40,8 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
+}
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
 }
