@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby";
 import StyledBackgroundImage from "../components/styledBackgroundImage";
-import Nav from "../components/nav"
+import Xnav from "../components/Xnav"
 import Form from "../components/form"
 import Footer from "../components/footer"
 
@@ -10,7 +10,7 @@ export default function Index ({data}){
   return (
     <div>
       <StyledBackgroundImage/>
-      <Nav/>
+      <Xnav/>
     <div className = "articles">
     {article
     .map(({node: article}) =>{
