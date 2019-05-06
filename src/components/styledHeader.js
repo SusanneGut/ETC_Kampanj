@@ -40,13 +40,13 @@ const Background = ({className}) => (
     
 )
 
-const styledBackgroundImage = styled(Background)`
+const styledHeader = styled(Background)`
 width: 100%;
 height: 100vh;
 background-position: relative;
 backgrond-size: cover;
 `
 
-export default styledBackgroundImage
+export default styledHeader
 
 

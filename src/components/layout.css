@@ -510,6 +510,7 @@ th {
 }
 li {
   margin-bottom: calc(1.45rem / 2);
+  display: block;
 }
 ol li {
   padding-left: 0;

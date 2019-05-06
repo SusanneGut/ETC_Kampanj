@@ -24,7 +24,7 @@ const Nav1 = () => (
           <ul style={{listStyleType: "none"}}>
            {data.datoCmsPage.content.map((block) => (
              <div>
-             {block.h4 ? <li style={{display: 'inline', fontSize:"12px"}}><Link to={"/page-2#" + block.h4}>{block.h4}</Link></li> : ''}
+             {block.h4 ? <li style={{display: 'inline', fontSize:"12px"}}><Link to={"#" + block.h4}>{block.h4}</Link></li> : ''}
               </div>
              ))
             }
