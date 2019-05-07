@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `ETC Mobil`,
-    description: `ETC Mobil test site.`,
+    title: `ETC Bygg`,
+    description: `ETC Bygg test site.`,
     author: `@s`,
   },
   plugins: [
@@ -16,7 +16,7 @@ module.exports = {
     {
     resolve: `gatsby-source-datocms`,
     options: {
-      apiToken: `f54d955516514489be752cd58f03d7`,
+      apiToken: `a74e84d1fba2d41098cc3de689c6af`,
       preview: false,
       disableLiveReload: false,
     },

@@ -3,8 +3,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
-import StyledHeader from "./styledHeader";
 import Footer from "./footer";
+import Header from "./header";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -19,12 +19,10 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <StyledHeader/>
+        <Header/>
         <div>
           <main>{children}</main>
-          <Footer>
-            © {new Date().getFullYear()}
-          </Footer>
+          <Footer/>
         </div>
       </>
     )}
