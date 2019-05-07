@@ -8,14 +8,15 @@ const Projects = () => (
     query={graphql`
       query{
         datoCmsArticle{
+            title
+            text
             articlelink{
-                ...on DatoCmsArticle{
                 title
+                text
                 img{
                     fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto:"compress" }) {
                         ...GatsbyDatoCmsFluid
                     }
-                }
                }
             }
         }
@@ -27,6 +28,7 @@ const Projects = () => (
              <div>
              <div style={{marginBottom:"1.45rem", maxWidth:"400px"}}>
              <Link to={"torp"}><Image fluid={data.datoCmsArticle.articlelink.img.fluid}/></Link>
+             <p>{JSON.stringify(data)}</p>
              </div>
              </div>
 
