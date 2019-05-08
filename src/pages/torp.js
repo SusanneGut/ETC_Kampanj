@@ -1,15 +1,14 @@
 import React from "react"
 import Layout from "../components/layout"
-import Body from "../components/bygg"
+import Body from "../components/torp"
 
-export default function Index (){
+export default function Torp (){
   return (
     <Layout>
       <div style={{marginLeft: "15%", marginRight:"15%"}}>
-        <Body/>
+        <Body></Body>
       </div>
     </Layout>
 
   )
 }
-

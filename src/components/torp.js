@@ -6,15 +6,9 @@ const Body = () => (
     <StaticQuery
         query={graphql`
          query{
-            datoCmsPage(pagetitle:{eq: "ETC Bygg"}){
+            datoCmsPage(pagetitle:{eq: "ETC Torp"}){
+                pagetitle
                 content{
-                    ... on DatoCmsTitle{
-                        h4
-                        h2
-                   }
-                   ... on DatoCmsBody{
-                       text
-                   }
                    ... on DatoCmsImg{
                        photo{
                            fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto:"compress" }) {
@@ -32,10 +26,7 @@ const Body = () => (
                 {data.datoCmsPage.content.map((page) =>{
                  return (
                         <div>
-                         {page.h4 ? <h4>{page.h4}</h4> : ''}
-                         {page.h2 ? <h2>{page.h2}</h2> : ''}
                          {page.photo ? <Img fluid={page.photo.fluid}/> : ''}
-                         {page.text ? <p dangerouslySetInnerHTML={{__html:page.text}}></p> : ''}
                         </div>
                     )
              })}
