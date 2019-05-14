@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `ETC Bygg`,
-    description: `ETC Bygg test site.`,
+    title: `ETC Mobil`,
+    description: `ETC Mobil test site.`,
     author: `@s`,
   },
   plugins: [
@@ -16,26 +16,20 @@ module.exports = {
     {
     resolve: `gatsby-source-datocms`,
     options: {
-      apiToken: `a74e84d1fba2d41098cc3de689c6af`,
+      apiToken: `449ae1f07915247163eae1d102f494`,
       preview: false,
       disableLiveReload: false,
     },
   },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-styled-components`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/logo.jpg`, // This path is relative to the root of the site.
+        // Add any options here
       },
     },
+    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

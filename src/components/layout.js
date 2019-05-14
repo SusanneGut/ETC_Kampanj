@@ -19,10 +19,12 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+      <div style={{marginLeft: "15%", marginRight:"15%"}}>
         <Header/>
         <div>
           <main>{children}</main>
           <Footer/>
+        </div>
         </div>
       </>
     )}
