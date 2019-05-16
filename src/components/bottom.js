@@ -1,8 +1,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import styled from "styled-components"
 
-const Bottom = () => (
+const Bottom = ({className}) => (
     <StaticQuery
         query={graphql`
         query{
@@ -22,12 +23,12 @@ const Bottom = () => (
         `}
         render = {data => {
             return (
-                <div style={{backgroundColor:"#565656"}}>
+                <div className={className}>
                     {data.datoCmsPage.content.map((main)=>{
                         return(
                             <div>
-                        <div>{main.contact ? <p dangerouslySetInnerHTML={{__html:main.contact}}/>:''}</div>
                         <div>{main.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={main.logo.fluid}/></div>:''}</div>
+                        <div>{main.contact ? <p dangerouslySetInnerHTML={{__html:main.contact}}/>:''}</div>
                             </div>
                         )
                     })}
@@ -36,4 +37,10 @@ const Bottom = () => (
         }}
     />
 )
-export default Bottom
+const StyledBottom = styled(Bottom)`
+color: white;
+background-color: #3E3E3E;
+border: 1px solid #3E3E3E;
+padding: 0px 50% 5% 10%;
+`
+export default StyledBottom

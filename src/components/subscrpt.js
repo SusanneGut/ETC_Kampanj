@@ -1,7 +1,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+import Button from "../components/button"
+import styled from "styled-components"
 
-const Subscrpt = () => (
+const Subscrpt = ({className}) => (
     <StaticQuery
         query={graphql`
         query{
@@ -18,13 +20,13 @@ const Subscrpt = () => (
         `}
         render = {data => {
             return (
-                <div style={{backgroundColor:"#C4C4C4"}}>
+                <div className={className}>
                     {data.datoCmsPage.content.map((subscrpt)=>{
                         return(
                             <div>
-                        <div>{subscrpt.title ? <p>{subscrpt.title}</p>:''}</div>
+                        <div>{subscrpt.title ? <h3>{subscrpt.title}</h3>:''}</div>
                         <div>{subscrpt.preamble ? <p dangerouslySetInnerHTML={{__html:subscrpt.preamble}}/>:''}</div>
-                        <div>{subscrpt.buttontext ? <button>{subscrpt.buttontext}</button>:''}</div>
+                        <div>{subscrpt.buttontext ? <Button>{subscrpt.buttontext}</Button>:''}</div>
                             </div>
                         )
                     })}
@@ -33,4 +35,11 @@ const Subscrpt = () => (
         }}
     />
 )
-export default Subscrpt
+const StyledSubscrpt = styled(Subscrpt)`
+color: #333333;
+background-color: #BDBDBD;
+border: 1px solid #E9E9E9;
+padding: 0px 50% 5% 10%;
+`
+export default StyledSubscrpt
+

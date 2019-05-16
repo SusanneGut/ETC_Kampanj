@@ -1,8 +1,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Form from "./form"
+import styled from "styled-components"
 
-const News = () => (
+const News = ({className}) => (
     <StaticQuery
         query={graphql`
         query{
@@ -18,12 +19,12 @@ const News = () => (
         `}
         render = {data => {
             return (
-                <div style={{backgroundColor:"#727272"}}>
+                <div className={className}>
                     {data.datoCmsPage.content.map((news)=>{
                         return(
                             <div>
                                 <div>
-                                {news.title ? <p>{news.title}</p> : ''}
+                                {news.title ? <h3>{news.title}</h3> : ''}
                                 {news.preamble ? <p dangerouslySetInnerHTML={{__html:news.preamble}}/>:''}
                                 </div>
                             </div>
@@ -35,4 +36,10 @@ const News = () => (
         }}
     />
 )
-export default News
+const StyledNews = styled(News)`
+color: white;
+background-color: #686868;
+border: 1px solid #686868;
+padding: 0px 50% 5% 10%;
+`
+export default StyledNews

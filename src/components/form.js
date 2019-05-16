@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "../components/button"
 
 export default class Form extends React.Component {
     state={
@@ -31,7 +32,7 @@ export default class Form extends React.Component {
             <lable>{buttonText}
             <input type="email" name="mejl" value={this.state.mejl} onChange={this.handleInputChange}/>
             </lable>
-            <button type="submit">Prenumerera</button>
+            <Button transWhite type="submit">Prenumerera</Button>
             </form>
         </div>
         )
