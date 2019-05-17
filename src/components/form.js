@@ -29,10 +29,12 @@ export default class Form extends React.Component {
             </h4>
             
             <form onSubmit={this.handleSubmit}>
+            <div style={{paddingBottom:"10px"}}>
             <lable>{buttonText}
             <input type="email" name="mejl" value={this.state.mejl} onChange={this.handleInputChange}/>
-            </lable>
-            <Button transWhite type="submit">Prenumerera</Button>
+            </lable></div>
+            <div>
+            <Button transWhite type="submit">Prenumerera</Button></div>
             </form>
         </div>
         )

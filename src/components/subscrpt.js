@@ -24,8 +24,8 @@ const Subscrpt = ({className}) => (
                     {data.datoCmsPage.content.map((subscrpt)=>{
                         return(
                             <div>
-                        <div>{subscrpt.title ? <h3>{subscrpt.title}</h3>:''}</div>
-                        <div>{subscrpt.preamble ? <p dangerouslySetInnerHTML={{__html:subscrpt.preamble}}/>:''}</div>
+                        <div>{subscrpt.title ? <StyledTitle>{subscrpt.title}</StyledTitle>:''}</div>
+                        <div>{subscrpt.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:subscrpt.preamble}}/>:''}</div>
                         <div>{subscrpt.buttontext ? <Button>{subscrpt.buttontext}</Button>:''}</div>
                             </div>
                         )
@@ -35,11 +35,17 @@ const Subscrpt = ({className}) => (
         }}
     />
 )
+
+const StyledTitle = styled.h2`
+margin-bottom: 0;
+`
+const StyledPreamble = styled.h4`
+margin-top: 0;
+`
 const StyledSubscrpt = styled(Subscrpt)`
 color: #333333;
 background-color: #BDBDBD;
-border: 1px solid #E9E9E9;
-padding: 0px 50% 5% 10%;
+padding: 3% 10%;
 `
 export default StyledSubscrpt
 

@@ -48,6 +48,7 @@ const Articles = ({className}) => (
                     {node.articletitle  === "Det blir fler solceller, varje månad" ? 
 
                     <StyledArticle>
+
                        <StyledText>{node.articletitle ? <h3>{node.articletitle}</h3>:''}
                         {node.preamble ? <p dangerouslySetInnerHTML={{__html:node.preamble}}/>:''}
                         <StyledButton>Läs mer</StyledButton>
@@ -76,7 +77,7 @@ border: 1px solid #E9E9E9;
 border-radius: 8px;
 padding-left: 8px;
 `
-const StyledText = styled.section`
+const StyledText = styled.div`
 color: #33333;
 padding-left: 8px;
 flex: 0 1 2 3;
@@ -87,13 +88,13 @@ const StyledImg = styled(Img)`
 flex: 4;
 margin: 0;
 max-width: 30%;
-max-height: 170px;
+max-height: 150px;
 padding: 0;
-border-radius: 0px 8px 8px 0px;
 `
 const StyledButton = styled(Button)`
 margin-bottom: 8px;
 `
+
 const StyledArticles = styled(Articles)`
 color: #333333;
 background-color: #F3F3F3;

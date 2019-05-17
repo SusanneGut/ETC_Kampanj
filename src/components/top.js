@@ -43,7 +43,7 @@ const Top = ({className}) => (
                          <div>{top.backgroundimage ? 
                          <Backgroundimage fluid={top.backgroundimage.fluid} style={{padding:"5px"}}>
                             {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
-                            {top.title ? <h2>{top.title}</h2> : ''}
+                            {top.title ? <h1>{top.title}</h1> : ''}
                             {top.preamble ? <p dangerouslySetInnerHTML={{__html:top.preamble}}></p> : ''}
                             {top.buttontext ? <Button transRed>{top.buttontext}</Button> : ''}
                          </Backgroundimage> :   

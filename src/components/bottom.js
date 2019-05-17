@@ -27,20 +27,25 @@ const Bottom = ({className}) => (
                     {data.datoCmsPage.content.map((main)=>{
                         return(
                             <div>
-                        <div>{main.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={main.logo.fluid}/></div>:''}</div>
+                        <div>{main.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"40px"}}><Img fluid={main.logo.fluid}/></div>:''}</div>
                         <div>{main.contact ? <p dangerouslySetInnerHTML={{__html:main.contact}}/>:''}</div>
                             </div>
                         )
                     })}
+                    <StyledHr/>
                 </div>
             )
         }}
     />
 )
+
+const StyledHr = styled.hr`
+margin-right: -100%;
+`
 const StyledBottom = styled(Bottom)`
 color: white;
 background-color: #3E3E3E;
 border: 1px solid #3E3E3E;
-padding: 0px 50% 5% 10%;
+padding: 2% 50% 5% 10%;
 `
 export default StyledBottom
