@@ -1,20 +1,20 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image"
+import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
 import Button from "./button"
 
-const Articles = ({className}) => (
+const PuffS = ({className}) => (
     <StaticQuery
     query={graphql`
      query{
-         allDatoCmsArticle(sort: { fields: [meta___publishedAt], order: DESC}, limit: 2){
+         allDatoCmsArticle(sort: { fields: [meta___publishedAt], order: DESC}, limit: 2, skip: 1){
             edges{
                 node{
                     articletitle
                     preamble
                     img{
-                        fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto: "compress"}){
+                        fluid(maxWidth: 100, imgixParams: {fm: "jpg", auto: "compress"}){
                             ...GatsbyDatoCmsFluid
                         }
                     }
@@ -36,29 +36,22 @@ const Articles = ({className}) => (
                     }
                 }
             }
-        }
-    }
+         }
+     }
     `}
     render = {data =>{
         return(
             <div className={className}>
             <div>{data.allDatoCmsArticle.edges.map(({node})=>{
                 return(
-                    <div>
-                    {node.articletitle  === "Det blir fler solceller, varje månad" ? 
-
-                    <StyledArticle>
-
-                       <StyledText>{node.articletitle ? <h3>{node.articletitle}</h3>:''}
-                        {node.preamble ? <p dangerouslySetInnerHTML={{__html:node.preamble}}/>:''}
-                        <StyledButton>Läs mer</StyledButton>
-                        </StyledText>
-                        {node.img ? <StyledImg fluid={node.img.fluid}/>:''}
-                
-                    </StyledArticle>
-                    
-                    :''}
-                    </div>
+                <StyledArticle>
+                    {node.img ? <StyledImg fluid={node.img.fluid}>
+                   <StyledText>{node.articletitle ? <h3>{node.articletitle}</h3>:''}
+                    {node.preamble ? <p dangerouslySetInnerHTML={{__html:node.preamble}}/>:''}
+                    <StyledButton>Läs mer</StyledButton>
+                    </StyledText>
+                    </StyledImg>:''}
+                </StyledArticle>     
                 )
             })}
             </div>
@@ -69,36 +62,25 @@ const Articles = ({className}) => (
 )
 
 const StyledArticle = styled.div`
-background-color: white;
-display: flex;
-max-width: 80%;
-margin-top: -15%;
 border: 1px solid #E9E9E9;
+max-height: 300px;
+max-width: 300px;
 border-radius: 8px;
-padding-left: 8px;
 `
-const StyledText = styled.div`
+const StyledText = styled.section`
 color: #33333;
-padding-left: 8px;
-flex: 0 1 2 3;
+padding: 15% 15% 0 5%;
 margin: 0;
-max-width: 70%;
 `
-const StyledImg = styled(Img)`
-flex: 4;
+const StyledImg = styled(BackgroundImage)`
 margin: 0;
-max-width: 30%;
-max-height: 150px;
+max-width: 400px;
+height: 300px;
 padding: 0;
+border-radius: 8px;
 `
 const StyledButton = styled(Button)`
 margin-bottom: 8px;
+margin-top: 35%;
 `
-
-const StyledArticles = styled(Articles)`
-color: #333333;
-background-color: #F3F3F3;
-border: 1px solid #E9E9E9;
-padding: 10% 10% 10% 10%;
-`
-export default StyledArticles
+export default PuffS
