@@ -2,6 +2,7 @@ import React from "react"
 import PuffL from "./puffL";
 import PuffS from "./puffS";
 import styled from "styled-components"
+import media from "styled-media-query"
 
 
 const StyledPuffs = ({className}) => (
@@ -13,21 +14,28 @@ const StyledPuffs = ({className}) => (
 export default StyledPuffs
 
 const Styled = styled.div`
+${media.greaterThan('1023px')`
 display: flex;
+`}
 color: #333333;
 background-color: #F3F3F3;
 border: 1px solid #E9E9E9;
-padding: 10%;
 `
 const StyedL = styled(PuffL)`
-flex: 0 1 2 3 4;
+${media.greaterThan('1023px')`
+flex: 1 2;
 max-width: 70%;
-margin-top: -16%;
+margin-top: -5%;
+padding: 20px 10px 20px 30px;
+`}
+padding: 10px;
 `
 const StyedS = styled(PuffS)`
-flex: 5;
+${media.greaterThan('1023px')`
+flex: 3 4;
 max-width: 30%;
-margin-top: -16%;
-padding-left: 70px;
-
+margin-top: -5%;
+padding: 20px 30px 20px 10px;
+`}
+padding: 10px;
 `

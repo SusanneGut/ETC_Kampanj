@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image"
 import styled from "styled-components"
 import Button from "./button"
+import media from "styled-media-query"
 
 const PuffL = ({className}) => (
     <StaticQuery
@@ -61,30 +62,38 @@ const PuffL = ({className}) => (
 )
 
 const StyledArticle = styled.div`
-border: 1px solid #E9E9E9;
-max-height: 300px;
-max-width: 600px;
-border-radius: 8px;
-background-color: white;
-display: flex;
+    ${media.greaterThan('1023px')`
+    max-height: 350px;
+    max-width: 900px;
+    backgound-color: green;
+    `}
+    display: flex;
+    border: 1px solid #E9E9E9;
+    border-radius: 8px;
+    background-color: white;
 `
 const StyledText = styled.section`
+${media.greaterThan('1023px')`
+max-width: 60%;
+`}
 flex: 0 1 2 3;
 color: #33333;
 padding: 1% 5% 0 5%;
-margin: 0 0 10px 0;
-max-width: 60%;
 `
 const StyledImg = styled(Img)`
+${media.greaterThan('1023px')`
+max-width: 34%;
+height: 320px;
+`}
 flex: 4;
 margin: 0;
-max-width: 34%;
-height: 300px;
 padding: 0;
 border-radius: 0px 8px 8px 0px;
 `
 const StyledButton = styled(Button)`
+${media.greaterThan('1023px')`
+
+`}
 margin-bottom: 8px;
-margin-top: 20%;
 `
 export default PuffL
