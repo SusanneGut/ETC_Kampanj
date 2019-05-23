@@ -70,6 +70,7 @@ margin: 0;
 padding: 0;
 max-width: 60%
 `}
+margin: 0 20px 20px 20px;
 `
 const StyledMain = styled(Main)`
 ${media.greaterThan('1023px')`

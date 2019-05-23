@@ -3,80 +3,69 @@ import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image"
 import styled from "styled-components"
 import Button from "./button"
+import Video from "./video"
 
 const Articles = ({className}) => (
     <StaticQuery
     query={graphql`
      query{
-         allDatoCmsArticle(sort: { fields: [meta___publishedAt], order: DESC}, limit: 2){
-            edges{
-                node{
-                    articletitle
-                    preamble
-                    img{
-                        fluid(maxWidth: 500, imgixParams: {fm: "jpg", auto: "compress"}){
+         datoCmsArticle(articletitle:{eq: "Varför startade vi ETC Mobil?"}){
+             articletitle
+             preamble
+             img{
+                fluid(maxWidth: 400, imgixParams: {fm: "jpg", auto: "compress"}){
+                    ...GatsbyDatoCmsFluid
+                }
+             }
+             content{
+                 ... on DatoCmsImg{
+                     img{
+                        fluid(maxWidth: 400, imgixParams: {fm: "jpg", auto: "compress"}){
                             ...GatsbyDatoCmsFluid
-                        }
-                    }
-                    content{
-                        ...on DatoCmsImg{
-                            img{fluid(maxWidth: 100, imgixParams: {fm: "jpg", auto: "compress"}){
-                                ...GatsbyDatoCmsFluid
                             }
-                        }
-                        }
-                        ...on DatoCmsText{
-                            body
-                        }
-                        ...on DatoCmsVideo{
-                            video{
-                                url
-                            }
-                        }
+                        } 
                     }
+                 ... on DatoCmsText{
+                     body
+                 }   
+                 ...on DatoCmsVideo{
+                     video{
+                         url
+                         title
+                     }
+                 }
                 }
             }
         }
-    }
     `}
     render = {data =>{
+        const title = data.datoCmsArticle.articletitle;
+        const preamble = data.datoCmsArticle.preamble;
+        const image = data.datoCmsArticle.img;
+        const content = data.datoCmsArticle.content;
         return(
             <div className={className}>
-            <div>{data.allDatoCmsArticle.edges.map(({node})=>{
+            <StyledText>{title ? <h3>{title}</h3>:''}
+                {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
+            </StyledText>
+                {image ? <StyledImg fluid={image.fluid}/>:''}
+            {content.map((article) =>{
+               
                 return(
                     <div>
-                    {node.articletitle  === "Det blir fler solceller, varje månad" ? 
-
-                    <StyledArticle>
-
-                       <StyledText>{node.articletitle ? <h3>{node.articletitle}</h3>:''}
-                        {node.preamble ? <p dangerouslySetInnerHTML={{__html:node.preamble}}/>:''}
-                        <StyledButton>Läs mer</StyledButton>
-                        </StyledText>
-                        {node.img ? <StyledImg fluid={node.img.fluid}/>:''}
-                
-                    </StyledArticle>
-                    
-                    :''}
+                    {article.img ? <StyledImg fluid={article.img.fluid}/>:''}
+                    {article.body ? <p dangerouslySetInnerHTML={{__html:article.body}}/>:''}
+                    {article.video ? <Video videoTitle = {article.video.title} videoSrcURL = {article.video.url}/>:''}
                     </div>
                 )
             })}
-            </div>
+           
             </div>
         )
     }}
     />
 )
 
-const StyledArticle = styled.div`
-background-color: white;
-display: flex;
-max-width: 80%;
-margin-top: -15%;
-border: 1px solid #E9E9E9;
-border-radius: 8px;
-padding-left: 8px;
-`
 const StyledText = styled.div`
 color: #33333;
 padding-left: 8px;
