@@ -1,14 +1,13 @@
 import React from "react"
 import PuffL from "./puffL";
-import PuffS from "./puffS";
 import styled from "styled-components"
 import media from "styled-media-query"
-
+import PuffSmallContainer from "../containers/puffSmallContainer";
 
 const StyledPuffs = ({className}) => (
     <Styled className={className}>
         <StyedL/>
-        <StyedS/>
+        <StyledPuffSmall/>
     </Styled>
 )
 export default StyledPuffs
@@ -30,7 +29,7 @@ padding: 20px 10px 20px 30px;
 `}
 padding: 10px;
 `
-const StyedS = styled(PuffS)`
+const StyledPuffSmall = styled(PuffSmallContainer)`
 ${media.greaterThan('1023px')`
 flex: 3 4;
 max-width: 30%;

@@ -32,6 +32,7 @@ const Articles = ({className}) => (
                      video{
                          url
                          title
+                         providerUid
                      }
                  }
                 }
@@ -55,7 +56,7 @@ const Articles = ({className}) => (
                     <div>
                     {article.img ? <StyledImg fluid={article.img.fluid}/>:''}
                     {article.body ? <p dangerouslySetInnerHTML={{__html:article.body}}/>:''}
-                    {article.video ? <Video videoTitle = {article.video.title} videoSrcURL = {article.video.url}/>:''}
+                    {article.video ? <Video videoTitle = {article.video.title} videoSrcURL = {"https://www.youtube.com/embed/" + article.video.providerUid}/>:''}
                     </div>
                 )
             })}
