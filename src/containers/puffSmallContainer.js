@@ -41,13 +41,13 @@ const PuffSmallContainer = ({className}) => (
     render = {data =>{
        
         return(
-        <div className = {className}>{data.allDatoCmsArticle.edges.map(({node})=>{
+        <div className = {className}>
+        {data.allDatoCmsArticle.edges.map(({node})=>{
             return(
                 <PuffSmallComponent img ={node.img} articletitle={node.articletitle} preamble={node.preamble} />
             )
             })}
         </div>
-            //
         )}}
     />
 )

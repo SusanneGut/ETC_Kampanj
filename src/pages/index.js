@@ -1,22 +1,24 @@
 import React from "react"
 import Layout from "../components/layout"
-import StyledMain from "../components/main"
-import StyledBottom from "../components/bottom"
-import StyledNews from "../components/news"
+import MainContainer from "../containers/mainContainer"
+import BottomContainer from "../containers/bottomContainer"
 import StyledPuffs from "../components/styledPuffs"
-import StyledSubscrpt from "../components/subscrpt"
 import TopContainer from "../containers/topContainer"
+import MobileSubscriptionContainer from "../containers/mobileSubscriptionContainer";
+import NewsSubscriptionContainer from "../containers/newsSubscriptionContainer";
+import NavComponent from "../components/navComponent";
 
 export default function Index (){
   return (
     <Layout>
       <div>
+      <NavComponent/>
        <TopContainer/>
        <StyledPuffs/>
-       <StyledMain/>
-       <StyledSubscrpt/>
-       <StyledNews/>
-       <StyledBottom/>
+       <MainContainer/>
+       <MobileSubscriptionContainer/>
+       <NewsSubscriptionContainer/>
+       <BottomContainer/>
       </div>
     </Layout>
 

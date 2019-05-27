@@ -1,12 +1,12 @@
 import React from "react"
-import PuffL from "./puffL";
 import styled from "styled-components"
 import media from "styled-media-query"
 import PuffSmallContainer from "../containers/puffSmallContainer";
+import PuffLargeContainer from "../containers/puffLargeContainer";
 
 const StyledPuffs = ({className}) => (
     <Styled className={className}>
-        <StyedL/>
+        <StyledPuffLarge/>
         <StyledPuffSmall/>
     </Styled>
 )
@@ -20,7 +20,7 @@ color: #333333;
 background-color: #F3F3F3;
 border: 1px solid #E9E9E9;
 `
-const StyedL = styled(PuffL)`
+const StyledPuffLarge = styled(PuffLargeContainer)`
 ${media.greaterThan('1023px')`
 flex: 1 2;
 max-width: 70%;

@@ -5,6 +5,7 @@ import Button from "./button"
 import styled from "styled-components"
 import media from "styled-media-query"
 import PropTypes from "prop-types";
+import NavComponent from "./navComponent";
 
 const TopComponent = ({className, topItems}) => (
 <div className={className}>
