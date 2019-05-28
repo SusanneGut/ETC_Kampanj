@@ -3,14 +3,14 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Button from "./button"
 import media from "styled-media-query"
-import PropTypes from "prop-types"
+import Link from "gatsby-link"
 
 const PuffLargeComponent = ({className, img, articletitle, preamble}) => (
     <div className={className}>
     <StyledArticle>
     <StyledText>{articletitle ? <h3>{articletitle}</h3>:''}
         {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
-        <StyledButton>Läs mer</StyledButton>
+        <Link to="/test"><StyledButton>Läs mer</StyledButton></Link>
         </StyledText>
         {img ? <StyledImg fluid={img.fluid}/>:''}
         </StyledArticle>                

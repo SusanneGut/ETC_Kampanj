@@ -4,8 +4,8 @@ import Backgroundimage from "gatsby-background-image"
 import Button from "./button"
 import styled from "styled-components"
 import media from "styled-media-query"
-import PropTypes from "prop-types";
-import NavComponent from "./navComponent";
+import PropTypes from "prop-types"
+import Link from "gatsby-link"
 
 const TopComponent = ({className, topItems}) => (
 <div className={className}>
@@ -15,13 +15,13 @@ const TopComponent = ({className, topItems}) => (
             {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
             {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
             {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
-            {top.buttontext ? <Button transRed>{top.buttontext}</Button> : ''}
+            {top.buttontext ? <Link to="/test"><Button transparentRed>{top.buttontext}</Button></Link> : ''}
          </Backgroundimage> :   
             <div>
                 {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
                 {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
                 {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
-                {top.buttontext ? <Button transRed>{top.buttontext}</Button> : ''}
+                {top.buttontext ? <Link to="/test"><Button transparentRed>{top.buttontext}</Button></Link> : ''}
             </div>
     }</div>
     ))}

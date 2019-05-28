@@ -34,7 +34,7 @@ export default class Form extends React.Component {
             <input type="email" name="mejl" value={this.state.mejl} onChange={this.handleInputChange}/>
             </lable></div>
             <div>
-            <Button transWhite type="submit">Prenumerera</Button></div>
+            <Button transparentWhite type="submit">Prenumerera</Button></div>
             </form>
         </div>
         )
