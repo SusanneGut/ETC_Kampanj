@@ -6,13 +6,11 @@ import StyledPuffs from "../components/styledPuffs"
 import TopContainer from "../containers/topContainer"
 import MobileSubscriptionContainer from "../containers/mobileSubscriptionContainer";
 import NewsSubscriptionContainer from "../containers/newsSubscriptionContainer";
-import NavComponent from "../components/navComponent";
 
 export default function Index (){
   return (
     <Layout>
       <div>
-      <NavComponent/>
        <TopContainer/>
        <StyledPuffs/>
        <MainContainer/>

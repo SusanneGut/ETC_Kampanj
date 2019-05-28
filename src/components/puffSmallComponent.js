@@ -50,6 +50,7 @@ border-radius: 8px;
 `
 const StyledButton = styled(Button)`
 ${media.greaterThan('1023px')`
+
 `}
 margin-bottom: 8px;
 `

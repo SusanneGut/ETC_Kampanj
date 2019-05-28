@@ -5,6 +5,8 @@ import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
 import Footer from "./footer";
 import Header from "./header";
+import NavComponent from "../components/navComponent";
+
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -22,6 +24,7 @@ const Layout = ({ children }) => (
       <div style={{marginLeft: "15%", marginRight:"15%"}}>
         <Header/>
         <div>
+        <NavComponent/>
           <main>{children}</main>
           <Footer/>
         </div>
