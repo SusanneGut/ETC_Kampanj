@@ -10,6 +10,7 @@ const PuffLargeContainer = ({className}) => (
         allDatoCmsArticle(sort: { fields: [meta___publishedAt], order: DESC}, limit: 1){
            edges{
                node{
+                   slug
                    articletitle
                    preamble
                    img{
@@ -43,7 +44,7 @@ const PuffLargeContainer = ({className}) => (
             <div className={className}>
             {data.allDatoCmsArticle.edges.map(({node})=>{
                 return(
-                    <PuffLargeComponent img={node.img} articletitle={node.articletitle} preamble={node.preamble}/>
+                    <PuffLargeComponent img={node.img} articletitle={node.articletitle} preamble={node.preamble} slug={node.slug}/>
                 )
             })}
             </div>

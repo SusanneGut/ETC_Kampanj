@@ -44,13 +44,15 @@ ${media.greaterThan('1023px')`
 flex: 4;
 margin: 0;
 padding: 0;
-max-width: 60%
+max-width: 60%;
+height: 300px;
+
 `}
 margin: 0 20px 20px 20px;
 `
 const StyledMainComponent = styled(MainComponent)`
 ${media.greaterThan('1023px')`
-
+height: 300px;
 `}
 color: #333333;
 background-color: white;

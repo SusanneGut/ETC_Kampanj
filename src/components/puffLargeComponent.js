@@ -5,12 +5,12 @@ import Button from "./button"
 import media from "styled-media-query"
 import Link from "gatsby-link"
 
-const PuffLargeComponent = ({className, img, articletitle, preamble}) => (
+const PuffLargeComponent = ({className, img, articletitle, preamble, slug}) => (
     <div className={className}>
     <StyledArticle>
     <StyledText>{articletitle ? <h3>{articletitle}</h3>:''}
         {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
-        <Link to="/test"><StyledButton>Läs mer</StyledButton></Link>
+        <Link to={slug}><StyledButton>Läs mer</StyledButton></Link>
         </StyledText>
         {img ? <StyledImg fluid={img.fluid}/>:''}
         </StyledArticle>                

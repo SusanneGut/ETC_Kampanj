@@ -5,13 +5,13 @@ import Button from "./button"
 import media from "styled-media-query"
 import Link from "gatsby-link"
 
-const PuffSmallComponent = ({className, img, articletitle, preamble}) => (
+const PuffSmallComponent = ({className, img, articletitle, preamble, slug}) => (
     <div className={className}>
         <StyledArticle>
             {img ? <StyledImg fluid={img.fluid}>
            <StyledText>{articletitle ? <h3>{articletitle}</h3>:''}
             {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
-            <Link to="/test"><StyledButton>Läs mer</StyledButton></Link>
+            <Link to={slug}><StyledButton>Läs mer</StyledButton></Link>
             </StyledText>
             </StyledImg>:''}
         </StyledArticle>     
