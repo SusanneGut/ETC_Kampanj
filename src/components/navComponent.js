@@ -3,12 +3,12 @@ import styled from "styled-components"
 import { scaleDown as BurgerMenu } from 'react-burger-menu'
 import Link from "gatsby-link"
 
-const NavComponent = ({className}) => {
+const NavComponent = ({className, slug}) => {
     return(
     <div className={className}>
           <StyledBurgerMenu>
             <BurgerMenu right width='20%'>
-                <Link to='/'>Home</Link>
+                <Link to={'/'}>Home</Link>
                 <Link to='/article'>Article</Link>
                 <Link to='/'>Link</Link>
                 <Link to='/'>Link</Link>

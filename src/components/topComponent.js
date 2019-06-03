@@ -42,7 +42,8 @@ TopComponent.propTypes = {
 
  const StyledTitle = styled.h1`
  ${media.greaterThan('1023px')`
- font-size: 80px;
+ font-size: 60px;
+ width: 130%;
 `}
  padding-top: 20%;
  `
