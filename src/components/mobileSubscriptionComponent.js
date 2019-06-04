@@ -1,6 +1,8 @@
 import React from "react"
 import Button from "./button"
 import styled from "styled-components"
+import PuffMobileSubscriptionContainer from "../containers/puffMobileSubscriptionContainer"
+import media from "styled-media-query"
 
 const MobileSubscriptionComponent = ({className, mobileSubscriptionItems}) => (
     <div className={className}>
@@ -9,10 +11,11 @@ const MobileSubscriptionComponent = ({className, mobileSubscriptionItems}) => (
             <div>
         <div>{item.title ? <StyledTitle>{item.title}</StyledTitle>:''}</div>
         <div>{item.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:item.preamble}}/>:''}</div>
-        <div>{item.buttontext ? <Button>{item.buttontext}</Button>:''}</div>
             </div>
         )
     })}
+    <PuffMobileSubscriptionContainer/>
+
 </div>    
 )
 
@@ -26,6 +29,7 @@ const StyledMobileSubscriptionComponent = styled(MobileSubscriptionComponent)`
 color: #333333;
 background-color: #BDBDBD;
 padding: 3% 10%;
+height: 500px;
 `
 export default StyledMobileSubscriptionComponent
 

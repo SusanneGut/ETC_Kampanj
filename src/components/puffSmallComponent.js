@@ -19,10 +19,6 @@ const PuffSmallComponent = ({className, img, articletitle, preamble, slug}) => (
     </div>
 )
 
-PuffSmallComponent.propTypes = {
-    
-}
-
 const StyledArticle = styled.div`
 ${media.greaterThan('1023px')`
 max-height: 320px;
