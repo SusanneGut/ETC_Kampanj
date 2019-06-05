@@ -4,13 +4,13 @@ import media from "styled-media-query"
 import PuffSmallContainer from "../containers/puffSmallContainer";
 import PuffLargeContainer from "../containers/puffLargeContainer";
 
-const StyledPuffs = ({className}) => (
+const StyledPuffsComponent = ({className}) => (
     <Styled className={className}>
         <StyledPuffLarge/>
         <StyledPuffSmall/>
     </Styled>
 )
-export default StyledPuffs
+export default StyledPuffsComponent
 
 const Styled = styled.div`
 ${media.greaterThan('1023px')`

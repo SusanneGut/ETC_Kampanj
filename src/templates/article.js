@@ -20,6 +20,7 @@ export default ({data, className}) => {
                 return(
                     <div>
                     {article.img ? <StyledImg fluid={article.img.fluid}/>:''}
+                    {article.subtitle ? <p>{article.subtitle}</p>:''}
                     {article.body ? <p dangerouslySetInnerHTML={{__html:article.body}}/>:''}
                     {article.video ? <Video videoTitle = {article.video.title} videoSrcURL = {"https://www.youtube.com/embed/" + article.video.providerUid}/>:''}
                     </div>
@@ -50,6 +51,7 @@ query($slug: String!){
                }
             ... on DatoCmsText{
                 body
+                subtitle
             }   
             ...on DatoCmsVideo{
                 video{

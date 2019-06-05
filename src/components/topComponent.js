@@ -21,7 +21,7 @@ const TopComponent = ({className, topItems}) => (
                 {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
                 {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
                 {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
-                {top.buttontext ? <Link to="/test"><Button transparentRed>{top.buttontext}</Button></Link> : ''}
+                {top.buttontext ? <Link to='/Varfor_startade_vi_etc_mobil'><Button transparentRed>{top.buttontext}</Button></Link> : ''}
             </div>
     }</div>
     ))}

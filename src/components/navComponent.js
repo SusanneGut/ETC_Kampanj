@@ -8,10 +8,10 @@ const NavComponent = ({className, slug}) => {
     <div className={className}>
           <StyledBurgerMenu>
             <BurgerMenu right width='20%'>
-                <Link to={'/'}>Home</Link>
-                <Link to='/article'>Article</Link>
-                <Link to='/'>Link</Link>
-                <Link to='/'>Link</Link>
+                <Link to='/ETC_lagom'>Våra abonnemang</Link>
+                <Link to='/Varfor_startade_vi_etc_mobil'>Om oss</Link>
+                <Link to='/Kundtjanst'>Kundtjänst</Link>
+                <Link to='/Anvandaravtal'>Avtal</Link>
             </BurgerMenu>
         </StyledBurgerMenu>
     </div>

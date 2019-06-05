@@ -8,7 +8,7 @@ const BottomComponent = ({className, bottomItems}) => (
         return(
             <div>
         <div>{item.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"40px"}}><Img fluid={item.logo.fluid}/></div>:''}</div>
-        <div>{item.contact ? <p dangerouslySetInnerHTML={{__html:item.contact}}/>:''}</div>
+        <StyledText>{item.contact ? <p dangerouslySetInnerHTML={{__html:item.contact}}/>:''}</StyledText>
             </div>
         )
     })}
@@ -25,4 +25,10 @@ background-color: #3E3E3E;
 border: 1px solid #3E3E3E;
 padding: 2% 50% 5% 10%;
 `
+const StyledText = styled.div`
+p{
+    font-size: 10px;
+}
+`
+
 export default StyledBottomComponent

@@ -18,13 +18,9 @@ const PuffLargeComponent = ({className, img, articletitle, preamble, slug}) => (
     
 )
 
-PuffLargeComponent.propTypes = {
-    
-}
-
 const StyledArticle = styled.div`
     ${media.greaterThan('1023px')`
-    max-height: 350px;
+    max-height: 300px;
     max-width: 900px;
     backgound-color: green;
     `}
@@ -35,16 +31,20 @@ const StyledArticle = styled.div`
 `
 const StyledText = styled.section`
 ${media.greaterThan('1023px')`
-max-width: 60%;
+max-width: 50%;
 `}
 flex: 0 1 2 3;
 color: #33333;
 padding: 1% 5% 0 5%;
+p {font-size: 12px;
+    color: "585858";
+    padding-bottom: 0.1%; 
+     }
 `
 const StyledImg = styled(Img)`
 ${media.greaterThan('1023px')`
-max-width: 34%;
-height: 320px;
+max-width: 44%;
+height: 300px;
 `}
 flex: 4;
 margin: 0;

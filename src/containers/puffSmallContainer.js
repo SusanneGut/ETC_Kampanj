@@ -7,9 +7,10 @@ const PuffSmallContainer = ({className}) => (
     <StaticQuery
     query={graphql`
      query{
-         allDatoCmsArticle(sort: { fields: [meta___publishedAt], order: DESC}, limit: 2, skip: 1){
+         allDatoCmsArticle(filter: {ispuff: {eq: "true"}}, sort: {fields: [meta___publishedAt], order: DESC}, limit: 1, skip: 1 ){
             edges{
                 node{
+                    ispuff
                     slug
                     articletitle
                     preamble

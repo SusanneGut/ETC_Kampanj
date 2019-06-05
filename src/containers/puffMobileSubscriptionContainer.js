@@ -18,6 +18,7 @@ const PuffMobileSubscriptionContainer = ({className}) => (
                         }
                     }
                     price
+                    slug
                 }
             }
         }
@@ -28,7 +29,7 @@ const PuffMobileSubscriptionContainer = ({className}) => (
             <div className={className}>
             {data.allDatoCmsMobilesubscription.edges.map(({node})=>{
                 return(
-                    <PuffMobileSubscriptionComponent title={node.title} preamble={node.preamble} img={node.img} price={node.price}/>
+                    <PuffMobileSubscriptionComponent title={node.title} preamble={node.preamble} img={node.img} price={node.price} slug={node.slug}/>
                 )
             })}
             </div>
