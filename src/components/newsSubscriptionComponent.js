@@ -1,5 +1,5 @@
 import React from "react"
-import Form from "./form"
+import NewsletterFormComponent from "./newsletterFormComponent"
 import styled from "styled-components"
 
 const NewsSubscriptionComponent = ({className, newsSubscriptionItems}) => (
@@ -12,7 +12,7 @@ const NewsSubscriptionComponent = ({className, newsSubscriptionItems}) => (
                 </div>
         )
     })}
-    <div><Form/></div>
+    <div><NewsletterFormComponent/></div>
 </div>   
 )
 const StyledNewsSubscriptionComponent = styled(NewsSubscriptionComponent)`
