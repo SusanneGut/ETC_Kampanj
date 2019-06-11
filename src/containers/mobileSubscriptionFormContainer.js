@@ -4,30 +4,28 @@ import {StaticQuery, graphql} from "gatsby"
 
 const MobileSubscriptionFormContainer = () => (
     <StaticQuery
-    query={graphql`
-    query{
-        allDatoCmsMobilesubscription{
-                edges{
-                    node{
-                        price
-                    }
-                }
-            
+      query={graphql`
+        query {
+          allDatoCmsMobilesubscription {
+            edges {
+              node {
+                price
+              }
+            }
+          }
         }
-    }
-    `}
-    render={data=>{
-        return(
-            <div>
-               {data.allDatoCmsMobilesubscription.edges.map(({node})=>{
-                   
-                   return(
-                       <MobileSubscriptionFormComponent prices={node.price}/>
-                   )
-               })}
-            </div>
-        )
-    }}
+      `}
+      render={data => {
+        const prices = data.allDatoCmsMobilesubscription.edges.map(
+          ({ node }) => node.price
+        );
+  
+        return (
+          <div>
+            <MobileSubscriptionFormComponent prices={prices} />
+          </div>
+        );
+      }}
     />
-)
-export default MobileSubscriptionFormContainer
+  );
+  export default MobileSubscriptionFormContainer;

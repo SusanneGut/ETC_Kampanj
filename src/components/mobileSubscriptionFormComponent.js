@@ -1,10 +1,15 @@
 import React from "react"
 
+
 const MobileSubscriptionFormComponent = ({className, prices}) => (
-  
-  <div className={className}>
-  
-   
-    </div>
+        prices.map((item)=>{
+            return(
+                <div className={className}>{JSON.stringify(item)}</div>
+             )
+        })
 )
 export default MobileSubscriptionFormComponent
+
+
+
+
