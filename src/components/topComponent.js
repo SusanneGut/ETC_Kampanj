@@ -6,39 +6,30 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
+import NavComponent from "./navComponent"
 
 const TopComponent = ({className, topItems}) => (
 <div className={className}>
     {topItems.map((top) =>(
          <div>{top.backgroundimage ? 
          <Backgroundimage fluid={top.backgroundimage.fluid} style={{padding:"5px"}}>
+            <StyledNavComponent/>
             {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
             {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
             {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
             {top.buttontext ? <Link to="/test"><Button transparentRed>{top.buttontext}</Button></Link> : ''}
          </Backgroundimage> :   
             <div>
+                <StyledNavComponent/>
                 {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
                 {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
                 {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
-                {top.buttontext ? <Link to='/Varfor_startade_vi_etc_mobil'><Button transparentRed>{top.buttontext}</Button></Link> : ''}
+                {top.buttontext ? <Link to='/Varfor_startade_vi_etc_mobil'><Button style={{color: "#E3000B"}}transparentRed>{top.buttontext}</Button></Link> : ''}
             </div>
     }</div>
     ))}
 </div>
 );
-
-TopComponent.propTypes = {
-    topItems: PropTypes.arrayOf(
-        PropTypes.shape({
-            backgroundimage: PropTypes.string,
-            logo: PropTypes.string,
-            title: PropTypes.string,
-            preamble: PropTypes.string,
-            buttontext: PropTypes.string 
-        })
-    )
-}
 
  const StyledTitle = styled.h1`
  ${media.greaterThan('1023px')`
@@ -51,11 +42,21 @@ TopComponent.propTypes = {
  ${media.greaterThan('1023px')`
  font-size: 20px;
 `}
+font-size: 14px;
  `
 const StyledTopComponent = styled(TopComponent)`
+${media.greaterThan('1023px')`
+padding: 0px 50% 5% 10%;
+
+`}
 color: #333333;
 background-color: #F7F7F7;
 border: 1px solid #E9E9E9;
-padding: 0px 50% 5% 10%;
+padding: 0px 20% 5% 10%;
 `
+
+const StyledNavComponent = styled(NavComponent)`
+
+`
+
 export default StyledTopComponent

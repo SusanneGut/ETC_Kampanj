@@ -21,10 +21,16 @@ const MobileSubscriptionComponent = ({className, mobileSubscriptionItems}) => (
 const StyledTitle = styled.h2`
 margin-bottom: 0;
 margin-left: 2%;
+${media.lessThan('1023px')`
+font-size: 20px;
+`}
 `
 const StyledPreamble = styled.h4`
 margin-top: 0;
 margin-left: 2%;
+${media.lessThan('1023px')`
+font-size: 12px;
+`}
 `
 const StyledMobileSubscriptionComponent = styled(MobileSubscriptionComponent)`
 color: #333333;

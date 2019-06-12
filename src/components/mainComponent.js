@@ -9,10 +9,10 @@ const MainComponent = ({className, mainItems}) => (
         return(
             <div>{main.__typename === "DatoCmsMain" ?
         <StyledBody> 
-        <StyledText>{main.title ? <h2 style={{paddingTop:"10%"}}>{main.title}</h2>:''}
+        {main.img ? <StyledImg fluid={main.img.fluid}/>:''}
+        <StyledText>{main.title ? <StyledH2>{main.title}</StyledH2>:''}
         {main.preamble ? <p dangerouslySetInnerHTML={{__html:main.preamble}}/>:''}
         {main.body ? <p dangerouslySetInnerHTML={{__html:main.body}}/>:''}</StyledText>
-        {main.img ? <StyledImg fluid={main.img.fluid}/>:''}
         </StyledBody> :''}
             </div>
         )
@@ -23,39 +23,52 @@ const MainComponent = ({className, mainItems}) => (
 
 
 const StyledBody = styled.div`
+display:flex;
+flex-direction: column;
 ${media.greaterThan('1023px')`
-display: flex;
+flex-direction: row;
 max-width: 100%;
 max-height: 250px;
 margin: 0;
 `}
 `
+const StyledH2 = styled.h2`
+
+${media.greaterThan('1023px')`
+padding-top: 10%;
+`}
+`
 const StyledText = styled.div`
+padding: 10px;
+font-size: 12px;
+margin: 2%;
 ${media.greaterThan('1023px')`
 margin: 0;
 flex: 0 1 2 3 ;
 max-width: 40%;
 padding: 0px 25px;
+font-size: 14px;
 `}
-padding: 10px;
+
 `
 const StyledImg = styled(Img)`
+margin: 0;
+height: 200px;
 ${media.greaterThan('1023px')`
 flex: 4;
 margin: 0;
 padding: 0;
 max-width: 60%;
 height: 300px;
-
 `}
-margin: 0 20px 20px 20px;
+
 `
 const StyledMainComponent = styled(MainComponent)`
-${media.greaterThan('1023px')`
-height: 300px;
-`}
 color: #333333;
 background-color: white;
 border: 1px solid #E9E9E9;
+${media.greaterThan('1023px')`
+height: 300px;
+`}
 `
 export default StyledMainComponent

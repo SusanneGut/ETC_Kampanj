@@ -36,7 +36,7 @@ const StyledBurgerMenu = styled.div`
     width: 20px;
     height: 15px;
     right: 20vw;
-    top: 10vh;
+    top: 5vh;
 }
 .bm-burger-bars {
     background: #373a47;

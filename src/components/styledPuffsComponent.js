@@ -14,8 +14,8 @@ export default StyledPuffsComponent
 
 const Styled = styled.div`
 ${media.greaterThan('1023px')`
-display: flex;
 `}
+display: flex;
 color: #333333;
 background-color: #F3F3F3;
 border: 1px solid #E9E9E9;
@@ -28,6 +28,7 @@ margin-top: -5%;
 padding: 20px 10px 20px 30px;
 `}
 padding: 10px;
+width: 50%;
 `
 const StyledPuffSmall = styled(PuffSmallContainer)`
 ${media.greaterThan('1023px')`
@@ -37,4 +38,5 @@ margin-top: -5%;
 padding: 20px 30px 20px 10px;
 `}
 padding: 10px;
+widht: 50%;
 `

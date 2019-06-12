@@ -17,7 +17,7 @@ const MobileSubscriptionFormContainer = () => (
       `}
       render={data => {
         const prices = data.allDatoCmsMobilesubscription.edges.map(
-          ({ node }) => node.price
+          ({ node }) => node
         );
   
         return (
