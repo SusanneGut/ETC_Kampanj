@@ -6,21 +6,18 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
-import NavComponent from "./navComponent"
 
 const TopComponent = ({className, topItems}) => (
 <div className={className}>
     {topItems.map((top) =>(
          <div>{top.backgroundimage ? 
          <Backgroundimage fluid={top.backgroundimage.fluid} style={{padding:"5px"}}>
-            <StyledNavComponent/>
             {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
             {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
             {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
             {top.buttontext ? <Link to="/test"><Button transparentRed>{top.buttontext}</Button></Link> : ''}
          </Backgroundimage> :   
             <div>
-                <StyledNavComponent/>
                 {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
                 {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
                 {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
@@ -45,18 +42,12 @@ const TopComponent = ({className, topItems}) => (
 font-size: 14px;
  `
 const StyledTopComponent = styled(TopComponent)`
-${media.greaterThan('1023px')`
-padding: 0px 50% 5% 10%;
-
-`}
 color: #333333;
 background-color: #F7F7F7;
 border: 1px solid #E9E9E9;
-padding: 0px 20% 5% 10%;
+padding: 0px 20% 10% 10%;
+${media.greaterThan('1023px')`
+padding: 0px 50% 5% 10%;
+`}
 `
-
-const StyledNavComponent = styled(NavComponent)`
-
-`
-
 export default StyledTopComponent

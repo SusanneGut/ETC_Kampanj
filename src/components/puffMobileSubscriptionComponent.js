@@ -41,6 +41,16 @@ flex-direction: row;
 max-width: 100%;
 `}
 `
+const StyledMain = styled.div`
+padding: 0% 5% 5% 5%;
+${media.lessThan('415px')`
+flex: 0 1 2 3;
+max-width: 70%;
+`}
+${media.greaterThan('1023px')`
+
+`}
+`
 const StyledImage = styled(Img)`
 padding: 0;
 border-radius: 8px 8px 0 0;
@@ -51,15 +61,6 @@ border-radius: 8px 0 0 8px;
 `}
 ${media.greaterThan('1023px')`
 flex: 0;
-`}
-`
-const StyledMain = styled.div`
-padding: 0% 5% 5% 5%;
-${media.lessThan('415px')`
-flex: 0 1 2 3;
-max-width: 70%;
-`}${media.greaterThan('1023px')`
-
 `}
 `
 const StyledTitle = styled.h4`

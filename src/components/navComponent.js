@@ -52,7 +52,6 @@ const StyledBurgerMenu = styled.div`
     background: #3E3E3E;
     padding: 2.5em 1.5em 0;
     font-size: 15px;
-    
 }
 .bm-morph-shape {
     fill: #373a47;
@@ -63,5 +62,7 @@ const StyledBurgerMenu = styled.div`
 
 .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
+}
+.bm-menu-wrap {
 }
 `
