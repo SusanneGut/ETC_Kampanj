@@ -22,8 +22,8 @@ const PuffSmallComponent = ({className, img, articletitle, preamble, slug}) => (
 const StyledArticle = styled.div`
 border: 1px solid #E9E9E9;
 border-radius: 8px;
-${media.greaterThan('1023px')`
-max-height: 300px;
+${media.greaterThan('600px')`
+height: 250px;
 max-width: 400px;
 `}
 ${media.lessThan('415px')`
@@ -33,14 +33,14 @@ max-width: 130px;
 `
 const StyledText = styled.section`
 color: #33333;
-padding: 25% 15% 0 7%;
+padding: 20% 10% 0 10%;
 margin: 0;
 p {font-size: 12px;
     color: "585858";
-    padding-bottom: 5%; 
+    padding-bottom: 2%; 
      }
 ${media.greaterThan('1023px')`
-height: 250px;
+p{margin-bottom: 0;}
 `}
 ${media.lessThan('415px')`
 padding: 1% 5% 0 5%;
@@ -58,9 +58,9 @@ const StyledImg = styled(BackgroundImage)`
 margin: 0;
 padding: 0;
 border-radius: 8px;
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
 max-width: 400px;
-height: 300px;
+height: 250px;
 `}
 ${media.lessThan('415px')`
 height: 130px;
@@ -68,7 +68,6 @@ width: 130px;
 `}
 `
 const StyledButton = styled(Button)`
-margin-bottom: 8px;
 ${media.lessThan("415px")`
 padding: 0;
 font-size: 10px;

@@ -22,15 +22,13 @@ const PuffMobileSubscriptionComponent = ({className, title, preamble, img, price
 
 const StyledPuff = styled.div`
 width: 100%;
-${media.greaterThan('1023px')`
-`}
 `
 const StyledDiv = styled.section`
 margin: 2%;
 background-color: white;
 border-radius: 8px;
 display: flex;
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
 max-width: 28%;
 float: left;
 flex-direction: column;
@@ -47,9 +45,6 @@ ${media.lessThan('415px')`
 flex: 0 1 2 3;
 max-width: 70%;
 `}
-${media.greaterThan('1023px')`
-
-`}
 `
 const StyledImage = styled(Img)`
 padding: 0;
@@ -59,7 +54,7 @@ max-width: 20%;
 flex: 4;
 border-radius: 8px 0 0 8px;
 `}
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
 flex: 0;
 `}
 `

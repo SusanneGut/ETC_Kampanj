@@ -9,7 +9,7 @@ const NewsSubscriptionComponent = ({className, newsSubscriptionItems}) => (
         return(
                 <div>
                 {item.title ? <StyledH2>{item.title}</StyledH2> : ''}
-                {item.preamble ? <StyledP dangerouslySetInnerHTML={{__html:item.preamble}}/>:''}
+                {item.preamble ? <p dangerouslySetInnerHTML={{__html:item.preamble}}/>:''}
                 </div>
         )
     })}
@@ -20,21 +20,15 @@ const StyledNewsSubscriptionComponent = styled(NewsSubscriptionComponent)`
 color: white;
 background-color: #686868;
 border: 1px solid #686868;
-padding: 5% 30%;
-text-align: center;
-${media.lessThan('1023px')`
 padding: 5%;
+text-align: center;
+${media.greaterThan('1023px')`
+padding: 5% 30%;
 `}
 `
-const StyledH2 = styled.h2`
-${media.lessThan('1023px')`
-font-size: 18px;
-`}
-`
-const StyledP = styled.p`
-${media.lessThan('415px')`
-p {font-size: 12px;
-     }
+const StyledH2 = styled.h3`
+${media.greaterThan('1023px')`
+font-size: 22px;
 `}
 `
 

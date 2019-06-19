@@ -10,12 +10,16 @@ import BackgroundImage from "gatsby-background-image"
 const PuffLargeComponent = ({className, img, articletitle, preamble, slug}) => (
     <div className={className}>
     <StyledArticle>
-    {media.lessThan('415px') ? <StyledBackgroundImage fluid={img.fluid}>
+    <StyledBackgroundImage fluid={img.fluid}>
     <StyledText>{articletitle ? <StyledH3>{articletitle}</StyledH3>:''}
         {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
         <Link to={slug}><StyledButton>Läs mer</StyledButton></Link>
         </StyledText>
-        </StyledBackgroundImage>:''}
+        </StyledBackgroundImage>
+        <StyledTextBig>{articletitle ? <StyledH3>{articletitle}</StyledH3>:''}
+        {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
+        <Link to={slug}><StyledButton>Läs mer</StyledButton></Link>
+        </StyledTextBig>
         {img ? <StyledImg fluid={img.fluid}/>:''}
         </StyledArticle>                
     </div>
@@ -27,8 +31,8 @@ display: flex;
 border: 1px solid #E9E9E9;
 border-radius: 8px;
 background-color: white;
-${media.greaterThan('1023px')`
-max-height: 300px;
+${media.greaterThan('600px')`
+height: 250px;
 max-width: 900px;
 backgound-color: green;
 `}
@@ -44,15 +48,15 @@ color: #33333;
 padding: 1% 5% 0 5%;
 p {font-size: 12px;
     color: "585858";
-    padding-bottom: 0.1%; 
+    padding-bottom: 9%; 
 }
 ${media.lessThan('415px')`
 p{
     display: none;
 }
 `}
-${media.greaterThan('1023px')`
-max-width: 50%;
+${media.greaterThan('600px')`
+    width: 60%;
 `}
 `
 const StyledH3 = styled.h3`
@@ -61,16 +65,16 @@ margin-bottom: 2%;
 `}
 `
 const StyledImg = styled(Img)`
+${media.greaterThan('600px')`
+max-width: 44%;
+height: 250px;
 flex: 4;
 margin: 0;
 padding: 0;
 border-radius: 0px 8px 8px 0px;
-${media.greaterThan('1023px')`
-max-width: 44%;
-height: 300px;
 `}
-${media.lessThan('415px')`
-    display:none;
+${media.lessThan("415px")`
+display: none;
 `}
 `
 const StyledBackgroundImage = styled(BackgroundImage)`
@@ -79,11 +83,27 @@ padding: 0;
 border-radius: 8px;
 height: 130px;
 width: 130px;
+${media.greaterThan("415px")`
+display: none;
+`}
 `
-
-const StyledButton = styled(Button)`
-margin-bottom: 8px;
+const StyledTextBig = styled.section`
+flex: 0 1 2 3;
+color: #33333;
+padding: 1% 5% 0 5%;
+width: 60%;
+p {font-size: 12px;
+    color: "585858";
+    padding-bottom: 7%; 
+}
 ${media.lessThan("415px")`
+display: none;
+`}
+`
+const StyledButton = styled(Button)`
+
+${media.lessThan("415px")`
+margin-bottom: 8px;
 padding: 0;
 font-size: 10px;
 margin: 0;

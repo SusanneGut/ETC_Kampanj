@@ -11,22 +11,22 @@ export default ({data, className}) => {
     const content = data.datoCmsArticle.content;
     return(
         <StyledArticle className={className}>
-            <StyledText>{title ? <h3>{title}</h3>:''}
-                {preamble ? <p dangerouslySetInnerHTML={{__html:preamble}}/>:''}
+            <StyledText>{title ? <h2>{title}</h2> :''}
+            <StyledHr/>
+                {preamble ? <h4 dangerouslySetInnerHTML={{__html:preamble}}/>:''}
             </StyledText>
-                {image ? <StyledImg fluid={image.fluid}/>:''}
+                {image ? <TopImg fluid={image.fluid}/>:''}
             {content.map((article) =>{
                
                 return(
-                    <div>
+                    <StyledSection>
                     {article.img ? <StyledImg fluid={article.img.fluid}/>:''}
                     {article.subtitle ? <p>{article.subtitle}</p>:''}
                     {article.body ? <p dangerouslySetInnerHTML={{__html:article.body}}/>:''}
-                    {article.video ? <Video videoTitle = {article.video.title} videoSrcURL = {"https://www.youtube.com/embed/" + article.video.providerUid}/>:''}
-                    </div>
+                    {article.video ? <StyledVideo videoTitle = {article.video.title} videoSrcURL = {"https://www.youtube.com/embed/" + article.video.providerUid}/>:''}
+                    </StyledSection>
                 )
             })}
-           
             </StyledArticle>
     )
 }
@@ -64,24 +64,48 @@ query($slug: String!){
        }
    }
 `
-
+const StyledHr = styled.hr`
+width: 30%;
+margin-left: 0;
+background-color: #E3000B;
+height: 8px;
+border-style: none;
+margin: 0;
+`
 const StyledText = styled.div`
 color: #33333;
-padding-left: 8px;
+padding-left: 10%;
 flex: 0 1 2 3;
 margin: 0;
-max-width: 70%;
+width: 70%;
+h2{
+    margin-bottom: 5%;
+}
+`
+const TopImg = styled(Img)`
+flex: 4;
+margin: 0;
+width: 100%;
+height: 180px;
+padding: 0;
 `
 const StyledImg = styled(Img)`
 flex: 4;
 margin: 0;
-max-width: 30%;
-max-height: 150px;
+width: 100%;
+height: 180px;
 padding: 0;
+`
+const StyledSection = styled.section`
+background-color: #F3F3F3;
+width: 70%;
 `
 const StyledArticle = styled.div`
 color: #333333;
 background-color: #F3F3F3;
 border: 1px solid #E9E9E9;
-padding: 10% 10% 10% 10%;
+padding: 10% 0% 10% 0%;
+`
+const StyledVideo = styled(Video)`
+
 `
