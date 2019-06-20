@@ -1,9 +1,11 @@
 import React from "react"
+import styled from "styled-components"
 
 
 export default class MobilesubscriptionFormComponent1 extends React.Component{
-
-    state={
+  constructor(props){
+    super(props)
+    this.state={
         sameNumber: true,
         mail: "",
         firstName:"",
@@ -13,9 +15,9 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
         address: "",
         city:"",
         postalnum:"",
-        phone: ""
-
+        phone: "",
     }
+  }
 
     handleInputChange = event => {
         const target = event.target
@@ -34,18 +36,18 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
   
     render(){
         return(
-            <form>
-              temp place<br/>
+            <StyledForm className = {this.props.className}>
+            <StyledHead>Kundinformation</StyledHead>
               <label style={{fontSize: "11px"}}> Behåll nuvarande nummer
               <input type="checkbox" name= "sameNumber" checked={this.state.sameNumber}
               onChange={this.handleInputChange}/></label>
               <br/>
-              <input type="email" name="mail" value={this.state.mail}
+              <StyledInputLong type="email" name="mail" value={this.state.mail}
               onChange={this.handleInputChange} placeholder="mejl"/>
                 <br/>
-                <input type="text" name="firstName" value={this.state.firstName}
+                <StyledInputShort type="text" name="firstName" value={this.state.firstName}
                 onChange={this.handleInputChange} placeholder="förnamn"/>
-                <input type="text" name="lastName" value={this.state.lastName}
+                <StyledInputShort type="text" name="lastName" value={this.state.lastName}
                 onChange={this.handleInputChange} placeholder="efternamn"/>
                 <br/>
                 <label style={{fontSize: "11px"}}> Privatperson
@@ -58,25 +60,41 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
 
               <label>Leveransadress
               <br/>
-              <input type="address" name="address" value={this.state.address}
+              <StyledInputLong type="address" name="address" value={this.state.address}
               onChange={this.handleInputChange} placeholder="gatuadress"/>
                 <br/>
-                <input type="city" name="city" value={this.state.city}
+                <StyledInputLong type="city" name="city" value={this.state.city}
               onChange={this.handleInputChange} placeholder="postort"/>
                 <br/>
-                <input type="postalnum" name="postalnum" value={this.state.postalnum}
+                <StyledInputShort type="postalnum" name="postalnum" value={this.state.postalnum}
               onChange={this.handleInputChange} placeholder="postnummer"/>
-                <input type="phone" name="phone" value={this.state.phone}
+                <StyledInputShort type="phone" name="phone" value={this.state.phone}
               onChange={this.handleInputChange} placeholder="telefonnummer"/>
                 <br/>
               </label>
-              
+
               <button type="submit">Beställ</button>
 
-            </form>
+            </StyledForm>
           )
     }
 }
+
+const StyledForm = styled.form`
+width: 80%;
+`
+const StyledHead = styled.h3`
+background-color: #739562;
+color: white;
+padding 1%;
+`
+const StyledInputLong = styled.input`
+width: 99%;
+`
+const StyledInputShort = styled.input`
+width: 49%;
+`
+
 
 
 
