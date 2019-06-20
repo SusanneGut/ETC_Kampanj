@@ -21,14 +21,14 @@ const MobileSubscriptionComponent = ({className, mobileSubscriptionItems}) => (
 const StyledTitle = styled.h3`
 margin-bottom: 0;
 margin-left: 2%;
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
 font-size: 22px;
 `}
 `
 const StyledPreamble = styled.h5`
 margin-top: 0;
 margin-left: 2%;
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
 font-size: 16px;
 `}
 `

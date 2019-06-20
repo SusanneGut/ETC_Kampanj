@@ -16,17 +16,19 @@ export default ({data, className}) => {
                 {preamble ? <h4 dangerouslySetInnerHTML={{__html:preamble}}/>:''}
             </StyledText>
                 {image ? <TopImg fluid={image.fluid}/>:''}
+                <StyledDiv>
             {content.map((article) =>{
                
                 return(
-                    <StyledSection>
+                    <section>
                     {article.img ? <StyledImg fluid={article.img.fluid}/>:''}
                     {article.subtitle ? <p>{article.subtitle}</p>:''}
                     {article.body ? <p dangerouslySetInnerHTML={{__html:article.body}}/>:''}
                     {article.video ? <StyledVideo videoTitle = {article.video.title} videoSrcURL = {"https://www.youtube.com/embed/" + article.video.providerUid}/>:''}
-                    </StyledSection>
+                    </section>
                 )
             })}
+            </StyledDiv>
             </StyledArticle>
     )
 }
@@ -86,26 +88,30 @@ const TopImg = styled(Img)`
 flex: 4;
 margin: 0;
 width: 100%;
-height: 180px;
+height: 10%;;
 padding: 0;
 `
 const StyledImg = styled(Img)`
 flex: 4;
 margin: 0;
 width: 100%;
-height: 180px;
+height: 20%;
 padding: 0;
 `
-const StyledSection = styled.section`
+const StyledDiv = styled.div`
 background-color: #F3F3F3;
 width: 70%;
+float: left;
+margin-left: 12%;
 `
 const StyledArticle = styled.div`
 color: #333333;
 background-color: #F3F3F3;
 border: 1px solid #E9E9E9;
 padding: 10% 0% 10% 0%;
+overflow: scroll;
 `
 const StyledVideo = styled(Video)`
-
+width: 70%;
 `
+

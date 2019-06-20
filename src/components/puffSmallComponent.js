@@ -26,7 +26,7 @@ ${media.greaterThan('600px')`
 height: 250px;
 max-width: 400px;
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 max-height: 130px;
 max-width: 130px;
 `}
@@ -39,10 +39,10 @@ p {font-size: 12px;
     color: "585858";
     padding-bottom: 2%; 
      }
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
 p{margin-bottom: 0;}
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 padding: 1% 5% 0 5%;
 p{
     display: none;
@@ -50,7 +50,7 @@ p{
 `}
 `
 const StyledH3 = styled.h3`
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 margin-bottom: 2%;
 `}
 `
@@ -62,13 +62,13 @@ ${media.greaterThan('600px')`
 max-width: 400px;
 height: 250px;
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 height: 130px;
 width: 130px;
 `}
 `
 const StyledButton = styled(Button)`
-${media.lessThan("415px")`
+${media.lessThan("601px")`
 padding: 0;
 font-size: 10px;
 margin: 0%;

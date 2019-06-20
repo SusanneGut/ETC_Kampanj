@@ -36,7 +36,7 @@ height: 250px;
 max-width: 900px;
 backgound-color: green;
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 flex-direction: column;
 height: 130px;
 width: 130px;
@@ -50,7 +50,7 @@ p {font-size: 12px;
     color: "585858";
     padding-bottom: 9%; 
 }
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 p{
     display: none;
 }
@@ -60,7 +60,7 @@ ${media.greaterThan('600px')`
 `}
 `
 const StyledH3 = styled.h3`
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 margin-bottom: 2%;
 `}
 `
@@ -73,7 +73,7 @@ margin: 0;
 padding: 0;
 border-radius: 0px 8px 8px 0px;
 `}
-${media.lessThan("415px")`
+${media.lessThan("601px")`
 display: none;
 `}
 `
@@ -83,7 +83,7 @@ padding: 0;
 border-radius: 8px;
 height: 130px;
 width: 130px;
-${media.greaterThan("415px")`
+${media.greaterThan("600px")`
 display: none;
 `}
 `
@@ -96,13 +96,13 @@ p {font-size: 12px;
     color: "585858";
     padding-bottom: 7%; 
 }
-${media.lessThan("415px")`
+${media.lessThan("601px")`
 display: none;
 `}
 `
 const StyledButton = styled(Button)`
 
-${media.lessThan("415px")`
+${media.lessThan("601px")`
 margin-bottom: 8px;
 padding: 0;
 font-size: 10px;

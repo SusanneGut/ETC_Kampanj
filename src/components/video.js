@@ -1,8 +1,10 @@
 import React from "react"
+import styled from "styled-components"
+import media from "styled-media-query"
 
 const Video = ({ videoSrcURL, videoTitle, ...props }) => (
     <div className="video">
-      <iframe width="640" height="360"
+      <StyledIframe width="640" height="360"
         title={videoTitle} 
         src={videoSrcURL}
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -15,3 +17,9 @@ const Video = ({ videoSrcURL, videoTitle, ...props }) => (
   )
   export default Video
   
+  const StyledIframe=styled.iframe`
+  ${media.lessThan('600px')`
+  width: 100%;
+  height: 100%;
+  `}
+  `

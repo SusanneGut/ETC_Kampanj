@@ -35,7 +35,7 @@ const Layout = ({ children }) => (
 )
 
 const StyledDiv = styled.div`
-${media.greaterThan('1023px')`
+${media.greaterThan('600px')`
  margin-left: 15%;
  margin-right: 15%;
 `}

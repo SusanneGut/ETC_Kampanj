@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Button from "../components/button"
 import Link from "gatsby-link"
 import MobileSubscriptionFormContainer from "../containers/mobileSubscriptionFormContainer";
+import MobilesubscriptionFormComponent1 from "../components/mobileSubscriptionFormComponent.1";
 
 export default ({data, className}) => {
     const x = 159;
@@ -56,6 +57,8 @@ export default ({data, className}) => {
                     <Link to=''><Button2>Gå vidare</Button2></Link>
                     </StyledSection>
             </StyledDiv>
+            <br/>
+            <MobilesubscriptionFormComponent1></MobilesubscriptionFormComponent1>
         </StyledArticle>
     )
 }

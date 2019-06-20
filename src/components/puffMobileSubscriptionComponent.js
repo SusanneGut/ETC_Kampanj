@@ -34,14 +34,14 @@ float: left;
 flex-direction: column;
 margin: 2%;
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 flex-direction: row;
 max-width: 100%;
 `}
 `
 const StyledMain = styled.div`
 padding: 0% 5% 5% 5%;
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 flex: 0 1 2 3;
 max-width: 70%;
 `}
@@ -49,7 +49,7 @@ max-width: 70%;
 const StyledImage = styled(Img)`
 padding: 0;
 border-radius: 8px 8px 0 0;
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 max-width: 20%;
 flex: 4;
 border-radius: 8px 0 0 8px;
@@ -60,7 +60,7 @@ flex: 0;
 `
 const StyledTitle = styled.h4`
 margin-bottom: 1%;
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 font-size: 12px;
 `}
 `
@@ -68,19 +68,19 @@ const StyledText = styled.span`
 p {font-size: 12px;
     color: "585858"; 
      }
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 p {font-size: 10px;
      }
 `}
 `
 const StyledPrice = styled.h4`
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 font-size: 12px;
 margin: 0;
 `}
 `
 const StyledButton = styled(Button)`
-${media.lessThan("415px")`
+${media.lessThan("601px")`
 padding: 0;
 font-size: 10px;
 margin: 0;

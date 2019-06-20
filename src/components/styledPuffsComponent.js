@@ -27,7 +27,7 @@ width: 70%;
 margin-top: -5%;
 padding: 20px 10px 20px 30px;
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 max-width: 50%;
 widht: 50%;
 padding: 5% 1% 5% 8%
@@ -43,7 +43,7 @@ width: 30%;
 margin-top: -5%;
 padding: 20px 30px 20px 10px;
 `}
-${media.lessThan('415px')`
+${media.lessThan('601px')`
 max-width: 50%;
 width: 50%;
 padding: 5% 0% 5% 1%;

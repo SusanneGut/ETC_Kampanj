@@ -15,6 +15,7 @@ exports.createPages = async function({actions, graphql}) {
                     }
                 }
             }
+            
         }
 
        
@@ -39,6 +40,8 @@ exports.createPages = async function({actions, graphql}) {
             })
             
         });
+
+        
     
 
     
