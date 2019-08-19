@@ -1,10 +1,9 @@
-
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
-import Footer from "./footer";
-import Header from "./header";
+import Footer from "./footer"
+import Header from "./header"
 import styled from "styled-components"
 import media from "styled-media-query"
 import NavComponent from "./NavComponent"
@@ -21,13 +20,13 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-      <StyledDiv>
-        <Header/>
-        <NavComponent></NavComponent>
-        <div>
-          <main>{children}</main>
-          <Footer/>
-        </div>
+        <StyledDiv>
+          <Header />
+          <NavComponent></NavComponent>
+          <div>
+            <main>{children}</main>
+            <Footer />
+          </div>
         </StyledDiv>
       </>
     )}
@@ -35,14 +34,13 @@ const Layout = ({ children }) => (
 )
 
 const StyledDiv = styled.div`
-${media.greaterThan('600px')`
+  ${media.greaterThan("600px")`
  margin-left: 15%;
  margin-right: 15%;
 `}
   margin-left: 0;
- margin-right: 0;
- `
-
+  margin-right: 0;
+`
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
