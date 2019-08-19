@@ -2,6 +2,7 @@ import React from "react"
 import {graphql } from "gatsby";
 import Img from "gatsby-image"
 import styled from "styled-components"
+import media from "styled-media-query"
 import Video from "../components/video"
 
 export default ({data, className}) => {
@@ -11,7 +12,7 @@ export default ({data, className}) => {
     const content = data.datoCmsArticle.content;
     return(
         <StyledArticle className={className}>
-            <StyledText>{title ? <h2>{title}</h2> :''}
+            <StyledText>{title ? <StyledH2>{title}</StyledH2> :''}
             <StyledHr/>
                 {preamble ? <h4 dangerouslySetInnerHTML={{__html:preamble}}/>:''}
             </StyledText>
@@ -79,17 +80,25 @@ color: #33333;
 padding-left: 10%;
 flex: 0 1 2 3;
 margin: 0;
+margin-left: 5%;
 width: 70%;
 h2{
     margin-bottom: 5%;
 }
 `
+const StyledH2 = styled.h2`
+${media.greaterThan('600px')`
+ font-size: 45px;
+`}
+`
+
 const TopImg = styled(Img)`
 flex: 4;
 margin: 0;
-width: 100%;
-height: 10%;;
+margin-left: 10%;
+width: 80%;
 padding: 0;
+max-height:500px;
 `
 const StyledImg = styled(Img)`
 flex: 4;
@@ -100,9 +109,13 @@ padding: 0;
 `
 const StyledDiv = styled.div`
 background-color: #F3F3F3;
-width: 70%;
+width: 60%;
 float: left;
-margin-left: 12%;
+margin-left: 15%;
+margin-top: -10%;
+position: absolute;
+padding: 5%;
+padding-top: 2%;
 `
 const StyledArticle = styled.div`
 color: #333333;
@@ -110,8 +123,13 @@ background-color: #F3F3F3;
 border: 1px solid #E9E9E9;
 padding: 10% 0% 10% 0%;
 overflow: scroll;
+position: relative;
 `
 const StyledVideo = styled(Video)`
 width: 70%;
+margin-left: 10%;
+${media.greaterThan('600px')`
+ 
+`}
 `
 

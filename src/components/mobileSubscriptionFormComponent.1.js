@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import Link from "gatsby-link"
 
 
 export default class MobilesubscriptionFormComponent1 extends React.Component{
@@ -72,7 +73,7 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
               onChange={this.handleInputChange} placeholder="telefonnummer"/>
                 <br/>
               </label>
-
+              <Link to='/ETC_lagom'><button transparentGrey>Tillbaka</button></Link>
               <button type="submit">Beställ</button>
 
             </StyledForm>
