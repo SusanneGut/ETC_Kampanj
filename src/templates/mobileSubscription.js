@@ -4,43 +4,42 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Button from "../components/button"
 import Link from "gatsby-link"
-import MobileSubscriptionFormContainer from "../containers/mobileSubscriptionFormContainer";
 import MobilesubscriptionFormComponent1 from "../components/mobileSubscriptionFormComponent.1";
 
 export default ({data, className}) => {
-    const x = 159;
     const y = 50;
     const z = 70;
 
     const title = data.datoCmsMobilesubscription.title;
+    const price = data.datoCmsMobilesubscription.price;
     const body = data.datoCmsMobilesubscription.body;
     const image = data.datoCmsMobilesubscription.img;
     const subtitle = data.datoCmsMobilesubscription.subtitle;
     const content = data.datoCmsMobilesubscription.content;
     const textline = data.datoCmsMobilesubscription.default;
-    const numbers = [x, y, z];
+    const numbers = [parseInt(price), y, z];
     const add = (a, b) => a + b;
 
     return(
         <StyledArticle className={className}>
         <StyledText>
-        {title ? <h3>{title}</h3>:''}
-        {body ? <p dangerouslySetInnerHTML={{__html:body}}></p>:''}</StyledText>
+        {title ? <StyledH3>{title}</StyledH3>:''}
+        {body ? <StyledP dangerouslySetInnerHTML={{__html:body}}></StyledP>:''}</StyledText>
+        <br/>
         {image ? <StyledImg fluid={image.fluid}/>:''}
-        {subtitle ? <h4>{subtitle}</h4>:''}
+        {subtitle ? <StyledH4>{subtitle}</StyledH4>:''}
         {content.map((item)=>{
             return(
-                <p>{item.lineitem}
-                <StyledHr/></p>
+                <StyledP>{item.lineitem}
+                <StyledHr/></StyledP>
             )
         })}
-        {textline ? <a href="/404">{textline}</a>: ''}
+        {textline ? <StyledA href="/Anvandaravtal">{textline}</StyledA>: ''}
         <br/>
-        <MobileSubscriptionFormContainer/>
         <StyledDiv>
             <StyledSubHead>Sammanfattning</StyledSubHead>
             <StyledSection>
-                    <StyledP1>Mobilabonnemang {title}</StyledP1><StyledP2>{x} kr/mån</StyledP2>
+                    <StyledP1>Mobilabonnemang {title}</StyledP1><StyledP2>{price} kr/mån</StyledP2>
                     <br/>
                     <StyledHr style={{marginRight: "0%"}}/>
                     <StyledP1>Lorem Ipsum</StyledP1><StyledP2>{y} kr/mån</StyledP2>
@@ -75,6 +74,7 @@ query($slug: String!){
         }
         subtitle
         default
+        price
         content{
             ... on DatoCmsPricedetail{
                 lineitem
@@ -82,6 +82,18 @@ query($slug: String!){
         }
     }
 }
+`
+
+const StyledA = styled.a`
+font-size: 12px;
+`
+const StyledH3 = styled.h3`
+font-size: 25px;
+`
+const StyledH4 = styled.h4`
+font-size: 18px;
+margin-top: 2px;
+margin-bottom: 4px;
 `
 const StyledArticle = styled.div`
 color: #333333;
@@ -94,7 +106,7 @@ color: #33333;
 padding-left: 8px;
 flex: 0 1;
 margin: 0;
-max-width: 70%;
+max-width: 80%;
 `
 const StyledImg = styled(Img)`
 flex: 2 3;
@@ -109,8 +121,8 @@ color: #E3000B;
 `
 const StyledDiv = styled.div`
 background-color: white;
-width: 80%;
-margin-top:3%;
+width: 100%;
+margin-top:5%;
 border-color: #EAEAEA;
 border-style: solid;
 `
@@ -123,20 +135,26 @@ padding: 3%;
 const StyledSection = styled.section`
 background-color: white;
 padding: 3%;
-margin-bottom: 3%;
+margin-bottom: 10%;
 `
+const StyledP = styled.p`
+font-size: 12px;
+`
+
 const StyledP1 = styled.p`
 float: left;
 margin: 0;
+font-size: 12px;
 `
 const StyledP2 = styled.p`
 float: right;
 margin: 0;
+font-size: 14px;
 `
 const StyledTotal = styled.section`
 margin-bottom: 3%;
 p{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 `

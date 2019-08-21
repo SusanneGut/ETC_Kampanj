@@ -7,6 +7,7 @@ import Header from "./header"
 import styled from "styled-components"
 import media from "styled-media-query"
 import NavComponent from "./NavComponent"
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -21,8 +22,8 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <StyledDiv>
+        <NavComponent/>
           <Header />
-          <NavComponent></NavComponent>
           <div>
             <main>{children}</main>
             <Footer />

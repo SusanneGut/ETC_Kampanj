@@ -24,14 +24,14 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
         const target = event.target
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name
-
+        
         this.setState({
         [name]:value,
         })
     }
     handleSubmit = event =>{
         event.preventDefault()
-        alert(`Thank you ${this.state.firstName}!`)
+        alert(`${this.state.firstName}, tack för din beställning!`)
     }
 
   
@@ -74,7 +74,7 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
                 <br/>
               </label>
               <Link to='/ETC_lagom'><button transparentGrey>Tillbaka</button></Link>
-              <button type="submit">Beställ</button>
+              <button type="submit" onClick={this.handleSubmit}>Beställ</button>
 
             </StyledForm>
           )
@@ -82,7 +82,7 @@ export default class MobilesubscriptionFormComponent1 extends React.Component{
 }
 
 const StyledForm = styled.form`
-width: 80%;
+width: 100%;
 `
 const StyledHead = styled.h3`
 background-color: #739562;

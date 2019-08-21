@@ -14,7 +14,7 @@ export default ({data, className}) => {
         <StyledArticle className={className}>
             <StyledText>{title ? <StyledH2>{title}</StyledH2> :''}
             <StyledHr/>
-                {preamble ? <h4 dangerouslySetInnerHTML={{__html:preamble}}/>:''}
+                {preamble ? <StyledH4 dangerouslySetInnerHTML={{__html:preamble}}/>:''}
             </StyledText>
                 {image ? <TopImg fluid={image.fluid}/>:''}
                 <StyledDiv>
@@ -88,10 +88,14 @@ h2{
 `
 const StyledH2 = styled.h2`
 ${media.greaterThan('600px')`
- font-size: 45px;
+ font-size: 60px;
 `}
 `
-
+const StyledH4 = styled.h4`
+${media.greaterThan('600px')`
+ font-size: 20px;
+`}
+`
 const TopImg = styled(Img)`
 flex: 4;
 margin: 0;
@@ -112,7 +116,7 @@ background-color: #F3F3F3;
 width: 60%;
 float: left;
 margin-left: 15%;
-margin-top: -10%;
+margin-top: -50px;
 position: absolute;
 padding: 5%;
 padding-top: 2%;

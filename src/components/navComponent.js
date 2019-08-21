@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "styled-components"
-import { scaleDown as BurgerMenu } from 'react-burger-menu'
+import { slide as BurgerMenu } from 'react-burger-menu'
 import Link from "gatsby-link"
+import media from "styled-media-query"
 
 const NavComponent = ({className, slug}) => {
     return(
     <div className={className}>
           <StyledBurgerMenu>
-            <BurgerMenu right width='20%'>
+            <BurgerMenu right width='50%'>
                 <Link to='/ETC_lagom'>Våra abonnemang</Link>
                 <Link to='/Varfor_startade_vi_etc_mobil'>Om oss</Link>
                 <Link to='/Kundtjanst'>Kundtjänst</Link>
@@ -32,11 +33,14 @@ const StyledBurgerMenu = styled.div`
     color: white;
 }
 .bm-burger-button {
-    position: fixed;
+    position: absolute;
     width: 20px;
     height: 15px;
-    right: 20vw;
+    right: 15vw;
     top: 5vh;
+    ${media.greaterThan('600px')`
+    right: 20vw;
+`}
 }
 .bm-burger-bars {
     background: #373a47;

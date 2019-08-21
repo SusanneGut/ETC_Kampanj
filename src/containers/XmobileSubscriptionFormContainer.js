@@ -1,5 +1,5 @@
 import React from "react"
-import MobileSubscriptionFormComponent from "../components/mobileSubscriptionFormComponent"
+import MobileSubscriptionFormComponent from "../components/XmobileSubscriptionFormComponent"
 import {StaticQuery, graphql} from "gatsby"
 
 const MobileSubscriptionFormContainer = () => (
