@@ -35,12 +35,12 @@ const Layout = ({ children }) => (
 )
 
 const StyledDiv = styled.div`
-  ${media.greaterThan("600px")`
+  margin-left: 0;
+  margin-right: 0;
+  ${media.greaterThan("992px")`
  margin-left: 15%;
  margin-right: 15%;
 `}
-  margin-left: 0;
-  margin-right: 0;
 `
 
 Layout.propTypes = {

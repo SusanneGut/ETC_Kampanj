@@ -36,7 +36,7 @@ const StyledMobileSubscriptionComponent = styled(MobileSubscriptionComponent)`
 color: #333333;
 background-color: #BDBDBD;
 padding: 3% 5%;
-height: 550px;
+height: 576px;
 `
 export default StyledMobileSubscriptionComponent
 

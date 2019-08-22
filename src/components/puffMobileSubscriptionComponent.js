@@ -14,7 +14,7 @@ const PuffMobileSubscriptionComponent = ({className, title, preamble, img, price
         {title ? <StyledTitle>{title}</StyledTitle>:''}
         {preamble ? <StyledText dangerouslySetInnerHTML={{__html:preamble}}/>:''}
         {price ? <StyledPrice>{price} kr/mån</StyledPrice>:''}
-        <Link to={slug}><StyledButton>Välj</StyledButton></Link>
+        <Link to={slug}><StyledButton small>Välj</StyledButton></Link>
         </StyledMain>
         </StyledDiv>
     </StyledPuff>
@@ -28,63 +28,57 @@ margin: 2%;
 background-color: white;
 border-radius: 8px;
 display: flex;
-${media.greaterThan('600px')`
+flex-direction: row;
+max-width: 100%;
+${media.greaterThan('576px')`
 max-width: 28%;
 float: left;
 flex-direction: column;
 margin: 2%;
 `}
-${media.lessThan('601px')`
-flex-direction: row;
-max-width: 100%;
-`}
 `
 const StyledMain = styled.div`
 padding: 0% 5% 5% 5%;
-${media.lessThan('601px')`
 flex: 0 1 2 3;
 max-width: 70%;
+${media.greaterThan('576px')`
 `}
 `
 const StyledImage = styled(Img)`
 padding: 0;
-border-radius: 8px 8px 0 0;
-${media.lessThan('601px')`
 max-width: 20%;
 flex: 4;
 border-radius: 8px 0 0 8px;
-`}
-${media.greaterThan('600px')`
-flex: 0;
+${media.greaterThan('576px')`
+max-width: 100%;
+border-radius: 8px 8px 0 0;
 `}
 `
-const StyledTitle = styled.h4`
+const StyledTitle = styled.h5`
 margin-bottom: 1%;
-${media.lessThan('601px')`
-font-size: 12px;
+${media.greaterThan('576px')`
+font-size: 16px;
 `}
 `
 const StyledText = styled.span`
-p {font-size: 12px;
-    color: "585858"; 
-     }
-${media.lessThan('601px')`
 p {font-size: 10px;
+     }
+${media.greaterThan('576px')`
+p {font-size: 11px;
      }
 `}
 `
-const StyledPrice = styled.h4`
-${media.lessThan('601px')`
-font-size: 12px;
-margin: 0;
+const StyledPrice = styled.h5`
+margin 0;
+${media.greaterThan('576px')`
+font-size: 16px;
 `}
 `
 const StyledButton = styled(Button)`
-${media.lessThan("601px")`
-padding: 0;
+${media.greaterThan("576px")`
+padding: 6px;
+width: 100px;
 font-size: 10px;
-margin: 0;
-width: 50px;
 `}
 `
 
