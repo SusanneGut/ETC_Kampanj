@@ -22,7 +22,7 @@ const StyledPuffLarge = styled(PuffLargeContainer)`
 padding: 10px;
 width: 50%;
 flex: 0 1 2;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 width: 70%;
 margin-top: -5%;
 padding: 20px 10px 20px 30px;
@@ -38,7 +38,7 @@ const StyledPuffSmall = styled(PuffSmallContainer)`
 padding: 10px;
 widht: 50%;
 flex: 3 4 5;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 width: 30%;
 margin-top: -5%;
 padding: 20px 30px 20px 10px;

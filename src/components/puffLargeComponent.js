@@ -31,7 +31,7 @@ display: flex;
 border: 1px solid #E9E9E9;
 border-radius: 8px;
 background-color: white;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 height: 250px;
 max-width: 900px;
 backgound-color: green;
@@ -55,7 +55,7 @@ p{
     display: none;
 }
 `}
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
     width: 60%;
 `}
 `
@@ -65,7 +65,7 @@ margin-bottom: 2%;
 `}
 `
 const StyledImg = styled(Img)`
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 max-width: 44%;
 height: 250px;
 flex: 4;

@@ -18,7 +18,7 @@ const Video = ({ videoSrcURL, videoTitle, ...props }) => (
   export default Video
   
   const StyledIframe=styled.iframe`
-  ${media.lessThan('600px')`
+  ${media.lessThan('576px')`
   width: 100%;
   height: 100%;
   `}

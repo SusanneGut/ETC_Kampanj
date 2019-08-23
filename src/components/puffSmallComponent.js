@@ -22,7 +22,7 @@ const PuffSmallComponent = ({className, img, articletitle, preamble, slug}) => (
 const StyledArticle = styled.div`
 border: 1px solid #E9E9E9;
 border-radius: 8px;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 height: 250px;
 max-width: 400px;
 `}
@@ -39,7 +39,7 @@ p {font-size: 12px;
     color: "585858";
     padding-bottom: 2%; 
      }
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 p{margin-bottom: 0;}
 `}
 ${media.lessThan('601px')`
@@ -58,7 +58,7 @@ const StyledImg = styled(BackgroundImage)`
 margin: 0;
 padding: 0;
 border-radius: 8px;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 max-width: 400px;
 height: 250px;
 `}

@@ -22,12 +22,12 @@ background-color: #686868;
 border: 1px solid #686868;
 padding: 5%;
 text-align: center;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 padding: 5% 30%;
 `}
 `
 const StyledH2 = styled.h3`
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 font-size: 22px;
 `}
 `

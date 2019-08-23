@@ -38,7 +38,7 @@ const StyledBurgerMenu = styled.div`
     height: 15px;
     right: 15vw;
     top: 5vh;
-    ${media.greaterThan('600px')`
+    ${media.greaterThan('576px')`
     right: 20vw;
 `}
 }

@@ -28,14 +28,14 @@ const TopComponent = ({className, topItems}) => (
 );
 
  const StyledTitle = styled.h1`
- ${media.greaterThan('600px')`
+ ${media.greaterThan('576px')`
  font-size: 60px;
  width: 130%;
 `}
  padding-top: 20%;
  `
  const StyledPreamble = styled.section`
- ${media.greaterThan('600px')`
+ ${media.greaterThan('576px')`
  font-size: 20px;
 `}
 font-size: 14px;
@@ -45,7 +45,7 @@ color: #333333;
 background-color: #F7F7F7;
 border: 1px solid #E9E9E9;
 padding: 0px 20% 10% 10%;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 padding: 0px 50% 5% 10%;
 `}
 `

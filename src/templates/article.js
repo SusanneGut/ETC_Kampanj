@@ -87,12 +87,12 @@ h2{
 }
 `
 const StyledH2 = styled.h2`
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
  font-size: 60px;
 `}
 `
 const StyledH4 = styled.h4`
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
  font-size: 20px;
 `}
 `
@@ -132,7 +132,7 @@ position: relative;
 const StyledVideo = styled(Video)`
 width: 70%;
 margin-left: 10%;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
  
 `}
 `

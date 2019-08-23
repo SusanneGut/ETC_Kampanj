@@ -21,14 +21,14 @@ const MobileSubscriptionComponent = ({className, mobileSubscriptionItems}) => (
 const StyledTitle = styled.h3`
 margin-bottom: 0;
 margin-left: 2%;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 font-size: 22px;
 `}
 `
 const StyledPreamble = styled.h5`
 margin-top: 0;
 margin-left: 2%;
-${media.greaterThan('600px')`
+${media.greaterThan('576px')`
 font-size: 16px;
 `}
 `
@@ -36,7 +36,7 @@ const StyledMobileSubscriptionComponent = styled(MobileSubscriptionComponent)`
 color: #333333;
 background-color: #BDBDBD;
 padding: 3% 5%;
-height: 576px;
+height: 600px;
 `
 export default StyledMobileSubscriptionComponent
 
