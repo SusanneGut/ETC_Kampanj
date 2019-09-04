@@ -1,4 +1,3 @@
-
 # Kampanj WebbApp
 
 A Gatsby project generating static pages. Built based on input from Dato CMS with GraphQL scheme.
