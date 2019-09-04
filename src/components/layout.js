@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <StyledDiv>
-        <NavComponent/>
+          <NavComponent />
           <Header />
           <div>
             <main>{children}</main>

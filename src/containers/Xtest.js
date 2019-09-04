@@ -1,6 +1,6 @@
 // NewsComponent.js
 
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 
 const NewsComponent = ({ className, newsItems }) => (
   <div className={className}>
@@ -11,32 +11,32 @@ const NewsComponent = ({ className, newsItems }) => (
       </div>
     ))}
   </div>
-);
+)
 
 NewsComponent.propTypes = {
   newsItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      description: PropTypes.string
+      description: PropTypes.string,
     })
-  )
-};
+  ),
+}
 
-export default styled(NewsComponent);
+export default styled(NewsComponent)
 
 // -----------------------------------------------------------
 // -----------------------------------------------------------
 
 // NewsContainer.js
 
-import NewsComponent from "./NewsComponent.jsx";
+import NewsComponent from "./NewsComponent.jsx"
 
 const NewsContainer = () => (
   <StaticQuery
     query={""}
     render={data => <NewsComponent newsItems={data.datoCmsPage.content} />}
   />
-);
+)
 
 // -----------------------------------------------------------
 // -----------------------------------------------------------
@@ -49,12 +49,12 @@ const Index = () => (
       newsItems={[
         {
           title: "Lorem ispum",
-          description: "This is a fantastic description"
+          description: "This is a fantastic description",
         },
-        { title: "This is an item without a description" }
+        { title: "This is an item without a description" },
       ]}
     />
     <NewsContainer />
   </div>
-);
+)
 Collapse

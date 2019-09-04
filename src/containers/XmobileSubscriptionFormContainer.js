@@ -1,31 +1,31 @@
 import React from "react"
 import MobileSubscriptionFormComponent from "../components/XmobileSubscriptionFormComponent"
-import {StaticQuery, graphql} from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 
 const MobileSubscriptionFormContainer = () => (
-    <StaticQuery
-      query={graphql`
-        query {
-          allDatoCmsMobilesubscription {
-            edges {
-              node {
-                price
-              }
+  <StaticQuery
+    query={graphql`
+      query {
+        allDatoCmsMobilesubscription {
+          edges {
+            node {
+              price
             }
           }
         }
-      `}
-      render={data => {
-        const prices = data.allDatoCmsMobilesubscription.edges.map(
-          ({ node }) => node
-        );
-  
-        return (
-          <div>
-            <MobileSubscriptionFormComponent prices={prices} />
-          </div>
-        );
-      }}
-    />
-  );
-  export default MobileSubscriptionFormContainer;
+      }
+    `}
+    render={data => {
+      const prices = data.allDatoCmsMobilesubscription.edges.map(
+        ({ node }) => node
+      )
+
+      return (
+        <div>
+          <MobileSubscriptionFormComponent prices={prices} />
+        </div>
+      )
+    }}
+  />
+)
+export default MobileSubscriptionFormContainer

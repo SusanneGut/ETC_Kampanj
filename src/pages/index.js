@@ -9,7 +9,6 @@ import StyledPuffsComponent from "../components/styledPuffsComponent"
 
 export default function Index() {
   return (
-    
     <Layout>
       <div>
         <TopContainer />
