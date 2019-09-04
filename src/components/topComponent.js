@@ -15,7 +15,7 @@ const TopComponent = ({className, topItems}) => (
             {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
             {top.preamble ? <StyledPreamble dangerouslySetInnerHTML={{__html:top.preamble}}></StyledPreamble> : ''}
             {top.buttontext ? <Link to="/test"><Button transparentRed>{top.buttontext}</Button></Link> : ''}
-         </Backgroundimage> :   
+            </Backgroundimage> :   
             <div>
                 {top.logo ? <div style={{marginBottom:"1.45rem", maxWidth:"50px"}}><Img fluid={top.logo.fluid}/> </div> : ''}
                 {top.title ? <StyledTitle>{top.title}</StyledTitle> : ''}
@@ -37,6 +37,7 @@ const TopComponent = ({className, topItems}) => (
  const StyledPreamble = styled.section`
  ${media.greaterThan('576px')`
  font-size: 20px;
+
 `}
 font-size: 14px;
  `
@@ -49,4 +50,5 @@ ${media.greaterThan('576px')`
 padding: 0px 50% 5% 10%;
 `}
 `
+
 export default StyledTopComponent
