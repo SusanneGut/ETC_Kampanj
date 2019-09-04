@@ -6,7 +6,7 @@ import Footer from "./footer"
 import Header from "./header"
 import styled from "styled-components"
 import media from "styled-media-query"
-import NavComponent from "./NavComponent"
+import NavComponent from "./navComponent"
 
 const Layout = ({ children }) => (
   <StaticQuery
