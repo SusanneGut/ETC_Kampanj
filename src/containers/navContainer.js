@@ -5,24 +5,15 @@ import { StaticQuery, graphql } from "gatsby"
 const NavContainer = ({ className }) => (
   <StaticQuery
     query={graphql`
-      query {
-        allDatoCmsArticle {
-          edges {
-            node {
-              slug
-            }
-          }
+      query($slug: String!) {
+        datoCmsArticle(slug: { eq: $slug }) {
+          slug
+          articletitle
         }
       }
     `}
     render={data => {
-      return (
-        <div className={className}>
-          {data.allDatoCmsArticle.edges.map(({ node }) => {
-            return <NavComponent slug={node.slug} />
-          })}
-        </div>
-      )
+      return <NavComponent slug={data.datoCmsArticle.slug} />
     }}
   />
 )

@@ -57,7 +57,7 @@ const PuffLargeContainer = ({ className }) => (
             return (
               <PuffLargeComponent
                 img={node.img}
-                articletitle={node.articletitle}
+                title={node.articletitle}
                 preamble={node.preamble}
                 slug={node.slug}
               />
