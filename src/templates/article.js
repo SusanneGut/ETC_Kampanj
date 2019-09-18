@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import media from "styled-media-query"
 import Video from "../components/video"
+import Layout from "../components/layout"
 
 export default ({ data, className }) => {
   const title = data.datoCmsArticle.articletitle
@@ -11,43 +12,46 @@ export default ({ data, className }) => {
   const image = data.datoCmsArticle.img
   const content = data.datoCmsArticle.content
   return (
-    <StyledArticle className={className}>
-      <StyledText>
-        {title ? <StyledH2>{title}</StyledH2> : ""}
-        <StyledHr />
-        {preamble ? (
-          <StyledH4 dangerouslySetInnerHTML={{ __html: preamble }} />
-        ) : (
-          ""
-        )}
-      </StyledText>
-      {image ? <TopImg fluid={image.fluid} /> : ""}
-      <StyledDiv>
-        {content.map(article => {
-          return (
-            <section>
-              {article.img ? <StyledImg fluid={article.img.fluid} /> : ""}
-              {article.subtitle ? <p>{article.subtitle}</p> : ""}
-              {article.body ? (
-                <p dangerouslySetInnerHTML={{ __html: article.body }} />
-              ) : (
-                ""
-              )}
-              {article.video ? (
-                <StyledVideo
-                  videoTitle={article.video.title}
-                  videoSrcURL={
-                    "https://www.youtube.com/embed/" + article.video.providerUid
-                  }
-                />
-              ) : (
-                ""
-              )}
-            </section>
-          )
-        })}
-      </StyledDiv>
-    </StyledArticle>
+    <Layout>
+      <StyledArticle className={className}>
+        <StyledText>
+          {title ? <StyledH2>{title}</StyledH2> : ""}
+          <StyledHr />
+          {preamble ? (
+            <StyledH4 dangerouslySetInnerHTML={{ __html: preamble }} />
+          ) : (
+            ""
+          )}
+        </StyledText>
+        {image ? <TopImg fluid={image.fluid} /> : ""}
+        <StyledDiv>
+          {content.map(article => {
+            return (
+              <section>
+                {article.img ? <StyledImg fluid={article.img.fluid} /> : ""}
+                {article.subtitle ? <p>{article.subtitle}</p> : ""}
+                {article.body ? (
+                  <p dangerouslySetInnerHTML={{ __html: article.body }} />
+                ) : (
+                  ""
+                )}
+                {article.video ? (
+                  <StyledVideo
+                    videoTitle={article.video.title}
+                    videoSrcURL={
+                      "https://www.youtube.com/embed/" +
+                      article.video.providerUid
+                    }
+                  />
+                ) : (
+                  ""
+                )}
+              </section>
+            )
+          })}
+        </StyledDiv>
+      </StyledArticle>
+    </Layout>
   )
 }
 
