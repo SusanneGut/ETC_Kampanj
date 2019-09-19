@@ -2,14 +2,15 @@ import React from "react"
 import NavComponent from "../components/navComponent"
 import { StaticQuery, graphql } from "gatsby"
 
-const NavContainer = ({ className }) => (
+const NavContainer = ({}) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsArticle {
+        allDatoCmsArticle(sort: { fields: [meta___publishedAt], order: DESC }) {
           edges {
             node {
               slug
+              articletitle
             }
           }
         }
@@ -17,11 +18,12 @@ const NavContainer = ({ className }) => (
     `}
     render={data => {
       return (
-        <div className={className}>
-          {data.allDatoCmsArticle.edges.map(({ node }) => {
-            return <NavComponent slug={node.slug} />
-          })}
-        </div>
+        <NavComponent
+          navigationItems={data.allDatoCmsArticle.edges.map(({ node }) => ({
+            slug: node.slug,
+            title: node.articletitle,
+          }))}
+        />
       )
     }}
   />
