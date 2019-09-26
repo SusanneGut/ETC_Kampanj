@@ -6,18 +6,12 @@ import media from "styled-media-query"
 import Link from "gatsby-link"
 import BackgroundImage from "gatsby-background-image"
 
-const PuffLargeComponent = ({
-  className,
-  img,
-  articletitle,
-  preamble,
-  slug,
-}) => (
+const PuffLargeComponent = ({ className, img, title, preamble, slug }) => (
   <div className={className}>
     <StyledArticle>
       <StyledBackgroundImage fluid={img.fluid}>
         <StyledText>
-          {articletitle ? <StyledH3>{articletitle}</StyledH3> : ""}
+          {title ? <StyledH3>{title}</StyledH3> : ""}
           {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
           <Link to={slug}>
             <StyledButton>Läs mer</StyledButton>
@@ -25,7 +19,7 @@ const PuffLargeComponent = ({
         </StyledText>
       </StyledBackgroundImage>
       <StyledTextBig>
-        {articletitle ? <StyledH3>{articletitle}</StyledH3> : ""}
+        {title ? <StyledH3>{title}</StyledH3> : ""}
         {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
         <Link to={slug}>
           <StyledButton>Läs mer</StyledButton>
