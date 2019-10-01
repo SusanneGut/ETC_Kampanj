@@ -31,10 +31,12 @@ export default ({ data, className }) => {
       {subtitle ? <StyledH4>{subtitle}</StyledH4> : ""}
       {content.map(item => {
         return (
-          <StyledP>
-            {item.lineitem}
+          <section style={{ marginRight: "50%" }}>
             <StyledHr />
-          </StyledP>
+            <StyledP1>{item.lineitem}</StyledP1>
+            {item.itemprice ? <StyledP2>{item.itemprice} kr</StyledP2> : ""}
+            <br />
+          </section>
         )
       })}
       {textline ? <StyledA href="/Anvandaravtal">{textline}</StyledA> : ""}
@@ -45,15 +47,15 @@ export default ({ data, className }) => {
           <StyledP1>Mobilabonnemang {title}</StyledP1>
           <StyledP2>{price} kr/mån</StyledP2>
           <br />
-          <StyledHr style={{ marginRight: "0%" }} />
+          <StyledHr />
           <StyledP1>Lorem Ipsum</StyledP1>
           <StyledP2>{y} kr/mån</StyledP2>
           <br />
-          <StyledHr style={{ marginRight: "0%" }} />
+          <StyledHr />
           <StyledP1>Lorem Ipsum</StyledP1>
           <StyledP2>{z} kr/mån</StyledP2>
           <br />
-          <StyledHr style={{ marginRight: "0%" }} />
+          <StyledHr />
           <br />
           <StyledTotal>
             <StyledP1>Total:</StyledP1>
@@ -69,7 +71,7 @@ export default ({ data, className }) => {
         </StyledSection>
       </StyledDiv>
       <br />
-      <MobilesubscriptionFormComponent1 />
+      <Form id="form" />
     </StyledArticle>
   )
 }
@@ -90,6 +92,7 @@ export const query = graphql`
       content {
         ... on DatoCmsPricedetail {
           lineitem
+          itemprice
         }
       }
     }
@@ -128,7 +131,6 @@ const StyledImg = styled(Img)`
   padding: 0;
 `
 const StyledHr = styled.hr`
-  margin-right: 50%;
   color: #e3000b;
 `
 const StyledDiv = styled.div`
@@ -176,3 +178,4 @@ const Button1 = styled(Button)`
 const Button2 = styled(Button)`
   float: right;
 `
+const Form = styled(MobilesubscriptionFormComponent1)``
