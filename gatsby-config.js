@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `ETC Mobil`,
-    description: `ETC Mobil test site.`,
+    title: `ETC Kampanj`,
+    description: `Kampanjsidor`,
     author: `@s`,
   },
   plugins: [
@@ -14,15 +14,15 @@ module.exports = {
       },
     },
     {
-    resolve: `gatsby-source-datocms`,
-    options: {
-      apiToken: `449ae1f07915247163eae1d102f494`,
-      preview: false,
-      disableLiveReload: false,
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: `449ae1f07915247163eae1d102f494`,
+        preview: false,
+        disableLiveReload: false,
+      },
     },
-  },
     `gatsby-transformer-sharp`,
-    
+
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -30,7 +30,7 @@ module.exports = {
         // Add any options here
       },
     },
-    
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

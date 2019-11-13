@@ -11,6 +11,7 @@ const NavContainer = ({}) => (
             node {
               slug
               articletitle
+              ismenuitem
             }
           }
         }
@@ -20,6 +21,7 @@ const NavContainer = ({}) => (
       return (
         <NavComponent
           navigationItems={data.allDatoCmsArticle.edges.map(({ node }) => ({
+            ismenuitem: node.ismenuitem,
             slug: node.slug,
             title: node.articletitle,
           }))}

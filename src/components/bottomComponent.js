@@ -7,42 +7,47 @@ const BottomComponent = ({ className, bottomItems }) => (
     {bottomItems.map(item => {
       return (
         <div>
-          <div>
-            {item.logo ? (
-              <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
-                <Img fluid={item.logo.fluid} />
+          {item.__typename === "DatoCmsBottom" ? (
+            <StyledDiv style={{ backgroundColor: item.bgcolor.hex }}>
+              <div>
+                {item.logo ? (
+                  <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
+                    <Img fluid={item.logo.fluid} />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
-            ) : (
-              ""
-            )}
-          </div>
-          <StyledText>
-            {item.contact ? (
-              <p dangerouslySetInnerHTML={{ __html: item.contact }} />
-            ) : (
-              ""
-            )}
-          </StyledText>
+              <StyledText>
+                {item.contact ? (
+                  <p dangerouslySetInnerHTML={{ __html: item.contact }} />
+                ) : (
+                  ""
+                )}
+              </StyledText>{" "}
+              <StyledHr />
+            </StyledDiv>
+          ) : (
+            ""
+          )}
         </div>
       )
     })}
-    <StyledHr />
   </div>
 )
 
 const StyledHr = styled.hr`
-  margin-right: -100%;
+  margin-right: -10%;
 `
-const StyledBottomComponent = styled(BottomComponent)`
-  color: white;
-  background-color: #3e3e3e;
-  border: 1px solid #3e3e3e;
-  padding: 2% 50% 5% 10%;
-`
+
 const StyledText = styled.div`
   p {
     font-size: 10px;
   }
 `
+const StyledDiv = styled.div`
+  padding: 2% 20% 5% 10%;
+  color: white;
+`
 
-export default StyledBottomComponent
+export default BottomComponent

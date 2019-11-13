@@ -9,9 +9,16 @@ const NavComponent = ({ className, navigationItems }) => {
     <div className={className}>
       <StyledBurgerMenu>
         <BurgerMenu right width="50%">
-          {navigationItems.map(item => (
-            <Link to={"/" + item.slug}>{item.title}</Link>
-          ))}
+          {navigationItems.map(item =>
+            item.ismenuitem === true ? (
+              <Link to={"/" + item.slug}>
+                {item.title}
+                <hr />
+              </Link>
+            ) : (
+              ""
+            )
+          )}
         </BurgerMenu>
       </StyledBurgerMenu>
     </div>

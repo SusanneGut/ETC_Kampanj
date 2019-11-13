@@ -40,8 +40,8 @@ const StyledBody = styled.div`
   ${media.greaterThan("576px")`
 flex-direction: row;
 max-width: 100%;
-max-height: 250px;
 margin: 0;
+max-height: 300px;
 `}
 `
 const StyledH2 = styled.h2`
@@ -69,7 +69,7 @@ flex: 4;
 margin: 0;
 padding: 0;
 max-width: 60%;
-height: 300px;
+height: 360px;
 `}
 `
 const StyledMainComponent = styled(MainComponent)`
@@ -77,7 +77,7 @@ const StyledMainComponent = styled(MainComponent)`
   background-color: white;
   border: 1px solid #e9e9e9;
   ${media.greaterThan("576px")`
-height: 300px;
+  height: 360px;
 `}
 `
 export default StyledMainComponent

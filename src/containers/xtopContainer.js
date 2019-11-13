@@ -31,6 +31,7 @@ const TopContainer = () => (
               buttonlink {
                 ... on DatoCmsArticle {
                   articletitle
+                  slug
                 }
               }
             }

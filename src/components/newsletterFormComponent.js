@@ -1,51 +1,40 @@
 import React from "react"
 import Button from "./button"
-
 export default class Form extends React.Component {
   state = {
-    mejl: "",
+    email: "",
   }
 
   handleInputChange = event => {
     const target = event.target
     const value = target.value
-    const mejl = target.name
+    const email = target.name
 
     this.setState({
-      [mejl]: value,
+      [email]: value,
     })
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`You will get news to: ${this.state.mejl}!`)
+    alert(`You will get news to: ${this.state.email}!`)
   }
 
-  render(buttonText) {
+  render() {
     return (
       <div>
         <h4>
           <a id="form-mobil" />
         </h4>
 
-        <form
-          action="mailto:susanne.gut@etc.se"
-          method="post"
-          enctype="text/plain"
-        >
+        <form action="https://gansub.com/s/sUMnC7kSJ/" method="POST">
           <div style={{ paddingBottom: "10px" }}>
-            <lable>
-              {buttonText}
-              <input
-                type="email"
-                name="mejl"
-                value={this.state.mejl}
-                onChange={this.handleInputChange}
-              />
-            </lable>
+            <lable for="email" />
+            <input type="text" id="email" name="email" placeholder="mejl" />
+            <input type="hidden" name="gan_repeat_email" />
           </div>
           <div>
-            <Button transparentWhite type="submit" value="send">
+            <Button transparentWhite type="submit" value="Till ETC.se">
               Prenumerera
             </Button>
           </div>
