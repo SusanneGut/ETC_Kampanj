@@ -14,7 +14,7 @@ const PuffMobileSubscriptionComponent = ({
   slug,
 }) => (
   <StyledPuff className={className}>
-    <StyledDiv className="test">
+    <StyledDiv>
       {img ? <StyledImage fluid={img.fluid} /> : ""}
       <StyledMain>
         {title ? <StyledTitle>{title}</StyledTitle> : ""}
@@ -43,10 +43,11 @@ const StyledDiv = styled.section`
   flex-direction: row;
   max-width: 100%;
   ${media.greaterThan("576px")`
-max-width: 28%;
+max-width: 29%;
 float: left;
 flex-direction: column;
 margin: 2%;
+height: 400px;
 `}
 `
 const StyledMain = styled.div`
@@ -64,12 +65,13 @@ const StyledImage = styled(Img)`
   ${media.greaterThan("576px")`
 max-width: 100%;
 border-radius: 8px 8px 0 0;
+max-height:150px;
 `}
 `
 const StyledTitle = styled.h5`
   margin-bottom: 1%;
   ${media.greaterThan("576px")`
-font-size: 16px;
+font-size: 15px;
 `}
 `
 const StyledText = styled.span`
@@ -96,5 +98,3 @@ font-size: 10px;
 `
 
 export default PuffMobileSubscriptionComponent
-
-//puffMobileSubscriptionComponent__StyledPuff-kdbkYc cqQtvI

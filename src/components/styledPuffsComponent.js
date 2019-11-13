@@ -1,14 +1,51 @@
 import React from "react"
 import styled from "styled-components"
 import media from "styled-media-query"
-import PuffSmallContainer from "../containers/puffSmallContainer"
-import PuffLargeContainer from "../containers/puffLargeContainer"
+import PuffLargeComponent from "./puffLargeComponent"
+import PuffSmallComponent from "./puffSmallComponent"
+import PuffSingleComponent from "./puffSingleComponent"
 
-const StyledPuffsComponent = ({ className }) => (
-  <Styled className={className}>
-    <StyledPuffLarge />
-    <StyledPuffSmall />
-  </Styled>
+const StyledPuffsComponent = ({ className, puffItems }) => (
+  <div className={className}>
+    {puffItems.map(item => {
+      return (
+        <div>
+          {item.__typename === "DatoCmsPuffsfield" ? (
+            <div>
+              {item.listofpuffs[1] ? (
+                <Styled style={{ backgroundColor: item.bgcolor.hex }}>
+                  {item.listofpuffs.map((puff, i) =>
+                    i === 0 ? (
+                      <StyledPuffLarge
+                        puff={puff}
+                        buttontext={item.buttontext}
+                      />
+                    ) : (
+                      <StyledPuffSmall
+                        puff={puff}
+                        buttontext={item.buttontext}
+                      />
+                    )
+                  )}
+                </Styled>
+              ) : (
+                <div style={{ backgroundColor: item.bgcolor.hex }}>
+                  {item.listofpuffs.map(puff => (
+                    <StyledPuffSingle
+                      puff={puff}
+                      buttontext={item.buttontext}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+      )
+    })}
+  </div>
 )
 export default StyledPuffsComponent
 
@@ -16,37 +53,39 @@ const Styled = styled.div`
   display: flex;
   color: #333333;
   background-color: #f3f3f3;
-  border: 1px solid #e9e9e9;
+  //border: 1px solid #e9e9e9;
 `
-const StyledPuffLarge = styled(PuffLargeContainer)`
+const StyledPuffLarge = styled(PuffLargeComponent)`
   padding: 10px;
   width: 50%;
   flex: 0 1 2;
+  margin-top: -5%;
+  margin-right: 0;
+  margin-left: 5%;
   ${media.greaterThan("576px")`
 width: 70%;
-margin-top: -5%;
 padding: 20px 10px 20px 30px;
 `}
-  ${media.lessThan("601px")`
-max-width: 50%;
-widht: 50%;
-padding: 5% 1% 5% 8%
-margin-top: -8%;
+${media.greaterThan("768px")`
+
 `}
+}
 `
-const StyledPuffSmall = styled(PuffSmallContainer)`
+const StyledPuffSmall = styled(PuffSmallComponent)`
   padding: 10px;
   widht: 50%;
   flex: 3 4 5;
+  margin-top: -5%;
+  margin-right: 5%;
   ${media.greaterThan("576px")`
 width: 30%;
-margin-top: -5%;
 padding: 20px 30px 20px 10px;
 `}
-  ${media.lessThan("601px")`
-max-width: 50%;
-width: 50%;
-padding: 5% 0% 5% 1%;
-margin-top:-8%;
-`}
+  ${media.greaterThan("768px")`
+  `}
+`
+const StyledPuffSingle = styled(PuffSingleComponent)`
+  width: 80%;
+  margin-top: -5%;
+  padding: 0 5% 5% 10%;
 `

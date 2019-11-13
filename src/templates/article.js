@@ -5,12 +5,14 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import Video from "../components/video"
 import Layout from "../components/layout"
+import Sharebuttons from "../components/shareButtons"
 
 export default ({ data, className }) => {
   const title = data.datoCmsArticle.articletitle
   const preamble = data.datoCmsArticle.preamble
   const image = data.datoCmsArticle.img
   const content = data.datoCmsArticle.content
+  const slug = data.datoCmsArticle.slug
   return (
     <Layout>
       <StyledArticle className={className}>
@@ -23,6 +25,7 @@ export default ({ data, className }) => {
             ""
           )}
         </StyledText>
+        <StyledShareButtons slug={slug} />{" "}
         {image ? <TopImg fluid={image.fluid} /> : ""}
         <StyledDiv>
           {content.map(article => {
@@ -58,6 +61,7 @@ export default ({ data, className }) => {
 export const query = graphql`
   query($slug: String!) {
     datoCmsArticle(slug: { eq: $slug }) {
+      slug
       articletitle
       preamble
       img {
@@ -107,6 +111,7 @@ const StyledText = styled.div`
     margin-bottom: 5%;
   }
 `
+const StyledShareButtons = styled(Sharebuttons)``
 const StyledH2 = styled.h2`
   ${media.greaterThan("576px")`
  font-size: 60px;
@@ -123,7 +128,7 @@ const TopImg = styled(Img)`
   margin-left: 10%;
   width: 80%;
   padding: 0;
-  max-height: 500px;
+  max-height: 250px;
 `
 const StyledImg = styled(Img)`
   flex: 4;
@@ -150,6 +155,7 @@ const StyledArticle = styled.div`
   overflow: scroll;
   position: relative;
 `
+
 const StyledVideo = styled(Video)`
   width: 70%;
   margin-left: 10%;

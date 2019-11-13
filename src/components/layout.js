@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
 import Footer from "./footer"
@@ -42,9 +41,5 @@ const StyledDiv = styled.div`
  margin-right: 15%;
 `}
 `
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout

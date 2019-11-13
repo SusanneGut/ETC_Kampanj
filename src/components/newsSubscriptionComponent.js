@@ -2,34 +2,50 @@ import React from "react"
 import NewsletterFormComponent from "./newsletterFormComponent"
 import styled from "styled-components"
 import media from "styled-media-query"
+import Backgroundimage from "gatsby-background-image"
 
 const NewsSubscriptionComponent = ({ className, newsSubscriptionItems }) => (
   <div className={className}>
     {newsSubscriptionItems.map(item => {
       return (
         <div>
-          {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
-          {item.preamble ? (
-            <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
+          {item.__typename === "DatoCmsNewsletter" ? (
+            <div>
+              {item.bgimage ? (
+                <StyledBackgroundImage fluid={item.bgimage.fluid}>
+                  {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
+                  {item.preamble ? (
+                    <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
+                  ) : (
+                    ""
+                  )}
+                  <NewsletterFormComponent />
+                </StyledBackgroundImage>
+              ) : (
+                <StyledDiv>
+                  {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
+                  {item.preamble ? (
+                    <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
+                  ) : (
+                    ""
+                  )}
+                  <NewsletterFormComponent />
+                </StyledDiv>
+              )}
+            </div>
           ) : (
             ""
           )}
         </div>
       )
     })}
-    <div>
-      <NewsletterFormComponent />
-    </div>
   </div>
 )
 const StyledNewsSubscriptionComponent = styled(NewsSubscriptionComponent)`
   color: white;
   background-color: #686868;
-  border: 1px solid #686868;
-  padding: 5%;
   text-align: center;
   ${media.greaterThan("576px")`
-padding: 5% 30%;
 `}
 `
 const StyledH2 = styled.h3`
@@ -37,5 +53,16 @@ const StyledH2 = styled.h3`
 font-size: 22px;
 `}
 `
-
+const StyledDiv = styled.div`
+  padding: 5%;
+  ${media.greaterThan("576px")`
+padding: 10%;
+`}
+`
+const StyledBackgroundImage = styled(Backgroundimage)`
+  padding: 5% 10%;
+  ${media.greaterThan("576px")`
+padding: 5% 20%;
+`}
+`
 export default StyledNewsSubscriptionComponent

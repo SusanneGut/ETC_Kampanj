@@ -11,6 +11,14 @@ const NewsSubscriptionContainer = () => (
             ... on DatoCmsNewsletter {
               title
               preamble
+              bgimage {
+                fluid(
+                  maxWidth: 500
+                  imgixParams: { fm: "jpg", auto: "compress" }
+                ) {
+                  ...GatsbyDatoCmsFluid
+                }
+              }
             }
           }
         }

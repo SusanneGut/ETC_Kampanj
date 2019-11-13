@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Button from "../components/button"
 import Link from "gatsby-link"
 import MobilesubscriptionFormComponent1 from "../components/mobileSubscriptionFormComponent.1"
+import media from "styled-media-query"
 
 export default ({ data, className }) => {
   const y = 50
@@ -24,6 +25,7 @@ export default ({ data, className }) => {
     <StyledArticle className={className}>
       <StyledText>
         {title ? <StyledH3>{title}</StyledH3> : ""}
+        <StyledTopHr />
         {body ? <StyledP dangerouslySetInnerHTML={{ __html: body }} /> : ""}
       </StyledText>
       <br />
@@ -31,14 +33,15 @@ export default ({ data, className }) => {
       {subtitle ? <StyledH4>{subtitle}</StyledH4> : ""}
       {content.map(item => {
         return (
-          <section style={{ marginRight: "50%" }}>
+          <StyledPriceSection>
             <StyledHr />
             <StyledP1>{item.lineitem}</StyledP1>
             {item.itemprice ? <StyledP2>{item.itemprice} kr</StyledP2> : ""}
             <br />
-          </section>
+          </StyledPriceSection>
         )
       })}
+      <br />
       {textline ? <StyledA href="/Anvandaravtal">{textline}</StyledA> : ""}
       <br />
       <StyledDiv>
@@ -63,7 +66,9 @@ export default ({ data, className }) => {
           </StyledTotal>{" "}
           <br />
           <Link to="/ETC_lagom">
-            <Button1 transparentGrey>Avbryt</Button1>
+            <Button1 style={{ color: "#E3000B" }} transparentRed>
+              Avbryt
+            </Button1>
           </Link>
           <Link to="">
             <Button2>Gå vidare</Button2>
@@ -98,7 +103,38 @@ export const query = graphql`
     }
   }
 `
+const StyledPriceSection = styled.section`
+  margin: 0;
+  ${media.greaterThan("576px")`
+  
+  `}
+`
+const StyledTopHr = styled.hr`
+  width: 30%;
+  margin-left: 0;
+  background-color: #e3000b;
+  height: 8px;
+  border-style: none;
+  margin: 0;
+`
 
+const StyledP1 = styled.p`
+  float: left;
+  margin: 0;
+  font-size: 12px;
+  ${media.greaterThan("576px")`
+
+  `}
+`
+const StyledP2 = styled.p`
+  float: right;
+  margin: 0;
+  font-size: 12px;
+  ${media.greaterThan("576px")`
+  font-size: 14px;
+
+  `}
+`
 const StyledA = styled.a`
   font-size: 12px;
 `
@@ -152,17 +188,6 @@ const StyledSection = styled.section`
   margin-bottom: 10%;
 `
 const StyledP = styled.p`
-  font-size: 12px;
-`
-
-const StyledP1 = styled.p`
-  float: left;
-  margin: 0;
-  font-size: 12px;
-`
-const StyledP2 = styled.p`
-  float: right;
-  margin: 0;
   font-size: 14px;
 `
 const StyledTotal = styled.section`
