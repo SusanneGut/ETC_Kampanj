@@ -56,6 +56,7 @@ const Styled = styled.div`
   //border: 1px solid #e9e9e9;
 `
 const StyledPuffLarge = styled(PuffLargeComponent)`
+  position: relative;
   padding: 10px;
   width: 50%;
   flex: 0 1 2;
