@@ -40,8 +40,6 @@ const PuffLargeComponent = ({ className, puff: item, buttontext }) => (
 
 const StyledArticle = styled.div`
   ${media.lessThan("576px")`
-  //border: 1px solid #e9e9e9;
- 
   height: 150px;
   width: 150px;
 `}
@@ -112,6 +110,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   `}
 `
 const StyledTextBig = styled.section`
+  border-radius: 8px 0px 0px 8px;
   ${media.lessThan("576px")`
     display: none;
     `}
