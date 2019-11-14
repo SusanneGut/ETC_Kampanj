@@ -44,7 +44,7 @@ const TopComponent = ({ className, topItems }) => (
                   )}
                 </Backgroundimage>
               ) : (
-                <div>
+                <div style={{ backgroundColor: top.backgroundcolor.hex }}>
                   {top.logo ? (
                     <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
                       <Img fluid={top.logo.fluid} />{" "}
@@ -98,7 +98,6 @@ const StyledPreamble = styled.section`
 `}
 `
 const StyledTopComponent = styled(TopComponent)`
-  background-color: #f7f7f7;
   ${media.greaterThan("576px")`
 `}
 `

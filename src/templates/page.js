@@ -34,6 +34,9 @@ export const query = graphql`
           textcolor {
             hex
           }
+          backgroundcolor {
+            hex
+          }
           backgroundimage {
             fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsFluid
@@ -85,6 +88,12 @@ export const query = graphql`
             }
           }
           body
+          textcolor {
+            hex
+          }
+          backgroundcolor {
+            hex
+          }
         }
         ... on DatoCmsNewsletter {
           title
@@ -93,6 +102,12 @@ export const query = graphql`
             fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsFluid
             }
+          }
+          backgroundcolor {
+            hex
+          }
+          textcolor {
+            hex
           }
         }
         ... on DatoCmsBottom {
@@ -103,6 +118,9 @@ export const query = graphql`
           }
           contact
           bgcolor {
+            hex
+          }
+          textcolor {
             hex
           }
         }

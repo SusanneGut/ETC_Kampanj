@@ -9,7 +9,12 @@ const MainComponent = ({ className, mainItems }) => (
       return (
         <div>
           {main.__typename === "DatoCmsMain" ? (
-            <StyledBody>
+            <StyledBody
+              style={{
+                color: main.textcolor.hex,
+                backgroundColor: main.backgroundcolor.hex,
+              }}
+            >
               {main.img ? <StyledImg fluid={main.img.fluid} /> : ""}
               <StyledText>
                 {main.title ? <StyledH2>{main.title}</StyledH2> : ""}
@@ -73,8 +78,6 @@ height: 360px;
 `}
 `
 const StyledMainComponent = styled(MainComponent)`
-  color: #333333;
-  background-color: white;
   border: 1px solid #e9e9e9;
   ${media.greaterThan("576px")`
   height: 360px;

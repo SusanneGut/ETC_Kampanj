@@ -8,7 +8,12 @@ const BottomComponent = ({ className, bottomItems }) => (
       return (
         <div>
           {item.__typename === "DatoCmsBottom" ? (
-            <StyledDiv style={{ backgroundColor: item.bgcolor.hex }}>
+            <StyledDiv
+              style={{
+                backgroundColor: item.bgcolor.hex,
+                color: item.textcolor.hex,
+              }}
+            >
               <div>
                 {item.logo ? (
                   <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
@@ -47,7 +52,6 @@ const StyledText = styled.div`
 `
 const StyledDiv = styled.div`
   padding: 2% 20% 5% 10%;
-  color: white;
 `
 
 export default BottomComponent

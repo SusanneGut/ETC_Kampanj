@@ -10,7 +10,7 @@ const NewsSubscriptionComponent = ({ className, newsSubscriptionItems }) => (
       return (
         <div>
           {item.__typename === "DatoCmsNewsletter" ? (
-            <div>
+            <div style={{ color: item.textcolor.hex }}>
               {item.bgimage ? (
                 <StyledBackgroundImage fluid={item.bgimage.fluid}>
                   {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
@@ -22,7 +22,9 @@ const NewsSubscriptionComponent = ({ className, newsSubscriptionItems }) => (
                   <NewsletterFormComponent />
                 </StyledBackgroundImage>
               ) : (
-                <StyledDiv>
+                <StyledDiv
+                  style={{ backgroundColor: item.backgroundcolor.hex }}
+                >
                   {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
                   {item.preamble ? (
                     <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
@@ -42,8 +44,6 @@ const NewsSubscriptionComponent = ({ className, newsSubscriptionItems }) => (
   </div>
 )
 const StyledNewsSubscriptionComponent = styled(NewsSubscriptionComponent)`
-  color: white;
-  background-color: #686868;
   text-align: center;
   ${media.greaterThan("576px")`
 `}
