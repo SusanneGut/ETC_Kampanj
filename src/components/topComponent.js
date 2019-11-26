@@ -6,78 +6,72 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import Link from "gatsby-link"
 
-const TopComponent = ({ className, topItems }) => (
+const TopComponent = ({
+  className,
+  preamble,
+  title,
+  textcolor,
+  backgroundcolor,
+  backgroundimage,
+  logo,
+  buttonlink,
+  buttontext,
+}) => (
   <div className={className}>
-    {topItems.map(top => {
-      return (
-        <div>
-          {top.__typename === "DatoCmsTop" ? (
-            <div style={{ position: "relative", color: top.textcolor.hex }}>
-              {top.backgroundimage ? (
-                <Backgroundimage
-                  fluid={top.backgroundimage.fluid}
-                  style={{ padding: "5px" }}
-                >
-                  {top.logo ? (
-                    <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
-                      <Img fluid={top.logo.fluid} />{" "}
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {top.title ? <StyledTitle>{top.title}</StyledTitle> : ""}
-                  {top.preamble ? (
-                    <StyledPreamble
-                      dangerouslySetInnerHTML={{ __html: top.preamble }}
-                    />
-                  ) : (
-                    ""
-                  )}
-                  {top.buttontext ? (
-                    <Link to={top.buttonlink.slug}>
-                      <StyledButton transparentYellow>
-                        {top.buttontext}
-                      </StyledButton>
-                    </Link>
-                  ) : (
-                    ""
-                  )}
-                </Backgroundimage>
-              ) : (
-                <div style={{ backgroundColor: top.backgroundcolor.hex }}>
-                  {top.logo ? (
-                    <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
-                      <Img fluid={top.logo.fluid} />{" "}
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {top.title ? <StyledTitle>{top.title}</StyledTitle> : ""}
-                  {top.preamble ? (
-                    <StyledPreamble
-                      dangerouslySetInnerHTML={{ __html: top.preamble }}
-                    />
-                  ) : (
-                    ""
-                  )}
-                  {top.buttontext ? (
-                    <Link to={top.buttonlink.slug}>
-                      <StyledButton style={{ color: "#E3000B" }} transparentRed>
-                        {top.buttontext}
-                      </StyledButton>
-                    </Link>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              )}
+    <div style={{ position: "relative", color: textcolor.hex }}>
+      {backgroundimage ? (
+        <Backgroundimage
+          fluid={backgroundimage.fluid}
+          style={{ padding: "5px" }}
+        >
+          {logo ? (
+            <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
+              <Img fluid={logo.fluid} />{" "}
             </div>
           ) : (
             ""
           )}
+          {title ? <StyledTitle>{title}</StyledTitle> : ""}
+          {preamble ? (
+            <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
+          ) : (
+            ""
+          )}
+          {buttontext ? (
+            <Link to={buttonlink.slug}>
+              <StyledButton transparentYellow>{buttontext}</StyledButton>
+            </Link>
+          ) : (
+            ""
+          )}
+        </Backgroundimage>
+      ) : (
+        <div style={{ backgroundColor: backgroundcolor.hex }}>
+          {logo ? (
+            <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
+              <Img fluid={logo.fluid} />{" "}
+            </div>
+          ) : (
+            ""
+          )}
+          {title ? <StyledTitle>{title}</StyledTitle> : ""}
+          {preamble ? (
+            <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
+          ) : (
+            ""
+          )}
+          {buttontext ? (
+            <Link to={buttonlink.slug}>
+              <StyledButton style={{ color: "#E3000B" }} transparentRed>
+                {buttontext}
+              </StyledButton>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
-      )
-    })}
+      )}
+    </div>
   </div>
 )
 

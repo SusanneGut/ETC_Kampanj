@@ -4,50 +4,38 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import Backgroundimage from "gatsby-background-image"
 
-const NewsSubscriptionComponent = ({ className, newsSubscriptionItems }) => (
-  <div className={className}>
-    {newsSubscriptionItems.map(item => {
-      return (
-        <div>
-          {item.__typename === "DatoCmsNewsletter" ? (
-            <div style={{ color: item.textcolor.hex }}>
-              {item.bgimage ? (
-                <StyledBackgroundImage fluid={item.bgimage.fluid}>
-                  {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
-                  {item.preamble ? (
-                    <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
-                  ) : (
-                    ""
-                  )}
-                  <NewsletterFormComponent />
-                </StyledBackgroundImage>
-              ) : (
-                <StyledDiv
-                  style={{ backgroundColor: item.backgroundcolor.hex }}
-                >
-                  {item.title ? <StyledH2>{item.title}</StyledH2> : ""}
-                  {item.preamble ? (
-                    <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
-                  ) : (
-                    ""
-                  )}
-                  <NewsletterFormComponent />
-                </StyledDiv>
-              )}
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-      )
-    })}
+const NewsSubscriptionComponent = ({
+  className,
+  textcolor,
+  bgimage,
+  title,
+  preamble,
+  backgroundcolor,
+}) => (
+  <div
+    className={className}
+    style={{
+      color: textcolor.hex,
+      textAlign: "center",
+      backgroundColor: backgroundcolor.hex,
+    }}
+  >
+    {bgimage ? (
+      <StyledBackgroundImage fluid={bgimage.fluid}>
+        {title ? <StyledH2>{title}</StyledH2> : ""}
+        {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
+        <NewsletterFormComponent />
+      </StyledBackgroundImage>
+    ) : (
+      <StyledDiv style={{ backgroundColor: backgroundcolor.hex }}>
+        {title ? <StyledH2>{title}</StyledH2> : ""}
+        {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
+        <NewsletterFormComponent />
+      </StyledDiv>
+    )}
   </div>
 )
-const StyledNewsSubscriptionComponent = styled(NewsSubscriptionComponent)`
-  text-align: center;
-  ${media.greaterThan("576px")`
-`}
-`
+
 const StyledH2 = styled.h3`
   ${media.greaterThan("576px")`
 font-size: 22px;
@@ -65,4 +53,4 @@ const StyledBackgroundImage = styled(Backgroundimage)`
 padding: 5% 20%;
 `}
 `
-export default StyledNewsSubscriptionComponent
+export default NewsSubscriptionComponent

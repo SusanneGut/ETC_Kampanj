@@ -3,39 +3,29 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import media from "styled-media-query"
 
-const MainComponent = ({ className, mainItems }) => (
+const MainComponent = ({
+  className,
+  textcolor,
+  backgroundcolor,
+  img,
+  title,
+  preamble,
+  body,
+}) => (
   <div className={className}>
-    {mainItems.map(main => {
-      return (
-        <div>
-          {main.__typename === "DatoCmsMain" ? (
-            <StyledBody
-              style={{
-                color: main.textcolor.hex,
-                backgroundColor: main.backgroundcolor.hex,
-              }}
-            >
-              {main.img ? <StyledImg fluid={main.img.fluid} /> : ""}
-              <StyledText>
-                {main.title ? <StyledH2>{main.title}</StyledH2> : ""}
-                {main.preamble ? (
-                  <p dangerouslySetInnerHTML={{ __html: main.preamble }} />
-                ) : (
-                  ""
-                )}
-                {main.body ? (
-                  <p dangerouslySetInnerHTML={{ __html: main.body }} />
-                ) : (
-                  ""
-                )}
-              </StyledText>
-            </StyledBody>
-          ) : (
-            ""
-          )}
-        </div>
-      )
-    })}
+    <StyledBody
+      style={{
+        color: textcolor.hex,
+        backgroundColor: backgroundcolor.hex,
+      }}
+    >
+      {img ? <StyledImg fluid={img.fluid} /> : ""}
+      <StyledText>
+        {title ? <StyledH2>{title}</StyledH2> : ""}
+        {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
+        {body ? <p dangerouslySetInnerHTML={{ __html: body }} /> : ""}
+      </StyledText>
+    </StyledBody>
   </div>
 )
 

@@ -5,46 +5,30 @@ import PuffLargeComponent from "./puffLargeComponent"
 import PuffSmallComponent from "./puffSmallComponent"
 import PuffSingleComponent from "./puffSingleComponent"
 
-const StyledPuffsComponent = ({ className, puffItems }) => (
+const StyledPuffsComponent = ({
+  className,
+  backgroundcolor,
+  buttontext,
+  listofpuffs,
+}) => (
   <div className={className}>
-    {puffItems.map(item => {
-      return (
-        <div>
-          {item.__typename === "DatoCmsPuffsfield" ? (
-            <div>
-              {item.listofpuffs[1] ? (
-                <Styled style={{ backgroundColor: item.bgcolor.hex }}>
-                  {item.listofpuffs.map((puff, i) =>
-                    i === 0 ? (
-                      <StyledPuffLarge
-                        puff={puff}
-                        buttontext={item.buttontext}
-                      />
-                    ) : (
-                      <StyledPuffSmall
-                        puff={puff}
-                        buttontext={item.buttontext}
-                      />
-                    )
-                  )}
-                </Styled>
-              ) : (
-                <div style={{ backgroundColor: item.bgcolor.hex }}>
-                  {item.listofpuffs.map(puff => (
-                    <StyledPuffSingle
-                      puff={puff}
-                      buttontext={item.buttontext}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
+    {listofpuffs[1] ? (
+      <Styled style={{ backgroundColor: backgroundcolor.hex }}>
+        {listofpuffs.map((puff, i) =>
+          i === 0 ? (
+            <StyledPuffLarge puff={puff} buttontext={buttontext} />
           ) : (
-            ""
-          )}
-        </div>
-      )
-    })}
+            <StyledPuffSmall puff={puff} buttontext={buttontext} />
+          )
+        )}
+      </Styled>
+    ) : (
+      <div style={{ backgroundColor: backgroundcolor.hex }}>
+        {listofpuffs.map(puff => (
+          <StyledPuffSingle puff={puff} buttontext={buttontext} />
+        ))}
+      </div>
+    )}
   </div>
 )
 export default StyledPuffsComponent
