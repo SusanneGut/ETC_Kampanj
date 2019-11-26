@@ -2,42 +2,26 @@ import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-const BottomComponent = ({ className, bottomItems }) => (
+const BottomComponent = ({ className, bgcolor, textcolor, logo, contact }) => (
   <div className={className}>
-    {bottomItems.map(item => {
-      return (
-        <div>
-          {item.__typename === "DatoCmsBottom" ? (
-            <StyledDiv
-              style={{
-                backgroundColor: item.bgcolor.hex,
-                color: item.textcolor.hex,
-              }}
-            >
-              <div>
-                {item.logo ? (
-                  <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
-                    <Img fluid={item.logo.fluid} />
-                  </div>
-                ) : (
-                  ""
-                )}
-              </div>
-              <StyledText>
-                {item.contact ? (
-                  <p dangerouslySetInnerHTML={{ __html: item.contact }} />
-                ) : (
-                  ""
-                )}
-              </StyledText>{" "}
-              <StyledHr />
-            </StyledDiv>
-          ) : (
-            ""
-          )}
-        </div>
-      )
-    })}
+    <StyledDiv
+      style={{
+        backgroundColor: bgcolor.hex,
+        color: textcolor.hex,
+      }}
+    >
+      <div>
+        {logo && (
+          <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
+            <Img fluid={logo.fluid} />
+          </div>
+        )}
+      </div>
+      <StyledText>
+        {contact && <p dangerouslySetInnerHTML={{ __html: contact }} />}
+      </StyledText>
+      <StyledHr />
+    </StyledDiv>
   </div>
 )
 

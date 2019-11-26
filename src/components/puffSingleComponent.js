@@ -8,13 +8,11 @@ import Link from "gatsby-link"
 const PuffSingleComponent = ({ className, puff: item, buttontext }) => (
   <div className={className}>
     <StyledArticle style={{ backgroundColor: item.bgcolor.hex }}>
-      {item.img ? <StyledImg fluid={item.img.fluid} /> : ""}
+      {item.img && <StyledImg fluid={item.img.fluid} />}
       <StyledTextBig>
-        {item.articletitle ? <StyledH3>{item.articletitle}</StyledH3> : ""}
-        {item.preamble ? (
+        {item.articletitle && <StyledH3>{item.articletitle}</StyledH3>}
+        {item.preamble && (
           <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
-        ) : (
-          ""
         )}
         <Link to={item.slug}>
           <StyledButton>{buttontext}</StyledButton>

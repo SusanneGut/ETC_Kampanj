@@ -12,14 +12,64 @@ export default ({ data }) => {
   const slug = data.datoCmsPage.slug
   return (
     <Layout>
-      <div>
-        <TopComponent topItems={content} />
-        <StyledPuffsComponent puffItems={content} />
-        <MainComponent mainItems={content} />
-        {slug === "mobil" ? <MobileSubscriptionContainer /> : ""}
-        <NewsSubscriptionComponent newsSubscriptionItems={content} />
-        <BottomComponent bottomItems={content} />
-      </div>
+      {content.map(page => {
+        return (
+          <div>
+            {page.__typename === "DatoCmsTop" && (
+              <TopComponent
+                title={page.title}
+                preamble={page.preamble}
+                textcolor={page.textcolor}
+                backgroundcolor={page.backgroundcolor}
+                backgroundimage={page.backgroundimage}
+                logo={page.logo}
+                buttontext={page.buttontext}
+                buttonlink={page.buttonlink}
+              />
+            )}
+            {page.__typename === "DatoCmsPuffsfield" && (
+              <StyledPuffsComponent
+                backgroundcolor={page.bgcolor}
+                buttontext={page.buttontext}
+                listofpuffs={page.listofpuffs}
+                articletitle={page.articletitle}
+                preamble={page.preamble}
+                slug={page.slug}
+                img={page.img}
+              />
+            )}
+            {page.__typename === "DatoCmsMain" && (
+              <MainComponent
+                textcolor={page.textcolor}
+                backgroundcolor={page.backgroundcolor}
+                img={page.img}
+                title={page.title}
+                preamble={page.preamble}
+                body={page.body}
+              />
+            )}
+
+            {slug === "mobil" && <MobileSubscriptionContainer />}
+            {page.__typename === "DatoCmsNewsletter" && (
+              <NewsSubscriptionComponent
+                textcolor={page.textcolor}
+                bgimage={page.bgimage}
+                title={page.title}
+                preamble={page.preamble}
+                backgroundcolor={page.backgroundcolor}
+              />
+            )}
+            {page.__typename === "DatoCmsBottom" && (
+              <BottomComponent
+                bgcolor={page.bgcolor}
+                textcolor={page.textcolor}
+                logo={page.logo}
+                contact={page.contact}
+              />
+            )}
+          </div>
+        )
+      })}
     </Layout>
   )
 }

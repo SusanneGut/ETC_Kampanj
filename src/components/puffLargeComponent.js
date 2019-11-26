@@ -11,11 +11,9 @@ const PuffLargeComponent = ({ className, puff: item, buttontext }) => (
     <StyledArticle style={{ backgroundColor: item.bgcolor.hex }}>
       <StyledBackgroundImage fluid={item.img.fluid}>
         <StyledText>
-          {item.articletitle ? <StyledH3>{item.articletitle}</StyledH3> : ""}
-          {item.preamble ? (
+          {item.articletitle && <StyledH3>{item.articletitle}</StyledH3>}
+          {item.preamble && (
             <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
-          ) : (
-            ""
           )}
           <Link to={item.slug}>
             <StyledButton>{buttontext}</StyledButton>
@@ -23,17 +21,15 @@ const PuffLargeComponent = ({ className, puff: item, buttontext }) => (
         </StyledText>
       </StyledBackgroundImage>
       <StyledTextBig>
-        {item.articletitle ? <StyledH3>{item.articletitle}</StyledH3> : ""}
-        {item.preamble ? (
+        {item.articletitle && <StyledH3>{item.articletitle}</StyledH3>}
+        {item.preamble && (
           <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
-        ) : (
-          ""
         )}
         <Link to={item.slug}>
           <StyledButton>{buttontext}</StyledButton>
         </Link>
       </StyledTextBig>
-      {item.img ? <StyledImg fluid={item.img.fluid} /> : ""}
+      {item.img && <StyledImg fluid={item.img.fluid} />}
     </StyledArticle>
   </div>
 )
