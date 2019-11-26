@@ -19,11 +19,11 @@ const MainComponent = ({
         backgroundColor: backgroundcolor.hex,
       }}
     >
-      {img ? <StyledImg fluid={img.fluid} /> : ""}
+      {img && <StyledImg fluid={img.fluid} />}
       <StyledText>
-        {title ? <StyledH2>{title}</StyledH2> : ""}
-        {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
-        {body ? <p dangerouslySetInnerHTML={{ __html: body }} /> : ""}
+        {title && <StyledH2>{title}</StyledH2>}
+        {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
+        {body && <p dangerouslySetInnerHTML={{ __html: body }} />}
       </StyledText>
     </StyledBody>
   </div>

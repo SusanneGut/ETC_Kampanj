@@ -24,50 +24,38 @@ const TopComponent = ({
           fluid={backgroundimage.fluid}
           style={{ padding: "5px" }}
         >
-          {logo ? (
+          {logo && (
             <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
               <Img fluid={logo.fluid} />{" "}
             </div>
-          ) : (
-            ""
           )}
-          {title ? <StyledTitle>{title}</StyledTitle> : ""}
-          {preamble ? (
+          {title && <StyledTitle>{title}</StyledTitle>}
+          {preamble && (
             <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
-          ) : (
-            ""
           )}
-          {buttontext ? (
+          {buttontext && (
             <Link to={buttonlink.slug}>
               <StyledButton transparentYellow>{buttontext}</StyledButton>
             </Link>
-          ) : (
-            ""
           )}
         </Backgroundimage>
       ) : (
         <div style={{ backgroundColor: backgroundcolor.hex }}>
-          {logo ? (
+          {logo && (
             <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
               <Img fluid={logo.fluid} />{" "}
             </div>
-          ) : (
-            ""
           )}
-          {title ? <StyledTitle>{title}</StyledTitle> : ""}
-          {preamble ? (
+          {title && <StyledTitle>{title}</StyledTitle>}
+          {preamble && (
             <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
-          ) : (
-            ""
           )}
-          {buttontext ? (
+          {buttontext && (
             <Link to={buttonlink.slug}>
               <StyledButton style={{ color: "#E3000B" }} transparentRed>
                 {buttontext}
               </StyledButton>
             </Link>
-          ) : (
-            ""
           )}
         </div>
       )}

@@ -24,25 +24,25 @@ export default ({ data, className }) => {
   return (
     <StyledArticle className={className}>
       <StyledText>
-        {title ? <StyledH3>{title}</StyledH3> : ""}
+        {title && <StyledH3>{title}</StyledH3>}
         <StyledTopHr />
-        {body ? <StyledP dangerouslySetInnerHTML={{ __html: body }} /> : ""}
+        {body && <StyledP dangerouslySetInnerHTML={{ __html: body }} />}
       </StyledText>
       <br />
-      {image ? <StyledImg fluid={image.fluid} /> : ""}
-      {subtitle ? <StyledH4>{subtitle}</StyledH4> : ""}
+      {image && <StyledImg fluid={image.fluid} />}
+      {subtitle && <StyledH4>{subtitle}</StyledH4>}
       {content.map(item => {
         return (
           <StyledPriceSection>
             <StyledHr />
             <StyledP1>{item.lineitem}</StyledP1>
-            {item.itemprice ? <StyledP2>{item.itemprice} kr</StyledP2> : ""}
+            {item.itemprice && <StyledP2>{item.itemprice} kr</StyledP2>}
             <br />
           </StyledPriceSection>
         )
       })}
       <br />
-      {textline ? <StyledA href="/Anvandaravtal">{textline}</StyledA> : ""}
+      {textline && <StyledA href="/Anvandaravtal">{textline}</StyledA>}
       <br />
       <StyledDiv>
         <StyledSubHead>Sammanfattning</StyledSubHead>

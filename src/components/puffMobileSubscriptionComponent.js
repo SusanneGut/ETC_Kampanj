@@ -15,15 +15,13 @@ const PuffMobileSubscriptionComponent = ({
 }) => (
   <StyledPuff className={className}>
     <StyledDiv>
-      {img ? <StyledImage fluid={img.fluid} /> : ""}
+      {img && <StyledImage fluid={img.fluid} />}
       <StyledMain>
-        {title ? <StyledTitle>{title}</StyledTitle> : ""}
-        {preamble ? (
+        {title && <StyledTitle>{title}</StyledTitle>}
+        {preamble && (
           <StyledText dangerouslySetInnerHTML={{ __html: preamble }} />
-        ) : (
-          ""
         )}
-        {price ? <StyledPrice>{price} kr/mån</StyledPrice> : ""}
+        {price && <StyledPrice>{price} kr/mån</StyledPrice>}
         <Link to={slug}>
           <StyledButton small>Välj</StyledButton>
         </Link>

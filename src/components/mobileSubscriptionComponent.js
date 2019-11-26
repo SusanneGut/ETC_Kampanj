@@ -11,14 +11,12 @@ const MobileSubscriptionComponent = ({
     {mobileSubscriptionItems.map(item => {
       return (
         <div>
-          <div>{item.title ? <StyledTitle>{item.title}</StyledTitle> : ""}</div>
+          <div>{item.title && <StyledTitle>{item.title}</StyledTitle>}</div>
           <div>
-            {item.preamble ? (
+            {item.preamble && (
               <StyledPreamble
                 dangerouslySetInnerHTML={{ __html: item.preamble }}
               />
-            ) : (
-              ""
             )}
           </div>
         </div>

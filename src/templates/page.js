@@ -15,7 +15,7 @@ export default ({ data }) => {
       {content.map(page => {
         return (
           <div>
-            {page.__typename === "DatoCmsTop" ? (
+            {page.__typename === "DatoCmsTop" && (
               <TopComponent
                 title={page.title}
                 preamble={page.preamble}
@@ -26,10 +26,8 @@ export default ({ data }) => {
                 buttontext={page.buttontext}
                 buttonlink={page.buttonlink}
               />
-            ) : (
-              ""
             )}
-            {page.__typename === "DatoCmsPuffsfield" ? (
+            {page.__typename === "DatoCmsPuffsfield" && (
               <StyledPuffsComponent
                 backgroundcolor={page.bgcolor}
                 buttontext={page.buttontext}
@@ -39,10 +37,8 @@ export default ({ data }) => {
                 slug={page.slug}
                 img={page.img}
               />
-            ) : (
-              ""
             )}
-            {page.__typename === "DatoCmsMain" ? (
+            {page.__typename === "DatoCmsMain" && (
               <MainComponent
                 textcolor={page.textcolor}
                 backgroundcolor={page.backgroundcolor}
@@ -51,12 +47,10 @@ export default ({ data }) => {
                 preamble={page.preamble}
                 body={page.body}
               />
-            ) : (
-              ""
             )}
 
-            {slug === "mobil" ? <MobileSubscriptionContainer /> : ""}
-            {page.__typename === "DatoCmsNewsletter" ? (
+            {slug === "mobil" && <MobileSubscriptionContainer />}
+            {page.__typename === "DatoCmsNewsletter" && (
               <NewsSubscriptionComponent
                 textcolor={page.textcolor}
                 bgimage={page.bgimage}
@@ -64,18 +58,14 @@ export default ({ data }) => {
                 preamble={page.preamble}
                 backgroundcolor={page.backgroundcolor}
               />
-            ) : (
-              ""
             )}
-            {page.__typename === "DatoCmsBottom" ? (
+            {page.__typename === "DatoCmsBottom" && (
               <BottomComponent
                 bgcolor={page.bgcolor}
                 textcolor={page.textcolor}
                 logo={page.logo}
                 contact={page.contact}
               />
-            ) : (
-              ""
             )}
           </div>
         )

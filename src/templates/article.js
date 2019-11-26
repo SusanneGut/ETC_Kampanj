@@ -17,28 +17,24 @@ export default ({ data, className }) => {
     <Layout>
       <StyledArticle className={className}>
         <StyledText>
-          {title ? <StyledH2>{title}</StyledH2> : ""}
+          {title && <StyledH2>{title}</StyledH2>}
           <StyledHr />
-          {preamble ? (
+          {preamble && (
             <StyledH4 dangerouslySetInnerHTML={{ __html: preamble }} />
-          ) : (
-            ""
           )}
         </StyledText>
         <StyledShareButtons slug={slug} />{" "}
-        {image ? <TopImg fluid={image.fluid} /> : ""}
+        {image && <TopImg fluid={image.fluid} />}
         <StyledDiv>
           {content.map(article => {
             return (
               <section>
-                {article.img ? <StyledImg fluid={article.img.fluid} /> : ""}
-                {article.subtitle ? <p>{article.subtitle}</p> : ""}
-                {article.body ? (
+                {article.img && <StyledImg fluid={article.img.fluid} />}
+                {article.subtitle && <p>{article.subtitle}</p>}
+                {article.body && (
                   <p dangerouslySetInnerHTML={{ __html: article.body }} />
-                ) : (
-                  ""
                 )}
-                {article.video ? (
+                {article.video && (
                   <StyledVideo
                     videoTitle={article.video.title}
                     videoSrcURL={
@@ -46,8 +42,6 @@ export default ({ data, className }) => {
                       article.video.providerUid
                     }
                   />
-                ) : (
-                  ""
                 )}
               </section>
             )

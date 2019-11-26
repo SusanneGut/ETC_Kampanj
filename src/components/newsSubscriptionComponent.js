@@ -22,14 +22,14 @@ const NewsSubscriptionComponent = ({
   >
     {bgimage ? (
       <StyledBackgroundImage fluid={bgimage.fluid}>
-        {title ? <StyledH2>{title}</StyledH2> : ""}
-        {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
+        {title && <StyledH2>{title}</StyledH2>}
+        {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
         <NewsletterFormComponent />
       </StyledBackgroundImage>
     ) : (
       <StyledDiv style={{ backgroundColor: backgroundcolor.hex }}>
-        {title ? <StyledH2>{title}</StyledH2> : ""}
-        {preamble ? <p dangerouslySetInnerHTML={{ __html: preamble }} /> : ""}
+        {title && <StyledH2>{title}</StyledH2>}
+        {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
         <NewsletterFormComponent />
       </StyledDiv>
     )}

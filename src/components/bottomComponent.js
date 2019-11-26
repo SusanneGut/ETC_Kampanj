@@ -11,17 +11,15 @@ const BottomComponent = ({ className, bgcolor, textcolor, logo, contact }) => (
       }}
     >
       <div>
-        {logo ? (
+        {logo && (
           <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
             <Img fluid={logo.fluid} />
           </div>
-        ) : (
-          ""
         )}
       </div>
       <StyledText>
-        {contact ? <p dangerouslySetInnerHTML={{ __html: contact }} /> : ""}
-      </StyledText>{" "}
+        {contact && <p dangerouslySetInnerHTML={{ __html: contact }} />}
+      </StyledText>
       <StyledHr />
     </StyledDiv>
   </div>
