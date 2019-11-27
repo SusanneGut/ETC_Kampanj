@@ -25,6 +25,7 @@ export default ({ data }) => {
                 logo={page.logo}
                 buttontext={page.buttontext}
                 buttonlink={page.buttonlink}
+                button={page.buttonstyle}
               />
             )}
             {page.__typename === "DatoCmsPuffsfield" && (
@@ -36,6 +37,7 @@ export default ({ data }) => {
                 preamble={page.preamble}
                 slug={page.slug}
                 img={page.img}
+                button={page.buttonstyle}
               />
             )}
             {page.__typename === "DatoCmsMain" && (
@@ -104,12 +106,38 @@ export const query = graphql`
               slug
             }
           }
+          buttonstyle {
+            ... on DatoCmsButton {
+              buttonbgcolor {
+                hex
+              }
+              buttontextcolor {
+                hex
+              }
+              buttonbordercolor {
+                hex
+              }
+            }
+          }
         }
         ... on DatoCmsPuffsfield {
           bgcolor {
             hex
           }
           buttontext
+          buttonstyle {
+            ... on DatoCmsButton {
+              buttonbgcolor {
+                hex
+              }
+              buttontextcolor {
+                hex
+              }
+              buttonbordercolor {
+                hex
+              }
+            }
+          }
           listofpuffs {
             ... on DatoCmsArticle {
               bgcolor {

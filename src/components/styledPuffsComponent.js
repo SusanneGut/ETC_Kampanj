@@ -10,22 +10,35 @@ const StyledPuffsComponent = ({
   backgroundcolor,
   buttontext,
   listofpuffs,
+  button,
 }) => (
   <div className={className}>
     {listofpuffs[1] ? (
       <Styled style={{ backgroundColor: backgroundcolor.hex }}>
         {listofpuffs.map((puff, i) =>
           i === 0 ? (
-            <StyledPuffLarge puff={puff} buttontext={buttontext} />
+            <StyledPuffLarge
+              puff={puff}
+              buttontext={buttontext}
+              button={button}
+            />
           ) : (
-            <StyledPuffSmall puff={puff} buttontext={buttontext} />
+            <StyledPuffSmall
+              puff={puff}
+              buttontext={buttontext}
+              button={button}
+            />
           )
         )}
       </Styled>
     ) : (
       <div style={{ backgroundColor: backgroundcolor.hex }}>
         {listofpuffs.map(puff => (
-          <StyledPuffSingle puff={puff} buttontext={buttontext} />
+          <StyledPuffSingle
+            puff={puff}
+            buttontext={buttontext}
+            button={button}
+          />
         ))}
       </div>
     )}
