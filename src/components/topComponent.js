@@ -1,10 +1,9 @@
 import React from "react"
 import Img from "gatsby-image"
 import Backgroundimage from "gatsby-background-image"
-import Button from "./button"
 import styled from "styled-components"
 import media from "styled-media-query"
-import Link from "gatsby-link"
+import ButtonLink from "./buttonLink"
 
 const TopComponent = ({
   className,
@@ -16,6 +15,7 @@ const TopComponent = ({
   logo,
   buttonlink,
   buttontext,
+  button,
 }) => (
   <div className={className}>
     <div style={{ position: "relative", color: textcolor.hex }}>
@@ -34,9 +34,14 @@ const TopComponent = ({
             <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
           )}
           {buttontext && (
-            <Link to={buttonlink.slug}>
-              <StyledButton transparentYellow>{buttontext}</StyledButton>
-            </Link>
+            <StyledButtonLink
+              to={"/" + buttonlink.slug}
+              backgroundColor={button.buttonbgcolor.hex}
+              textColor={button.buttontextcolor.hex}
+              borderColor={button.buttonbordercolor.hex}
+            >
+              {buttontext}
+            </StyledButtonLink>
           )}
         </Backgroundimage>
       ) : (
@@ -51,11 +56,14 @@ const TopComponent = ({
             <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
           )}
           {buttontext && (
-            <Link to={buttonlink.slug}>
-              <StyledButton style={{ color: "#E3000B" }} transparentRed>
-                {buttontext}
-              </StyledButton>
-            </Link>
+            <StyledButtonLink
+              to={"/" + buttonlink.slug}
+              backgroundColor={button.buttonbgcolor.hex}
+              textColor={button.buttontextcolor.hex}
+              borderColor={button.buttonbordercolor.hex}
+            >
+              {buttontext}
+            </StyledButtonLink>
           )}
         </div>
       )}
@@ -83,11 +91,12 @@ const StyledTopComponent = styled(TopComponent)`
   ${media.greaterThan("576px")`
 `}
 `
-const StyledButton = styled(Button)`
+const StyledButtonLink = styled(ButtonLink)`
   margin: 0% 0% 10% 10%;
 
   ${media.greaterThan("576px")`
 margin: 0% 0% 8% 10%;
+
 `}
 `
 

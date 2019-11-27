@@ -3,9 +3,9 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Button from "./button"
 import media from "styled-media-query"
-import Link from "gatsby-link"
+import ButtonLink from "./buttonLink"
 
-const PuffSingleComponent = ({ className, puff: item, buttontext }) => (
+const PuffSingleComponent = ({ className, puff: item, button, buttontext }) => (
   <div className={className}>
     <StyledArticle style={{ backgroundColor: item.bgcolor.hex }}>
       {item.img && <StyledImg fluid={item.img.fluid} />}
@@ -14,9 +14,14 @@ const PuffSingleComponent = ({ className, puff: item, buttontext }) => (
         {item.preamble && (
           <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
         )}
-        <Link to={item.slug}>
-          <StyledButton>{buttontext}</StyledButton>
-        </Link>
+        <StyledButtonLink
+          to={"/" + item.slug}
+          backgroundColor={button.buttonbgcolor.hex}
+          textColor={button.buttontextcolor.hex}
+          borderColor={button.buttonbordercolor.hex}
+        >
+          {buttontext}
+        </StyledButtonLink>
       </StyledTextBig>
     </StyledArticle>
   </div>
@@ -58,7 +63,7 @@ const StyledTextBig = styled.section`
     padding-bottom: 7%;
   }
 `
-const StyledButton = styled(Button)`
+const StyledButtonLink = styled(ButtonLink)`
   margin-bottom: 5%;
 `
 export default PuffSingleComponent
