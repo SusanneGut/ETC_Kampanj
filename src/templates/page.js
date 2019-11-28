@@ -1,15 +1,14 @@
 import React from "react"
 import Layout from "../components/layout"
-import MobileSubscriptionContainer from "../containers/mobileSubscriptionContainer"
 import StyledPuffsComponent from "../components/styledPuffsComponent"
 import TopComponent from "../components/topComponent"
 import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
+import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 
 export default ({ data }) => {
   const content = data.datoCmsPage.content
-  const slug = data.datoCmsPage.slug
   return (
     <Layout>
       {content.map(page => {
@@ -50,8 +49,16 @@ export default ({ data }) => {
                 body={page.body}
               />
             )}
-
-            {slug === "mobil" && <MobileSubscriptionContainer />}
+            {page.__typename === "DatoCmsSubscription" && (
+              <MobileSubscriptionComponent
+                title={page.title}
+                preamble={page.preamble}
+                backgroundcolor={page.bgcolor}
+                buttontext={page.buttontext}
+                button={page.buttonstyle}
+                listofmobilepuffs={page.listofmobilepuffs}
+              />
+            )}
             {page.__typename === "DatoCmsNewsletter" && (
               <NewsSubscriptionComponent
                 textcolor={page.textcolor}
@@ -75,6 +82,7 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
 export const query = graphql`
   query($slug: String!) {
     datoCmsPage(slug: { eq: $slug }) {
@@ -171,6 +179,43 @@ export const query = graphql`
           }
           backgroundcolor {
             hex
+          }
+        }
+        ... on DatoCmsSubscription {
+          title
+          preamble
+          bgcolor {
+            hex
+          }
+          buttontext
+          buttonstyle {
+            ... on DatoCmsButton {
+              buttonbgcolor {
+                hex
+              }
+              buttontextcolor {
+                hex
+              }
+              buttonbordercolor {
+                hex
+              }
+            }
+          }
+          listofmobilepuffs {
+            ... on DatoCmsMobilesubscription {
+              title
+              preamble
+              img {
+                fluid(
+                  maxWidth: 100
+                  imgixParams: { fm: "jpg", auto: "compress" }
+                ) {
+                  ...GatsbyDatoCmsFluid
+                }
+              }
+              price
+              slug
+            }
           }
         }
         ... on DatoCmsNewsletter {

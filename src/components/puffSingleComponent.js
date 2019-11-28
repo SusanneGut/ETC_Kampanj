@@ -1,7 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import Button from "./button"
 import media from "styled-media-query"
 import ButtonLink from "./buttonLink"
 
