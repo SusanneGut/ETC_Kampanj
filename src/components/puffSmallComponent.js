@@ -1,11 +1,10 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
-import Button from "./button"
 import media from "styled-media-query"
-import Link from "gatsby-link"
+import ButtonLink from "./buttonLink"
 
-const PuffSmallComponent = ({ className, puff: item, buttontext }) => (
+const PuffSmallComponent = ({ className, puff: item, buttontext, button }) => (
   <div className={className}>
     <StyledArticle>
       {item.img && (
@@ -13,11 +12,16 @@ const PuffSmallComponent = ({ className, puff: item, buttontext }) => (
           <StyledText>
             {item.articletitle && <StyledH3>{item.articletitle}</StyledH3>}
             {item.preamble && (
-              <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
+              <div dangerouslySetInnerHTML={{ __html: item.preamble }} />
             )}
-            <Link to={item.slug}>
-              <StyledButton>{buttontext}</StyledButton>
-            </Link>
+            <StyledButtonLink
+              to={"/" + item.slug}
+              backgroundColor={button.buttonbgcolor.hex}
+              textColor={button.buttontextcolor.hex}
+              borderColor={button.buttonbordercolor.hex}
+            >
+              {buttontext}
+            </StyledButtonLink>
           </StyledText>
         </StyledImg>
       )}
@@ -52,9 +56,9 @@ const StyledText = styled.section`
     font-size: 12px;
     color: "585858";
     padding-bottom: 2%;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: wrap;
+    overflow: hidden;
   }
   ${media.greaterThan("786px")`
 
@@ -84,7 +88,7 @@ const StyledImg = styled(BackgroundImage)`
   max-widht: 250px;
 `}
 `
-const StyledButton = styled(Button)`
+const StyledButtonLink = styled(ButtonLink)`
   ${media.lessThan("576px")`
 padding: 0;
 font-size: 10px;

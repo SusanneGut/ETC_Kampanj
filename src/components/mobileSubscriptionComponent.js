@@ -1,28 +1,31 @@
 import React from "react"
 import styled from "styled-components"
-import PuffMobileSubscriptionContainer from "../containers/puffMobileSubscriptionContainer"
+import PuffMobileSubscriptionComponent from "./puffMobileSubscriptionComponent"
 import media from "styled-media-query"
 
 const MobileSubscriptionComponent = ({
   className,
-  mobileSubscriptionItems,
+  title,
+  preamble,
+  backgroundcolor,
+  buttontext,
+  button,
+  listofmobilepuffs,
 }) => (
-  <div className={className}>
-    {mobileSubscriptionItems.map(item => {
-      return (
-        <div>
-          <div>{item.title && <StyledTitle>{item.title}</StyledTitle>}</div>
-          <div>
-            {item.preamble && (
-              <StyledPreamble
-                dangerouslySetInnerHTML={{ __html: item.preamble }}
-              />
-            )}
-          </div>
-        </div>
-      )
-    })}
-    <PuffMobileSubscriptionContainer />
+  <div className={className} style={{ backgroundColor: backgroundcolor.hex }}>
+    <div>{title && <StyledTitle>{title}</StyledTitle>}</div>
+    <div>
+      {preamble && (
+        <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
+      )}
+    </div>
+    {listofmobilepuffs.map(puff => (
+      <PuffMobileSubscriptionComponent
+        puff={puff}
+        buttontext={buttontext}
+        button={button}
+      />
+    ))}
   </div>
 )
 

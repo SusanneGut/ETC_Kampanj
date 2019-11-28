@@ -1,30 +1,34 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import Button from "../components/button"
-import Link from "gatsby-link"
+import ButtonLink from "./buttonLink"
 import media from "styled-media-query"
 
 const PuffMobileSubscriptionComponent = ({
   className,
-  title,
-  preamble,
-  img,
-  price,
-  slug,
+  puff,
+  buttontext,
+  button,
 }) => (
   <StyledPuff className={className}>
     <StyledDiv>
-      {img && <StyledImage fluid={img.fluid} />}
+      {puff.img && <StyledImage fluid={puff.img.fluid} />}
       <StyledMain>
-        {title && <StyledTitle>{title}</StyledTitle>}
-        {preamble && (
-          <StyledText dangerouslySetInnerHTML={{ __html: preamble }} />
+        {puff.title && <StyledTitle>{puff.title}</StyledTitle>}
+        {puff.preamble && (
+          <StyledText dangerouslySetInnerHTML={{ __html: puff.preamble }} />
         )}
-        {price && <StyledPrice>{price} kr/mån</StyledPrice>}
-        <Link to={slug}>
-          <StyledButton small>Välj</StyledButton>
-        </Link>
+        {puff.price && <StyledPrice>{puff.price} kr/mån</StyledPrice>}
+
+        <StyledButtonLink
+          small
+          to={"/" + puff.slug}
+          backgroundColor={button.buttonbgcolor.hex}
+          textColor={button.buttontextcolor.hex}
+          borderColor={button.buttonbordercolor.hex}
+        >
+          {buttontext}
+        </StyledButtonLink>
       </StyledMain>
     </StyledDiv>
   </StyledPuff>
@@ -87,7 +91,7 @@ ${media.greaterThan("576px")`
 font-size: 16px;
 `}
 `
-const StyledButton = styled(Button)`
+const StyledButtonLink = styled(ButtonLink)`
   ${media.greaterThan("576px")`
 padding: 6px;
 width: 100px;
