@@ -45,7 +45,7 @@ const StyledArticle = styled.div`
   flex-direction: row;
   height: 200px;
   ${media.greaterThan("768px")`
-  max-width: 900px;
+  max-width: 550px;
   backgound-color: green;
   height: 250px;
   `}
@@ -65,7 +65,7 @@ const StyledText = styled.section`
 p{
   font-size: 12px;
   color: "585858";
-  padding-bottom: 9%;}
+  padding-bottom: 9%;
 `}
 `
 const StyledH3 = styled.h3`

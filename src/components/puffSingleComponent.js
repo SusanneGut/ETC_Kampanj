@@ -11,7 +11,7 @@ const PuffSingleComponent = ({ className, puff: item, button, buttontext }) => (
       <StyledTextBig>
         {item.articletitle && <StyledH3>{item.articletitle}</StyledH3>}
         {item.preamble && (
-          <p dangerouslySetInnerHTML={{ __html: item.preamble }} />
+          <div dangerouslySetInnerHTML={{ __html: item.preamble }} />
         )}
         <StyledButtonLink
           to={"/" + item.slug}
@@ -59,8 +59,15 @@ const StyledTextBig = styled.section`
   p {
     font-size: 12px;
     color: "585858";
-    padding-bottom: 7%;
+    padding-bottom: 2%;
+    height: 12ch;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
   }
+  ${media.greaterThan("576px")`
+  
+  `}
 `
 const StyledButtonLink = styled(ButtonLink)`
   margin-bottom: 5%;

@@ -55,14 +55,13 @@ const Styled = styled.div`
 const StyledPuffLarge = styled(PuffLargeComponent)`
   position: relative;
   padding: 10px;
-  width: 50%;
   flex: 0 1 2;
   margin-top: -5%;
   margin-right: 0;
-  margin-left: 5%;
+  margin-left: 3%;
   ${media.greaterThan("576px")`
-width: 70%;
-padding: 20px 10px 20px 30px;
+  padding: 20px 10px 20px 30px;
+  margin-left: 1%;
 `}
 ${media.greaterThan("768px")`
 
@@ -71,19 +70,17 @@ ${media.greaterThan("768px")`
 `
 const StyledPuffSmall = styled(PuffSmallComponent)`
   padding: 10px;
-  widht: 50%;
   flex: 3 4 5;
   margin-top: -5%;
-  margin-right: 5%;
+  margin-right: 3%;
   ${media.greaterThan("576px")`
-width: 30%;
-padding: 20px 30px 20px 10px;
+  padding: 20px 30px 20px 10px;
+  margin-right: 2%;
 `}
-  ${media.greaterThan("768px")`
+  ${media.greaterThan("1300px")`
   `}
 `
 const StyledPuffSingle = styled(PuffSingleComponent)`
-  width: 80%;
   margin-top: -5%;
   padding: 0 5% 5% 10%;
 `
