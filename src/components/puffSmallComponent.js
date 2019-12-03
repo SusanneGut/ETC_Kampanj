@@ -36,9 +36,9 @@ const StyledArticle = styled.div`
   `}
   border-radius: 8px;
   height: 200px;
+  width: 200px;
 
   ${media.greaterThan("768px")`
-  
 `}
 `
 const StyledText = styled.section`
@@ -61,7 +61,7 @@ const StyledText = styled.section`
     overflow: hidden;
   }
   ${media.greaterThan("786px")`
-
+  
   `}
 `
 const StyledH3 = styled.h3`
@@ -85,7 +85,7 @@ const StyledImg = styled(BackgroundImage)`
 `}
   ${media.greaterThan("768px")`
   height: 250px;
-  max-widht: 250px;
+  widht: 600px;
 `}
 `
 const StyledButtonLink = styled(ButtonLink)`
