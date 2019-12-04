@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 
-const Header = () => <div />
+const Header = ({ children }) => <div>{children}</div>
 export default Header

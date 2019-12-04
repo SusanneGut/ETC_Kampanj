@@ -7,14 +7,14 @@ import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 import NavComponent from "../components/navComponent"
+import Header from "../components/header"
 
 export default ({ data }) => {
   const content = data.datoCmsPage.content
   const navmenu = data.datoCmsPage.navmenu
   return (
     <Layout>
-      {navmenu && <NavComponent navmenu={navmenu} />}
-
+      <Header>{navmenu && <NavComponent navmenu={navmenu} />}</Header>
       {content.map(page => {
         return (
           <div>
