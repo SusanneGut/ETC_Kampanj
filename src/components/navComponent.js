@@ -4,20 +4,17 @@ import { slide as BurgerMenu } from "react-burger-menu"
 import Link from "gatsby-link"
 import media from "styled-media-query"
 
-const NavComponent = ({ className, navigationItems }) => {
+const NavComponent = ({ className, navmenu }) => {
   return (
     <div className={className}>
       <StyledBurgerMenu>
         <BurgerMenu right width="50%">
-          {navigationItems.map(
-            item =>
-              item.ismenuitem === true && (
-                <Link to={"/" + item.slug}>
-                  {item.title}
-                  <hr />
-                </Link>
-              )
-          )}
+          {navmenu.map(navitem => (
+            <Link to={"/" + navitem.slug}>
+              {navitem.articletitle}
+              <hr />
+            </Link>
+          ))}
         </BurgerMenu>
       </StyledBurgerMenu>
     </div>

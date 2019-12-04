@@ -6,11 +6,15 @@ import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
+import NavComponent from "../components/navComponent"
 
 export default ({ data }) => {
   const content = data.datoCmsPage.content
+  const navmenu = data.datoCmsPage.navmenu
   return (
     <Layout>
+      {navmenu && <NavComponent navmenu={navmenu} />}
+
       {content.map(page => {
         return (
           <div>
@@ -87,6 +91,12 @@ export const query = graphql`
   query($slug: String!) {
     datoCmsPage(slug: { eq: $slug }) {
       slug
+      navmenu {
+        ... on DatoCmsArticle {
+          articletitle
+          slug
+        }
+      }
       content {
         ... on DatoCmsTop {
           title
