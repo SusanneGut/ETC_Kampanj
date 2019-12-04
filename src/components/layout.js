@@ -5,7 +5,6 @@ import Footer from "./footer"
 import Header from "./header"
 import styled from "styled-components"
 import media from "styled-media-query"
-import NavContainer from "../containers/navContainer"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,7 +20,6 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <StyledDiv>
-          <NavContainer />
           <Header />
           <div>
             <main>{children}</main>
