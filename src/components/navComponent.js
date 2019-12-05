@@ -6,7 +6,7 @@ import media from "styled-media-query"
 
 const NavComponent = ({ className, navmenu }) => {
   return (
-    <div className={className}>
+    <StyledDiv className={className}>
       <StyledBurgerMenu>
         <BurgerMenu right width="50%">
           {navmenu.map(navitem => (
@@ -17,7 +17,7 @@ const NavComponent = ({ className, navmenu }) => {
           ))}
         </BurgerMenu>
       </StyledBurgerMenu>
-    </div>
+    </StyledDiv>
   )
 }
 
@@ -38,10 +38,13 @@ const StyledBurgerMenu = styled.div`
     position: absolute;
     width: 20px;
     height: 15px;
-    right: 15vw;
-    top: 5vh;
+    right: 10vw;
+    top: 3vh;
     ${media.greaterThan("576px")`
-    right: 20vw;
+    right: 6vw;
+`} ${media.greaterThan("768px")`
+    top: 5vh;
+    right: 7vw;
 `}
   }
   .bm-burger-bars {
@@ -71,4 +74,9 @@ const StyledBurgerMenu = styled.div`
   }
   .bm-menu-wrap {
   }
+`
+const StyledDiv = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `
