@@ -69,6 +69,7 @@ height: 360px;
 `
 const StyledMainComponent = styled(MainComponent)`
   border: 1px solid #e9e9e9;
+  border-bottom 0;
   ${media.greaterThan("576px")`
   height: 360px;
 `}
