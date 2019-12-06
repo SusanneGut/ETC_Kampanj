@@ -6,6 +6,7 @@ import media from "styled-media-query"
 import Video from "../components/video"
 import Layout from "../components/layout"
 import Sharebuttons from "../components/shareButtons"
+import Link from "../components/link"
 
 export default ({ data, className }) => {
   const title = data.datoCmsArticle.articletitle
@@ -13,11 +14,19 @@ export default ({ data, className }) => {
   const image = data.datoCmsArticle.img
   const content = data.datoCmsArticle.content
   const slug = data.datoCmsArticle.slug
+  const logo = data.datoCmsArticle.logo
   return (
     <Layout>
       <StyledArticle className={className}>
+        {logo && (
+          <StyledLogo style={{ maxWidth: "50px" }}>
+            <Link to={"/"}>
+              <Img fluid={logo.fluid}></Img>
+            </Link>
+          </StyledLogo>
+        )}
         <StyledText>
-          {title && <StyledH2>{title}</StyledH2>}
+          {title && <StyledH1>{title}</StyledH1>}
           <StyledHr />
           {preamble && (
             <StyledH4 dangerouslySetInnerHTML={{ __html: preamble }} />
@@ -56,6 +65,11 @@ export const query = graphql`
   query($slug: String!) {
     datoCmsArticle(slug: { eq: $slug }) {
       slug
+      logo {
+        fluid(maxWidth: 400, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       articletitle
       preamble
       img {
@@ -86,6 +100,10 @@ export const query = graphql`
     }
   }
 `
+const StyledLogo = styled.div`
+  margin: 0 0 10% 1%;
+`
+
 const StyledHr = styled.hr`
   width: 30%;
   margin-left: 0;
@@ -106,7 +124,8 @@ const StyledText = styled.div`
   }
 `
 const StyledShareButtons = styled(Sharebuttons)``
-const StyledH2 = styled.h2`
+
+const StyledH1 = styled.h1`
   ${media.greaterThan("576px")`
  font-size: 60px;
 `}
@@ -136,7 +155,7 @@ const StyledDiv = styled.div`
   width: 60%;
   float: left;
   margin-left: 15%;
-  margin-top: -50px;
+  margin-top: -3%;
   position: absolute;
   padding: 5%;
   padding-top: 2%;
@@ -145,7 +164,7 @@ const StyledArticle = styled.div`
   color: #333333;
   background-color: #f3f3f3;
   border: 1px solid #e9e9e9;
-  padding: 10% 0% 10% 0%;
+  padding: 1% 0% 10% 0%;
   overflow: scroll;
   position: relative;
 `
