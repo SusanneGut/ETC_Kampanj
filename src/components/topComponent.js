@@ -4,7 +4,7 @@ import Backgroundimage from "gatsby-background-image"
 import styled from "styled-components"
 import media from "styled-media-query"
 import ButtonLink from "./buttonLink"
-
+import Link from "../components/link"
 const TopComponent = ({
   className,
   preamble,
@@ -26,7 +26,9 @@ const TopComponent = ({
         >
           {logo && (
             <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
-              <Img fluid={logo.fluid} />{" "}
+              <Link to={"/"}>
+                <Img fluid={logo.fluid} />
+              </Link>
             </div>
           )}
           {title && <StyledTitle>{title}</StyledTitle>}
