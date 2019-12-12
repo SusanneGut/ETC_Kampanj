@@ -20,7 +20,6 @@ export default ({ data, className }) => {
   const textline = data.datoCmsMobilesubscription.default
   const numbers = [parseInt(price), y, z]
   const add = (a, b) => a + b
-
   return (
     <StyledArticle className={className}>
       <StyledText>
@@ -76,7 +75,7 @@ export default ({ data, className }) => {
         </StyledSection>
       </StyledDiv>
       <br />
-      <Form id="form" />
+      <Form id="form" title={title} numbers={numbers} />
     </StyledArticle>
   )
 }

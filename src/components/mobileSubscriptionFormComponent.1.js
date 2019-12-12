@@ -30,7 +30,10 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-    alert(`${this.state.firstName}, tack för din beställning!`)
+    alert(
+      `${this.state.firstName}, tack för din beställning av ${this.props.title}!`
+    )
+    console.log("vill behålla sitt nummer:" + this.state.sameNumber)
   }
 
   render() {
