@@ -175,6 +175,7 @@ const StyledDiv = styled.div`
   margin-top: 5%;
   border-color: #eaeaea;
   border-style: solid;
+  border-radius: 5px;
 `
 const StyledSubHead = styled.h4`
   color: #686868;
