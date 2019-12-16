@@ -12,6 +12,6 @@ const ButtonLink = styled(props => <Link {...props} />)`
   font-size: ${props => (props.small ? "8px" : "10px")};
   padding: ${props => (props.small ? "0" : "6px")};
   border-radius: 5px;
-  width: ${props => (props.small ? "50px" : "100px")};
+  width: ${props => (props.small ? "50px" : "80px")};
 `
 export default ButtonLink

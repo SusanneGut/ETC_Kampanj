@@ -69,13 +69,13 @@ export default ({ data, className }) => {
               Avbryt
             </Button1>
           </Link>
-          <Link to="">
+          <Link to="/">
             <Button2>Gå vidare</Button2>
           </Link>
         </StyledSection>
       </StyledDiv>
       <br />
-      <Form id="form" title={title} numbers={numbers} />
+      <Form id="form" sum={numbers.reduce(add)} abonnemang={title} />
     </StyledArticle>
   )
 }
@@ -174,6 +174,7 @@ const StyledDiv = styled.div`
   margin-top: 5%;
   border-color: #eaeaea;
   border-style: solid;
+  border-radius: 5px;
 `
 const StyledSubHead = styled.h4`
   color: #686868;

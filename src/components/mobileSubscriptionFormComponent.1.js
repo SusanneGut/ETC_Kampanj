@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import Link from "gatsby-link"
+import ButtonLink from "./buttonLink"
+import Button from "../components/button"
+import Checkbox from "../components/checkbox"
 
 export default class MobilesubscriptionFormComponent1 extends React.Component {
   constructor(props) {
@@ -16,6 +18,8 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
       city: "",
       postalnum: "",
       phone: "",
+      personnummer: "",
+      startdatum: "",
     }
   }
 
@@ -30,129 +34,170 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-    alert(
-      `${this.state.firstName}, tack för din beställning av ${this.props.title}!`
+    alert(`${this.state.firstName}, tack för din beställning!`)
+    console.log(
+      `Behåll nummer: ${this.state.sameNumber} Privatperson: ${this.state.privatperson}`
     )
-    console.log("vill behålla sitt nummer:" + this.state.sameNumber)
   }
 
   render() {
     return (
       <StyledForm className={this.props.className}>
         <StyledHead>Kundinformation</StyledHead>
-        <label style={{ fontSize: "11px" }}>
-          {" "}
-          Behåll nuvarande nummer
-          <input
-            type="checkbox"
-            name="sameNumber"
-            checked={this.state.sameNumber}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <br />
-        <StyledInputLong
-          type="email"
-          name="mail"
-          value={this.state.mail}
-          onChange={this.handleInputChange}
-          placeholder="mejl"
-        />
-        <br />
-        <StyledInputShort
-          type="text"
-          name="firstName"
-          value={this.state.firstName}
-          onChange={this.handleInputChange}
-          placeholder="förnamn"
-        />
-        <StyledInputShort
-          type="text"
-          name="lastName"
-          value={this.state.lastName}
-          onChange={this.handleInputChange}
-          placeholder="efternamn"
-        />
-        <br />
-        <label style={{ fontSize: "11px" }}>
-          {" "}
-          Privatperson
-          <input
-            type="checkbox"
-            name="privatperson"
-            checked={this.state.privatperson}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <label style={{ fontSize: "11px" }}>
-          {" "}
-          Företag
-          <input
-            type="checkbox"
-            name="foretag"
-            checked={this.state.foretag}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <br />
-
-        <label>
-          Leveransadress
+        <StyledSection>
+          <StyledLable>
+            <Checkbox
+              name="sameNumber"
+              checked={this.state.sameNumber}
+              onChange={this.handleInputChange}
+            />{" "}
+            Behåll nuvarande nummer
+          </StyledLable>
           <br />
-          <StyledInputLong
-            type="address"
-            name="address"
-            value={this.state.address}
+          <StyledInput
+            type="email"
+            name="mail"
+            value={this.state.mail}
             onChange={this.handleInputChange}
-            placeholder="gatuadress"
+            placeholder="Mejl"
+            data-validate="require email"
           />
           <br />
-          <StyledInputLong
-            type="city"
-            name="city"
-            value={this.state.city}
+          <StyledInput
+            type="text"
+            name="firstName"
+            value={this.state.firstName}
             onChange={this.handleInputChange}
-            placeholder="postort"
+            placeholder="Förnamn"
+          />
+          <StyledInput
+            type="text"
+            name="lastName"
+            value={this.state.lastName}
+            onChange={this.handleInputChange}
+            placeholder="Efternamn"
           />
           <br />
-          <StyledInputShort
-            type="postalnum"
-            name="postalnum"
-            value={this.state.postalnum}
+          <StyledLable>
+            {" "}
+            <Checkbox
+              name="privatperson"
+              checked={this.state.privatperson}
+              onChange={this.handleInputChange}
+            />{" "}
+            Privatperson
+          </StyledLable>{" "}
+          <br />
+          <StyledLable>
+            <Checkbox
+              name="foretag"
+              checked={this.state.foretag}
+              onChange={this.handleInputChange}
+            />{" "}
+            Företag
+          </StyledLable>
+          <br />
+          <StyledInput
+            type="text"
+            name="personnummer"
+            value={this.state.personnummer}
             onChange={this.handleInputChange}
-            placeholder="postnummer"
-          />
-          <StyledInputShort
-            type="phone"
-            name="phone"
-            value={this.state.phone}
-            onChange={this.handleInputChange}
-            placeholder="telefonnummer"
+            placeholder="Personnummer"
           />
           <br />
-        </label>
-        <Link to="/ETC_lagom">
-          <button transparentGrey>Tillbaka</button>
-        </Link>
-        <button type="submit" onClick={this.handleSubmit}>
-          Beställ
-        </button>
+          <StyledInput
+            type="text"
+            name="startdatum"
+            value={this.state.startdatum}
+            onChange={this.handleInputChange}
+            placeholder="Startdatum"
+          />
+          <StyledLable>
+            Leveransadress
+            <br />
+            <StyledInput
+              type="address"
+              name="address"
+              value={this.state.address}
+              onChange={this.handleInputChange}
+              placeholder="Gatuadress"
+            />
+            <br />
+            <StyledInput
+              type="city"
+              name="city"
+              value={this.state.city}
+              onChange={this.handleInputChange}
+              placeholder="Postort"
+            />
+            <br />
+            <StyledInput
+              type="postalnum"
+              name="postalnum"
+              value={this.state.postalnum}
+              onChange={this.handleInputChange}
+              placeholder="Postnummer"
+            />
+            <StyledInput
+              type="phone"
+              name="phone"
+              value={this.state.phone}
+              onChange={this.handleInputChange}
+              placeholder="Telefonnummer"
+            />
+            <br />
+          </StyledLable>
+          <br />
+          <StyledButtonLink to={"/ETC_lagom"}>Tillbaka</StyledButtonLink>
+          <StyledButton type="submit" onClick={this.handleSubmit}>
+            Beställ
+          </StyledButton>
+        </StyledSection>
       </StyledForm>
     )
   }
 }
 
 const StyledForm = styled.form`
+  background-color: white;
   width: 100%;
+  border-color: #eaeaea;
+  border-style: solid;
+  border-radius: 5px;
 `
 const StyledHead = styled.h3`
-background-color: #739562;
-color: white;
-padding 1%;
+  background-color: #739562;
+  margin: 0;
+  padding: 3%;
+  color: white;
 `
-const StyledInputLong = styled.input`
-  width: 99%;
+const StyledInput = styled.input`
+  width: 90%;
+  margin: 2%;
+  height: 42px;
+  widht: 284px;
+  border: 2px solid #e4e4e4;
+  border-radius: 6px;
+  opacity: 1;
+  font-size: 15px;
+  padding-left: 8px;
 `
-const StyledInputShort = styled.input`
-  width: 49%;
+const StyledLable = styled.label`
+  margin: 2%;
+  font-size: 16px;
+`
+const StyledButtonLink = styled(ButtonLink)`
+  color: #e3000b;
+  border-color:color: #e3000b;
+  float: left;
+  margin-left: 2%;
+`
+const StyledButton = styled(Button)`
+  float: right;
+  margin-right: 7%;
+`
+const StyledSection = styled.section`
+  background-color: white;
+  padding: 3%;
+  margin-bottom: 10%;
 `
