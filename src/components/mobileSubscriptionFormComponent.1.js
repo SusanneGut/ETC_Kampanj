@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import ButtonLink from "./buttonLink"
 import Button from "../components/button"
-import checkbox from "../components/checkbox"
 import Checkbox from "../components/checkbox"
 
 export default class MobilesubscriptionFormComponent1 extends React.Component {
@@ -113,7 +112,6 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
             onChange={this.handleInputChange}
             placeholder="Startdatum"
           />
-          <br />
           <StyledLable>
             Leveransadress
             <br />

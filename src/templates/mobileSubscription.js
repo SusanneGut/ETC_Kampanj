@@ -70,13 +70,13 @@ export default ({ data, className }) => {
               Avbryt
             </Button1>
           </Link>
-          <Link to="">
+          <Link to="/">
             <Button2>Gå vidare</Button2>
           </Link>
         </StyledSection>
       </StyledDiv>
       <br />
-      <Form id="form" />
+      <Form id="form" sum={numbers.reduce(add)} abonnemang={title} />
     </StyledArticle>
   )
 }

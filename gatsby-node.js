@@ -22,6 +22,13 @@ exports.createPages = async function({ actions, graphql }) {
           }
         }
       }
+      orders: allDatoCmsOrder {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `)
 
@@ -48,6 +55,14 @@ exports.createPages = async function({ actions, graphql }) {
     actions.createPage({
       path: slug,
       component: require.resolve(`./src/templates/page.js`),
+      context: { slug: slug },
+    })
+  })
+  data.orders.edges.forEach(({ node }) => {
+    const slug = node.slug
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/order.js`),
       context: { slug: slug },
     })
   })
