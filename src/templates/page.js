@@ -7,16 +7,17 @@ import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 import NavComponent from "../components/navComponent"
+import { graphql } from "gatsby"
 
-export default ({ data }) => {
+export default ({ data, className }) => {
   const content = data.datoCmsPage.content
   const navmenu = data.datoCmsPage.navmenu
   return (
-    <Layout>
+    <Layout className={className}>
       {navmenu && <NavComponent navmenu={navmenu} />}
       {content.map(page => {
         return (
-          <div>
+          <div key={page.title}>
             {page.__typename === "DatoCmsTop" && (
               <TopComponent
                 title={page.title}

@@ -16,8 +16,8 @@ export default ({ data, className }) => {
   const slug = data.datoCmsArticle.slug
   const logo = data.datoCmsArticle.logo
   return (
-    <Layout>
-      <StyledArticle className={className}>
+    <Layout className={className}>
+      <StyledArticle>
         {logo && (
           <StyledLogo style={{ maxWidth: "50px" }}>
             <Link to={"/"}>

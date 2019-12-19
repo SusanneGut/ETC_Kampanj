@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import Backgroundimage from "gatsby-background-image"
 import Link from "../components/link"
+import { graphql } from "gatsby"
 
 export default class Order extends React.Component {
   constructor(props) {
