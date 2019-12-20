@@ -6,40 +6,34 @@ import Backgroundimage from "gatsby-background-image"
 import Link from "../components/link"
 import { graphql } from "gatsby"
 
-export default class Order extends React.Component {
-  constructor(props) {
-    super(props)
+export default ({ data, className }) => {
+  const image = data.datoCmsOrder.image
+  const logo = data.datoCmsOrder.logo
 
-    this.state = {}
-  }
-  render() {
-    const image = this.props.data.datoCmsOrder.image
-    const logo = this.props.data.datoCmsOrder.logo
-
-    return (
-      <Layout>
-        <StyledDiv className={this.props.className}>
-          <div style={{ position: "relative" }}>
-            {image && (
-              <Backgroundimage
-                fluid={image.fluid}
-                style={{ padding: "5px", height: "225px" }}
-              >
-                {logo && (
-                  <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
-                    <Link to={"/"}>
-                      <Img fluid={logo.fluid} />
-                    </Link>
-                  </div>
-                )}{" "}
-              </Backgroundimage>
-            )}
-          </div>
-        </StyledDiv>
-      </Layout>
-    )
-  }
+  return (
+    <Layout className={className}>
+      <StyledDiv>
+        <div style={{ position: "relative" }}>
+          {image && (
+            <Backgroundimage
+              fluid={image.fluid}
+              style={{ padding: "5px", height: "225px" }}
+            >
+              {logo && (
+                <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
+                  <Link to={"/"}>
+                    <Img fluid={logo.fluid} />
+                  </Link>
+                </div>
+              )}{" "}
+            </Backgroundimage>
+          )}
+        </div>
+      </StyledDiv>
+    </Layout>
+  )
 }
+
 export const query = graphql`
   query($slug: String!) {
     datoCmsOrder(slug: { eq: $slug }) {
