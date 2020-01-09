@@ -8,6 +8,7 @@ import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 import NavComponent from "../components/navComponent"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 
 export default ({ data, className }) => {
   const content = data.datoCmsPage.content
@@ -15,9 +16,10 @@ export default ({ data, className }) => {
   return (
     <Layout className={className}>
       {navmenu && <NavComponent navmenu={navmenu} />}
-      {content.map(page => {
+
+      {content.map((page, i) => {
         return (
-          <div key={page.title}>
+          <StyledPage key={`page-component_${i}`}>
             {page.__typename === "DatoCmsTop" && (
               <TopComponent
                 title={page.title}
@@ -80,7 +82,7 @@ export default ({ data, className }) => {
                 contact={page.contact}
               />
             )}
-          </div>
+          </StyledPage>
         )
       })}
     </Layout>
@@ -99,6 +101,7 @@ export const query = graphql`
       }
       content {
         ... on DatoCmsTop {
+          __typename
           title
           preamble
           textcolor {
@@ -139,6 +142,7 @@ export const query = graphql`
           }
         }
         ... on DatoCmsPuffsfield {
+          __typename
           bgcolor {
             hex
           }
@@ -176,6 +180,7 @@ export const query = graphql`
           }
         }
         ... on DatoCmsMain {
+          __typename
           title
           preamble
           img {
@@ -192,6 +197,7 @@ export const query = graphql`
           }
         }
         ... on DatoCmsSubscription {
+          __typename
           title
           preamble
           bgcolor {
@@ -229,6 +235,7 @@ export const query = graphql`
           }
         }
         ... on DatoCmsNewsletter {
+          __typename
           title
           preamble
           bgimage {
@@ -244,6 +251,7 @@ export const query = graphql`
           }
         }
         ... on DatoCmsBottom {
+          __typename
           logo {
             fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsFluid
@@ -261,3 +269,4 @@ export const query = graphql`
     }
   }
 `
+const StyledPage = styled.div``

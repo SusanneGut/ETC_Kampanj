@@ -23,9 +23,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <h4>
-          <a id="form-mobil" />
-        </h4>
+        <h4 id="form-mobil">test</h4>
 
         <form action="https://gansub.com/s/sUMnC7kSJ/" method="POST">
           <div style={{ paddingBottom: "10px" }}>

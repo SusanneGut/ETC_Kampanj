@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { slide as BurgerMenu } from "react-burger-menu"
 import Link from "gatsby-link"
 import media from "styled-media-query"
+import uuid from "uuid"
 
 const NavComponent = ({ className, navmenu }) => {
   return (
@@ -10,7 +11,7 @@ const NavComponent = ({ className, navmenu }) => {
       <StyledBurgerMenu>
         <BurgerMenu right width="50%">
           {navmenu.map(navitem => (
-            <Link to={"/" + navitem.slug}>
+            <Link to={"/" + navitem.slug} key={uuid.v4()}>
               {navitem.articletitle}
               <hr />
             </Link>
