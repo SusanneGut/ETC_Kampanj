@@ -63,11 +63,11 @@ const StyledPuffLarge = styled(PuffLargeComponent)`
   padding: 20px 10px 20px 30px;
   margin-left: 1%;
 `}
-${media.greaterThan("768px")`
+  ${media.greaterThan("768px")`
 
 `}
-}
 `
+
 const StyledPuffSmall = styled(PuffSmallComponent)`
   padding: 10px;
   flex: 3 4 5;
@@ -82,5 +82,5 @@ const StyledPuffSmall = styled(PuffSmallComponent)`
 `
 const StyledPuffSingle = styled(PuffSingleComponent)`
   margin-top: -5%;
-  padding: 0 5% 5% 5%;
+  padding: 0 23px 23px 23px;
 `
