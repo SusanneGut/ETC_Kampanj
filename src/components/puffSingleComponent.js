@@ -29,8 +29,7 @@ const PuffSingleComponent = ({ className, puff: item, button, buttontext }) => (
 const StyledArticle = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
-  widht: 50%;
+  border-radius: 5px;
   ${media.greaterThan("576px")`
   widht: 250px;
   `}
@@ -45,19 +44,19 @@ margin-bottom: 2%;
 `}
 `
 const StyledImg = styled(Img)`
-  height: 250px;
+  height: 268px;
   flex: 3 4 5;
   margin: 0;
   padding: 0;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 `
 const StyledTextBig = styled.section`
   flex: 0 1 2;
   color: #33333;
-  padding: 1% 5% 0 5%;
+  padding: 22px;
   width: 80%;
   p {
-    font-size: 12px;
+    font-size: 15px;
     color: "585858";
     padding-bottom: 2%;
   }
