@@ -25,11 +25,16 @@ const TopComponent = ({
           style={{ padding: "5px" }}
         >
           {logo && (
-            <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
+            <StyledLogo
+              style={{
+                marginBottom: "1.45rem",
+                maxWidth: "86px",
+              }}
+            >
               <Link to={"/"}>
                 <Img fluid={logo.fluid} />
               </Link>
-            </div>
+            </StyledLogo>
           )}
           {title && <StyledTitle>{title}</StyledTitle>}
           {preamble && (
@@ -72,17 +77,22 @@ const TopComponent = ({
     </div>
   </div>
 )
+const StyledLogo = styled.div`
+  margin-left: 45px;
+`
 
 const StyledTitle = styled.h1`
-  padding: 50px 15% 0% 10%;
+  padding: 253px 46px 0 23px;
+  font-size: 40px;
+  margin-top: 0;
   ${media.greaterThan("576px")`
  font-size: 60px;
  padding: 0px 50% 0% 10%;
 `}
 `
 const StyledPreamble = styled.section`
-  padding: 0px 15% 0% 10%;
-  font-size: 14px;
+  padding: 0 46px 0 23px;
+  font-size: 17px;
 
   ${media.greaterThan("576px")`
  font-size: 20px;
@@ -94,7 +104,7 @@ const StyledTopComponent = styled(TopComponent)`
 `}
 `
 const StyledButtonLink = styled(ButtonLink)`
-  margin: 0% 0% 10% 10%;
+  margin: 10px 0% 50px 23px;
 
   ${media.greaterThan("576px")`
 margin: 0% 0% 8% 10%;

@@ -82,5 +82,5 @@ const StyledPuffSmall = styled(PuffSmallComponent)`
 `
 const StyledPuffSingle = styled(PuffSingleComponent)`
   margin-top: -5%;
-  padding: 0 5% 5% 10%;
+  padding: 0 5% 5% 5%;
 `

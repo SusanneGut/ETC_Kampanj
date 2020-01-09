@@ -21,7 +21,7 @@ const MainComponent = ({
     >
       {img && <StyledImg fluid={img.fluid} />}
       <StyledText>
-        {title && <StyledH2>{title}</StyledH2>}
+        {title && <StyledH1>{title}</StyledH1>}
         {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
         {body && <p dangerouslySetInnerHTML={{ __html: body }} />}
       </StyledText>
@@ -39,7 +39,7 @@ margin: 0;
 max-height: 300px;
 `}
 `
-const StyledH2 = styled.h2`
+const StyledH1 = styled.h1`
   ${media.greaterThan("576px")`
 padding-top: 10%;
 `}

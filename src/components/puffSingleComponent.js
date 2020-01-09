@@ -9,7 +9,7 @@ const PuffSingleComponent = ({ className, puff: item, button, buttontext }) => (
     <StyledArticle style={{ backgroundColor: item.bgcolor.hex }}>
       {item.img && <StyledImg fluid={item.img.fluid} />}
       <StyledTextBig>
-        {item.articletitle && <StyledH3>{item.articletitle}</StyledH3>}
+        {item.articletitle && <StyledH1>{item.articletitle}</StyledH1>}
         {item.preamble && (
           <div dangerouslySetInnerHTML={{ __html: item.preamble }} />
         )}
@@ -39,7 +39,7 @@ const StyledArticle = styled.div`
   backgound-color: green;
   `}
 `
-const StyledH3 = styled.h3`
+const StyledH1 = styled.h1`
   ${media.lessThan("576px")`
 margin-bottom: 2%;
 `}
@@ -60,10 +60,6 @@ const StyledTextBig = styled.section`
     font-size: 12px;
     color: "585858";
     padding-bottom: 2%;
-    height: 12ch;
-    text-overflow: ellipsis;
-    white-space: wrap;
-    overflow: hidden;
   }
   ${media.greaterThan("576px")`
   
