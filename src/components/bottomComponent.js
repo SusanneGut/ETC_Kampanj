@@ -12,30 +12,34 @@ const BottomComponent = ({ className, bgcolor, textcolor, logo, contact }) => (
     >
       <div>
         {logo && (
-          <div style={{ marginBottom: "1.45rem", maxWidth: "40px" }}>
+          <StyledLogo>
             <Img fluid={logo.fluid} />
-          </div>
+          </StyledLogo>
         )}
       </div>
       <StyledText>
         {contact && <p dangerouslySetInnerHTML={{ __html: contact }} />}
       </StyledText>
-      <StyledHr />
+      <StyledHr style={{ color: textcolor.hex }} />
     </StyledDiv>
   </div>
 )
 
 const StyledHr = styled.hr`
-  margin-right: -10%;
+  margin-right: -15%;
 `
 
 const StyledText = styled.div`
   p {
-    font-size: 10px;
+    font-size: 14px;
   }
 `
 const StyledDiv = styled.div`
   padding: 2% 20% 5% 10%;
+`
+const StyledLogo = styled.div`
+  margin-bottom: 14px;
+  max-width: 50px;
 `
 
 export default BottomComponent

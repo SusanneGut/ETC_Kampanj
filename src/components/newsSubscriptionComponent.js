@@ -42,6 +42,7 @@ const NewsSubscriptionComponent = ({
 const StyledH4 = styled.h4``
 
 const StyledTitle = styled.h1`
+  font-size: 35px;
   min-width: 285px;
   ${media.greaterThan("576px")`
 `}
