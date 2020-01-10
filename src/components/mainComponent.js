@@ -40,6 +40,7 @@ max-height: 300px;
 `}
 `
 const StyledH1 = styled.h1`
+  font-size: 35px;
   ${media.greaterThan("576px")`
 padding-top: 10%;
 `}

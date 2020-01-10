@@ -39,6 +39,7 @@ const StyledArticle = styled.div`
   `}
 `
 const StyledH1 = styled.h1`
+  font-size: 35px;
   ${media.lessThan("576px")`
 margin-bottom: 2%;
 `}
