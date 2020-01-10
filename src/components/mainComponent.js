@@ -22,8 +22,8 @@ const MainComponent = ({
       {img && <StyledImg fluid={img.fluid} />}
       <StyledText>
         {title && <StyledH1>{title}</StyledH1>}
-        {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
-        {body && <p dangerouslySetInnerHTML={{ __html: body }} />}
+        {preamble && <div dangerouslySetInnerHTML={{ __html: preamble }} />}
+        {body && <div dangerouslySetInnerHTML={{ __html: body }} />}
       </StyledText>
     </StyledBody>
   </div>
@@ -45,20 +45,21 @@ padding-top: 10%;
 `}
 `
 const StyledText = styled.div`
-  padding: 10px;
-  font-size: 12px;
+  padding: 25px 35px;
   margin: 2%;
+  p {
+    font-size: 15px;
+  }
   ${media.greaterThan("576px")`
 margin: 0;
 flex: 0 1 2 3 ;
 max-width: 40%;
 padding: 0px 25px;
-font-size: 14px;
 `}
 `
 const StyledImg = styled(Img)`
   margin: 0;
-  height: 200px;
+  height: 247px;
   ${media.greaterThan("576px")`
 flex: 4;
 margin: 0;
