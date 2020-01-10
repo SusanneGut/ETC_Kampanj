@@ -69,6 +69,7 @@ export default ({ data, className }) => {
               <NewsSubscriptionComponent
                 textcolor={page.textcolor}
                 bgimage={page.bgimage}
+                headtext={page.headtext}
                 title={page.title}
                 preamble={page.preamble}
                 backgroundcolor={page.backgroundcolor}
@@ -236,6 +237,7 @@ export const query = graphql`
         }
         ... on DatoCmsNewsletter {
           __typename
+          headtext
           title
           preamble
           bgimage {

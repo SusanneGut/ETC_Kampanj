@@ -11,6 +11,7 @@ const NewsSubscriptionComponent = ({
   title,
   preamble,
   backgroundcolor,
+  headtext,
 }) => (
   <div
     className={className}
@@ -22,24 +23,33 @@ const NewsSubscriptionComponent = ({
   >
     {bgimage ? (
       <StyledBackgroundImage fluid={bgimage.fluid}>
-        {title && <StyledH2>{title}</StyledH2>}
-        {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
+        {headtext && <StyledH4>{headtext}</StyledH4>}
+        {title && <StyledTitle>{title}</StyledTitle>}
+        {preamble && <StyledP dangerouslySetInnerHTML={{ __html: preamble }} />}
         <NewsletterFormComponent />
       </StyledBackgroundImage>
     ) : (
       <StyledDiv style={{ backgroundColor: backgroundcolor.hex }}>
-        {title && <StyledH2>{title}</StyledH2>}
-        {preamble && <p dangerouslySetInnerHTML={{ __html: preamble }} />}
+        {headtext && <StyledH4>{headtext}</StyledH4>}
+        {title && <StyledTitle>{title}</StyledTitle>}
+        {preamble && <StyledP dangerouslySetInnerHTML={{ __html: preamble }} />}
         <NewsletterFormComponent />
       </StyledDiv>
     )}
   </div>
 )
 
-const StyledH2 = styled.h3`
+const StyledH4 = styled.h4``
+
+const StyledTitle = styled.h1`
+  min-width: 285px;
   ${media.greaterThan("576px")`
-font-size: 22px;
 `}
+`
+const StyledP = styled.p`
+  font-size: 15px;
+  min-widht: 270px;
+  margin-bottom: 30px;
 `
 const StyledDiv = styled.div`
   padding: 5%;
