@@ -1,5 +1,8 @@
 import React from "react"
 import Button from "./button"
+import styled from "styled-components"
+import media from "styled-media-query"
+
 export default class Form extends React.Component {
   state = {
     email: "",
@@ -23,12 +26,17 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <h4 id="form-mobil">test</h4>
+        <h4 id="form-mobil"></h4>
 
         <form action="https://gansub.com/s/sUMnC7kSJ/" method="POST">
-          <div style={{ paddingBottom: "10px" }}>
+          <div style={{ paddingBottom: "30px" }}>
             <lable for="email" />
-            <input type="text" id="email" name="email" placeholder="mejl" />
+            <StyledInput
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Mejl"
+            />
             <input type="hidden" name="gan_repeat_email" />
           </div>
           <div>
@@ -41,3 +49,11 @@ export default class Form extends React.Component {
     )
   }
 }
+
+const StyledInput = styled.input`
+  border-radius: 6px;
+  box-sizing: border-box;
+  height: 42px;
+  padding: 0 50px 0 20px;
+  font-size: 16px;
+`
