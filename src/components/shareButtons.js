@@ -14,17 +14,17 @@ export default function Share({ slug }) {
     <StyledList>
       <li>
         <FacebookShareButton url={"/" + slug}>
-          <FacebookIcon size={24} round={true} />
+          <FacebookIcon size={38} round={true} />
         </FacebookShareButton>
       </li>
       <li>
         <TwitterShareButton url={"/" + slug}>
-          <TwitterIcon size={24} round={true} />
+          <TwitterIcon size={38} round={true} />
         </TwitterShareButton>
       </li>
       <li>
         <LinkedinShareButton url={"/" + slug}>
-          <LinkedinIcon size={24} round={true} />
+          <LinkedinIcon size={38} round={true} />
         </LinkedinShareButton>
       </li>
     </StyledList>
@@ -33,7 +33,7 @@ export default function Share({ slug }) {
 
 const StyledList = styled.ul`
   list-style-type: none;
-  margin-left: 4%;
+  margin-bottom: 25px;
   li {
     display: inline-block;
     margin-right: 5px;
