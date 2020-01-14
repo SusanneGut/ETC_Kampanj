@@ -5,16 +5,13 @@ import Img from "gatsby-image"
 import Backgroundimage from "gatsby-background-image"
 import Link from "../components/link"
 import { graphql } from "gatsby"
-import Checkbox from "../components/checkbox"
-import ButtonLink from "../components/buttonLink"
-import Button from "../components/button"
+import OrderFormComponent from "../components/orderFormComponent"
 
 export default ({ data, className }) => {
   const image = data.datoCmsOrder.image
   const logo = data.datoCmsOrder.logo
   const backgroundcolor = data.datoCmsOrder.backgroundcolor.hex
-  const button = data.datoCmsOrder.buttonstyle
-  const buttontext = data.datoCmsOrder.buttontext
+
   //ordersection
   const sectionimage = data.datoCmsOrder.sectionimg
   const sectiontoptext = data.datoCmsOrder.sectiontoptext
@@ -22,7 +19,7 @@ export default ({ data, className }) => {
   const sectiontopcolor = data.datoCmsOrder.sectiontopcolor.hex
   const sectiontitle = data.datoCmsOrder.sectiontitle
   const sectiontext = data.datoCmsOrder.sectiontext
-  const content = data.datoCmsOrder.content
+
   return (
     <Layout className={className}>
       <StyledOrder style={{ backgroundColor: backgroundcolor }}>
@@ -55,32 +52,12 @@ export default ({ data, className }) => {
           )}
           <StyledH2>{sectiontitle}</StyledH2>
           <StyledP>{sectiontext}</StyledP>
-          <StyledChoice>
-            {content.map(choice => {
-              return (
-                <StyledSelection>
-                  {choice.title && <StyledH3>{choice.title}</StyledH3>}
-                  {choice.text && (
-                    <StyledCheckboxSection>
-                      <StyledLable style={{ color: choice.textcolor.hex }}>
-                        <Checkbox name={choice.text} /> {choice.text}
-                      </StyledLable>{" "}
-                    </StyledCheckboxSection>
-                  )}
-                </StyledSelection>
-              )
-            })}
-            <StyledHr />
-            <StyledPrice>x kr i månaden</StyledPrice>
-          </StyledChoice>
-          <StyledButtonLink
-            to={"/"}
-            backgroundColor={button.buttonbgcolor.hex}
-            textColor={button.buttontextcolor.hex}
-            borderColor={button.buttonbordercolor.hex}
-          >
-            {buttontext}
-          </StyledButtonLink>
+          <OrderFormComponent
+            id="form"
+            content={data.datoCmsOrder.content}
+            button={data.datoCmsOrder.buttonstyle}
+            buttontext={data.datoCmsOrder.buttontext}
+          ></OrderFormComponent>
         </StyledSection>
       </StyledOrder>
     </Layout>
@@ -174,31 +151,4 @@ const StyledH2 = styled.h2`
 const StyledP = styled.p`
   font-size: 15px;
   padding: 7px 22px 0 22px;
-`
-const StyledChoice = styled.section``
-
-const StyledSelection = styled.section`
-  padding-left: 22px;
-`
-const StyledH3 = styled.h3`
-  margin: 0;
-  padding: 22px 0 11px 0;
-`
-const StyledLable = styled.label`
-  font-size: 16px;
-`
-const StyledCheckboxSection = styled.section`
-  padding: 0 0 11px 0;
-`
-const StyledHr = styled.hr`
-  margin: 9px 22px;
-  color: #85a475;
-`
-const StyledPrice = styled.h3`
-  font-size: 28px;
-  padding: 0 0 22px 22px;
-  margin: 0;
-`
-const StyledButtonLink = styled(ButtonLink)`
-  margin: 0 0 22px 180px;
 `
