@@ -108,9 +108,6 @@ export const query = graphql`
 `
 const StyledArticle = styled.div`
   color: #333333;
-
-  background-color: #f3f3f3;
-  border: 1px solid #e9e9e9;
   padding: 1% 0% 10% 0%;
   overflow: scroll;
   position: relative;

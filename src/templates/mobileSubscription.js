@@ -20,6 +20,10 @@ export default ({ data, className }) => {
   const textline = data.datoCmsMobilesubscription.default
   const numbers = [parseInt(price), y, z]
   const add = (a, b) => a + b
+  function handleClick() {
+    console.log(title, numbers.reduce(add))
+  }
+
   return (
     <StyledArticle className={className}>
       <StyledText>
@@ -69,8 +73,8 @@ export default ({ data, className }) => {
               Avbryt
             </Button1>
           </Link>
-          <Link to="/">
-            <Button2>Gå vidare</Button2>
+          <Link to="/order_mobil">
+            <Button2 onClick={handleClick()}>Gå vidare</Button2>
           </Link>
         </StyledSection>
       </StyledDiv>
@@ -203,4 +207,6 @@ const Button1 = styled(Button)`
 const Button2 = styled(Button)`
   float: right;
 `
-const Form = styled(MobilesubscriptionFormComponent1)``
+const Form = styled(MobilesubscriptionFormComponent1)`
+  display: none;
+`
