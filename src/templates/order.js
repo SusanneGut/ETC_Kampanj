@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Backgroundimage from "gatsby-background-image"
 import Link from "../components/link"
 import { graphql } from "gatsby"
-import OrderFormComponent from "../components/orderFormComponent"
+import OrderFormComponent1 from "../components/orderFormComponent1"
 
 export default ({ data, className }) => {
   const image = data.datoCmsOrder.image
@@ -52,12 +52,12 @@ export default ({ data, className }) => {
           )}
           <StyledH2>{sectiontitle}</StyledH2>
           <StyledP>{sectiontext}</StyledP>
-          <OrderFormComponent
+          <OrderFormComponent1
             id="form"
             content={data.datoCmsOrder.content}
             button={data.datoCmsOrder.buttonstyle}
             buttontext={data.datoCmsOrder.buttontext}
-          ></OrderFormComponent>
+          ></OrderFormComponent1>
         </StyledSection>
       </StyledOrder>
     </Layout>
