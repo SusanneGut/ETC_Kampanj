@@ -30,8 +30,8 @@ const Layout = ({ children }) => (
 )
 
 const StyledDiv = styled.div`
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
+  padding: 0;
   ${media.greaterThan("992px")`
  margin-left: 15%;
  margin-right: 15%;
