@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import Button from "../components/button"
+import Button from "./button"
 
-export default class OrderFormComponent extends React.Component {
+export default class OrderFormComponent1 extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
