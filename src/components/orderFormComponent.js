@@ -1,40 +1,56 @@
 import React from "react"
 import styled from "styled-components"
-import Checkbox from "../components/checkbox"
 import Button from "../components/button"
 
 export default class OrderFormComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      orderitem: "",
+      itemPrice: 0,
     }
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
-    const target = e.target
-    const value = target.value
+  handleChange = event => {
+    const target = event.target
+    const value = target.type === "checkbox" ? target.checked : target.value
     const name = target.name
-    this.setState({ [name]: value })
-  }
 
+    this.setState({
+      [name]: value,
+    })
+  }
+  handleSubmit = event => {
+    event.preventDefault()
+
+    alert(JSON.stringify(this.state))
+  }
   render() {
     return (
       <div className={this.props.className}>
         <StyledChoice>
           {this.props.content.map((item, i) => {
+            if (item.price) {
+              const price = item.price
+              const numbers = [parseInt(price)]
+              const add = (a, b) => a + b
+              console.log(numbers.reduce(add))
+            }
             return (
-              <StyledSelection id={`orderform-component_${i}`}>
+              <StyledSelection key={`orderform-component_${i}`}>
                 {" "}
                 {item.title && <StyledH3>{item.title}</StyledH3>}
                 {item.text && (
                   <StyledCheckboxSection>
                     <StyledLable style={{ color: item.textcolor.hex }}>
-                      <Checkbox
-                        name={item.text}
-                        checked={this.state.orderitem}
-                        onChange={this.handleChange}
-                      />{" "}
+                      {item.checkbox && (
+                        <input
+                          type="checkbox"
+                          name={`orderitem_${item.text}`}
+                          onChange={this.handleChange}
+                          value={item.text}
+                        />
+                      )}{" "}
                       {item.text}
                     </StyledLable>{" "}
                   </StyledCheckboxSection>

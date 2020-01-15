@@ -105,6 +105,8 @@ export const query = graphql`
           textcolor {
             hex
           }
+          price
+          checkbox
         }
       }
       buttonstyle {
