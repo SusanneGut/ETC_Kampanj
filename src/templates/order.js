@@ -7,14 +7,14 @@ import Link from "../components/link"
 import { graphql } from "gatsby"
 import OrderFormComponent1 from "../components/orderFormComponent1"
 import OrderFormComponent2 from "../components/orderFormComponent2"
-import { white } from "color-name"
+import Button from "../components/button"
 
 export default ({ data, className }) => {
   const image = data.datoCmsOrder.image
   const logo = data.datoCmsOrder.logo
   const backgroundcolor = data.datoCmsOrder.backgroundcolor.hex
 
-  //ordersection
+  //ordersection1
   const sectionimage = data.datoCmsOrder.sectionimg
   const sectiontoptext = data.datoCmsOrder.sectiontoptext
   const sectiontoptextcolor = data.datoCmsOrder.sectiontoptextcolor.hex
@@ -22,6 +22,10 @@ export default ({ data, className }) => {
   const sectiontitle = data.datoCmsOrder.sectiontitle
   const sectiontext = data.datoCmsOrder.sectiontext
 
+  //section villkor
+  const villkortext = data.datoCmsOrder.villkortext
+  const villkortextcolor = data.datoCmsOrder.villkortextcolor
+  const villkorbutton = data.datoCmsOrder.villkorbutton
   return (
     <Layout className={className}>
       <StyledOrder style={{ backgroundColor: backgroundcolor }}>
@@ -65,8 +69,26 @@ export default ({ data, className }) => {
           <StyledSubhead style={{ color: "white", backgroundColor: "#85A475" }}>
             Kundinformation
           </StyledSubhead>
-          <OrderFormComponent2></OrderFormComponent2>
+          <OrderFormComponent2 />
         </StyledSection>
+        <StyledHr />
+        <StyledVillkor>
+          <StyledP
+            style={{ color: villkortextcolor.hex }}
+            dangerouslySetInnerHTML={{ __html: villkortext }}
+          ></StyledP>
+        </StyledVillkor>
+        <StyledButton
+          to={"/"}
+          style={{
+            backgroundColor: villkorbutton.buttonbgcolor.hex,
+            borderColor: villkorbutton.buttonbordercolor.hex,
+            color: villkorbutton.buttontextcolor.hex,
+          }}
+        >
+          Slutför köpet
+        </StyledButton>
+        <StyledHr />
       </StyledOrder>
     </Layout>
   )
@@ -131,6 +153,23 @@ export const query = graphql`
         }
       }
       buttontext
+      villkortext
+      villkortextcolor {
+        hex
+      }
+      villkorbutton {
+        ... on DatoCmsButton {
+          buttonbgcolor {
+            hex
+          }
+          buttontextcolor {
+            hex
+          }
+          buttonbordercolor {
+            hex
+          }
+        }
+      }
     }
   }
 `
@@ -161,4 +200,17 @@ const StyledH2 = styled.h2`
 const StyledP = styled.p`
   font-size: 15px;
   padding: 7px 22px 0 22px;
+  strong {
+    color: #666666;
+  }
+`
+const StyledVillkor = styled.section`
+  margin-left: 22px;
+`
+const StyledHr = styled.hr`
+  margin: 9px 22px;
+  color: #bababa;
+`
+const StyledButton = styled(Button)`
+  margin-left: 221px;
 `
