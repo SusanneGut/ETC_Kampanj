@@ -6,6 +6,8 @@ import Backgroundimage from "gatsby-background-image"
 import Link from "../components/link"
 import { graphql } from "gatsby"
 import OrderFormComponent1 from "../components/orderFormComponent1"
+import OrderFormComponent2 from "../components/orderFormComponent2"
+import { white } from "color-name"
 
 export default ({ data, className }) => {
   const image = data.datoCmsOrder.image
@@ -58,6 +60,12 @@ export default ({ data, className }) => {
             button={data.datoCmsOrder.buttonstyle}
             buttontext={data.datoCmsOrder.buttontext}
           ></OrderFormComponent1>
+        </StyledSection>
+        <StyledSection>
+          <StyledSubhead style={{ color: "white", backgroundColor: "#85A475" }}>
+            Kundinformation
+          </StyledSubhead>
+          <OrderFormComponent2></OrderFormComponent2>
         </StyledSection>
       </StyledOrder>
     </Layout>

@@ -15,7 +15,7 @@ const Button = styled.button`
   font-size: ${props => (props.small ? "8px" : "15px")};
   padding: ${props => (props.small ? "0" : "11px 20px")};
   border-radius: 6px;
-  min-width: ${props => (props.small ? "50px" : "135px")};
+  min-width: ${props => (props.small ? "50px" : "130px")};
 
   border: ${props =>
     props.transparentGrey ? "2px solid #BDBDBD" : "2px solid #E3000B"};
