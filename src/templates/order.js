@@ -73,10 +73,13 @@ export default ({ data, className }) => {
         </StyledSection>
         <StyledHr />
         <StyledVillkor>
-          <StyledP
-            style={{ color: villkortextcolor.hex }}
-            dangerouslySetInnerHTML={{ __html: villkortext }}
-          ></StyledP>
+          <StyledLabel>
+            <input type="checkbox"></input>
+            <StyledSpan
+              style={{ color: villkortextcolor.hex }}
+              dangerouslySetInnerHTML={{ __html: villkortext }}
+            ></StyledSpan>
+          </StyledLabel>
         </StyledVillkor>
         <StyledButton
           to={"/"}
@@ -206,6 +209,7 @@ const StyledP = styled.p`
 `
 const StyledVillkor = styled.section`
   margin-left: 22px;
+  margin-bottom: 22px;
 `
 const StyledHr = styled.hr`
   margin: 9px 22px;
@@ -213,4 +217,15 @@ const StyledHr = styled.hr`
 `
 const StyledButton = styled(Button)`
   margin-left: 221px;
+`
+const StyledLabel = styled.label``
+const StyledSpan = styled.span`
+  p {
+    display: inline;
+
+    a {
+      color: #666666;
+      padding-left: 22px;
+    }
+  }
 `
