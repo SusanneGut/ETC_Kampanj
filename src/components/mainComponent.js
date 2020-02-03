@@ -36,7 +36,6 @@ const StyledBody = styled.div`
 flex-direction: row;
 max-width: 100%;
 margin: 0;
-max-height: 300px;
 `}
 `
 const StyledH1 = styled.h1`
@@ -53,26 +52,25 @@ const StyledText = styled.div`
   }
   ${media.greaterThan("576px")`
 margin: 0;
-flex: 0 1 2 3 ;
+flex: 1 2 ;
 max-width: 40%;
-padding: 0px 25px;
+padding: 0px 55px;
+p{font-size: 20px;}
 `}
 `
 const StyledImg = styled(Img)`
   margin: 0;
-  height: 247px;
+  min-height: 247px;
   ${media.greaterThan("576px")`
-flex: 4;
+flex: 3 4;
 margin: 0;
 padding: 0;
 max-width: 60%;
-height: 360px;
 `}
 `
 const StyledMainComponent = styled(MainComponent)`
   border: 0 1px 0 1px solid #e9e9e9;
   ${media.greaterThan("576px")`
-  height: 360px;
 `}
 `
 export default StyledMainComponent
