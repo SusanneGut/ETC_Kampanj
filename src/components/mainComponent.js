@@ -53,9 +53,11 @@ const StyledText = styled.div`
   ${media.greaterThan("576px")`
 margin: 0;
 flex: 1 2 ;
-max-width: 40%;
-padding: 0px 55px;
-p{font-size: 20px;}
+max-width: 50%;
+padding: 0px 55px 47px 55px;
+p {
+  font-size: 20px;
+}
 `}
 `
 const StyledImg = styled(Img)`
@@ -65,7 +67,7 @@ const StyledImg = styled(Img)`
 flex: 3 4;
 margin: 0;
 padding: 0;
-max-width: 60%;
+max-width: 50%;
 `}
 `
 const StyledMainComponent = styled(MainComponent)`
