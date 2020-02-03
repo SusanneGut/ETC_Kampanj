@@ -32,7 +32,7 @@ const MainComponent = ({
 const StyledBody = styled.div`
   display: flex;
   flex-direction: column;
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("1200px")`
 flex-direction: row;
 max-width: 100%;
 margin: 0;
@@ -40,7 +40,7 @@ margin: 0;
 `
 const StyledH1 = styled.h1`
   font-size: 35px;
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("1200px")`
 padding-top: 10%;
 `}
 `
@@ -50,7 +50,7 @@ const StyledText = styled.div`
   p {
     font-size: 15px;
   }
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("1200px")`
 margin: 0;
 flex: 1 2 ;
 max-width: 50%;
@@ -63,7 +63,7 @@ p {
 const StyledImg = styled(Img)`
   margin: 0;
   min-height: 247px;
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("1200px")`
 flex: 3 4;
 margin: 0;
 padding: 0;
@@ -72,7 +72,5 @@ max-width: 50%;
 `
 const StyledMainComponent = styled(MainComponent)`
   border: 0 1px 0 1px solid #e9e9e9;
-  ${media.greaterThan("576px")`
-`}
 `
 export default StyledMainComponent
