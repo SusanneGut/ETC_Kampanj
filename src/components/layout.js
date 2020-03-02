@@ -32,10 +32,6 @@ const Layout = ({ children }) => (
 const StyledDiv = styled.div`
   margin: 0;
   padding: 0;
-  ${media.greaterThan("992px")`
- margin-left: 15%;
- margin-right: 15%;
-`}
 `
 
 export default Layout

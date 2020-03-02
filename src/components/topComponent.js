@@ -87,6 +87,9 @@ const StyledTitle = styled.h1`
   margin-top: 0;
   ${media.greaterThan("576px")`
  font-size: 60px;
+ padding: 0px 50% 0% 10%;`}
+  ${media.greaterThan("950px")`
+ font-size: 95px;
  padding: 0px 50% 0% 10%;
 `}
 `
