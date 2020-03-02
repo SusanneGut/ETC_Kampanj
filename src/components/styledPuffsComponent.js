@@ -77,10 +77,11 @@ const StyledPuffSmall = styled(PuffSmallComponent)`
   padding: 20px 30px 20px 10px;
   margin-right: 2%;
 `}
-  ${media.greaterThan("1300px")`
-  `}
 `
 const StyledPuffSingle = styled(PuffSingleComponent)`
   margin-top: -5%;
   padding: 0 23px 23px 23px;
+  ${media.greaterThan("950px")`
+  position: relative;
+  `}
 `
