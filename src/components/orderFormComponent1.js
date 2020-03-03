@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Button from "./button"
+import media from "styled-media-query"
 
 export default class OrderFormComponent1 extends React.Component {
   constructor(props) {
@@ -59,17 +60,19 @@ export default class OrderFormComponent1 extends React.Component {
             )
           })}
           <StyledHr />
-          <StyledPrice>x kr i månaden</StyledPrice>
+          <StyledSection>
+            <StyledPrice>x kr i månaden</StyledPrice>
+            <StyledButton
+              to={"/"}
+              backgroundcolor={this.props.button.buttonbgcolor.hex}
+              textcolor={this.props.button.buttontextcolor.hex}
+              bordercolor={this.props.button.buttonbordercolor.hex}
+              onClick={this.handleSubmit}
+            >
+              {this.props.buttontext}
+            </StyledButton>
+          </StyledSection>
         </StyledChoice>
-        <StyledButton
-          to={"/"}
-          backgroundcolor={this.props.button.buttonbgcolor.hex}
-          textcolor={this.props.button.buttontextcolor.hex}
-          bordercolor={this.props.button.buttonbordercolor.hex}
-          onClick={this.handleSubmit}
-        >
-          {this.props.buttontext}
-        </StyledButton>
       </div>
     )
   }
@@ -97,7 +100,20 @@ const StyledPrice = styled.h3`
   font-size: 28px;
   padding: 0 0 22px 22px;
   margin: 0;
+  ${media.greaterThan("950px")`
+  flex: 4;
+`}
 `
 const StyledButton = styled(Button)`
-  margin: 0 0 22px 180px;
+  margin: 0 0 22px 18px;
+  ${media.greaterThan("950px")`
+  flex: 1 2 3;
+  margin-right: 22px;
+`}
+`
+const StyledSection = styled.section`
+  ${media.greaterThan("950px")`
+display: flex;
+  flex-direction: row;
+`}
 `

@@ -8,6 +8,7 @@ import { graphql } from "gatsby"
 import OrderFormComponent1 from "../components/orderFormComponent1"
 import OrderFormComponent2 from "../components/orderFormComponent2"
 import Button from "../components/button"
+import media from "styled-media-query"
 
 export default ({ data, className }) => {
   const image = data.datoCmsOrder.image
@@ -39,38 +40,37 @@ export default ({ data, className }) => {
               </StyledLogo>
             )}{" "}
           </Backgroundimage>
-        )}
-        <StyledSection>
+        )}{" "}
+        <StyledSubhead
+          style={{
+            color: sectiontoptextcolor,
+            backgroundColor: sectiontopcolor,
+          }}
+        >
+          {sectiontoptext}
+        </StyledSubhead>
+        <StyledSection1>
           {" "}
-          <StyledSubhead
-            style={{
-              color: sectiontoptextcolor,
-              backgroundColor: sectiontopcolor,
-            }}
-          >
-            {sectiontoptext}
-          </StyledSubhead>
           {sectionimage && (
-            <StyledImage
-              fluid={sectionimage.fluid}
-              style={{ height: "270px" }}
-            ></StyledImage>
+            <StyledImage fluid={sectionimage.fluid}></StyledImage>
           )}
-          <StyledH2>{sectiontitle}</StyledH2>
-          <StyledP>{sectiontext}</StyledP>
-          <OrderFormComponent1
-            id="form"
-            content={data.datoCmsOrder.content}
-            button={data.datoCmsOrder.buttonstyle}
-            buttontext={data.datoCmsOrder.buttontext}
-          ></OrderFormComponent1>
-        </StyledSection>
-        <StyledSection>
-          <StyledSubhead style={{ color: "white", backgroundColor: "#85A475" }}>
-            Kundinformation
-          </StyledSubhead>
+          <StyledOrderSection>
+            <StyledH2>{sectiontitle}</StyledH2>
+            <StyledP>{sectiontext}</StyledP>
+            <StyledOrderForm1
+              id="form"
+              content={data.datoCmsOrder.content}
+              button={data.datoCmsOrder.buttonstyle}
+              buttontext={data.datoCmsOrder.buttontext}
+            ></StyledOrderForm1>
+          </StyledOrderSection>
+        </StyledSection1>
+        <StyledSubhead style={{ color: "white", backgroundColor: "#85A475" }}>
+          Kundinformation
+        </StyledSubhead>
+        <StyledSection2>
           <OrderFormComponent2 />
-        </StyledSection>
+        </StyledSection2>
         <StyledHr />
         <StyledVillkor>
           <StyledLabel>
@@ -186,19 +186,47 @@ const StyledLogo = styled.div`
 const StyledSubhead = styled.h3`
   padding: 14px 0 14px 22px;
   border-radius: 5px 5px 0 0;
+  margin: 22px 22px 0 22px;
 `
-const StyledSection = styled.section`
+const StyledSection1 = styled.section`
   background-color: #ffffff;
   margin: 22px;
+  margin-top: 0;
+  padding-top: 22px;
+  border-radius: 5px;
+  ${media.greaterThan("950px")`
+ display: flex;
+ flex-direction: row;
+  `}
+`
+const StyledSection2 = styled.section`
+  background-color: #ffffff;
+  margin: 22px;
+  margin-top: 0;
+  padding-top: 22px;
   border-radius: 5px;
 `
 const StyledImage = styled(Img)`
   margin: 0 0 45px 22px;
+
+  ${media.greaterThan("950px")`
+  flex: 1;
+  margin: 50px 0 22px 50px;
+   height: 498px; 
+  `}
 `
+const StyledOrderForm1 = styled(OrderFormComponent1)``
+
+const StyledOrderSection = styled.section`
+  ${media.greaterThan("950px")`
+flex: 2;
+padding: 22
+`}
+`
+
 const StyledH2 = styled.h2`
   font-size: 28px;
   margin: 0 0 0 22px;
-  padding: ;
 `
 const StyledP = styled.p`
   font-size: 15px;

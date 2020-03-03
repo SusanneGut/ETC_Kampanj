@@ -32,15 +32,14 @@ const MainComponent = ({
 const StyledBody = styled.div`
   display: flex;
   flex-direction: column;
-  ${media.greaterThan("1200px")`
-flex-direction: row;
-max-width: 100%;
-margin: 0;
+  ${media.greaterThan("950px")`
+  flex-direction: row-reverse;
+  margin: 0;
 `}
 `
 const StyledH1 = styled.h1`
   font-size: 35px;
-  ${media.greaterThan("1200px")`
+  ${media.greaterThan("950px")`
 padding-top: 10%;
 `}
 `
@@ -50,10 +49,9 @@ const StyledText = styled.div`
   p {
     font-size: 15px;
   }
-  ${media.greaterThan("1200px")`
+  ${media.greaterThan("950px")`
 margin: 0;
-flex: 1 2 ;
-max-width: 50%;
+flex: 3;
 padding: 0px 55px 47px 55px;
 p {
   font-size: 20px;
@@ -63,11 +61,10 @@ p {
 const StyledImg = styled(Img)`
   margin: 0;
   min-height: 247px;
-  ${media.greaterThan("1200px")`
-flex: 3 4;
+  ${media.greaterThan("950px")`
+flex: 1 2;
 margin: 0;
 padding: 0;
-max-width: 50%;
 `}
 `
 const StyledMainComponent = styled(MainComponent)`
