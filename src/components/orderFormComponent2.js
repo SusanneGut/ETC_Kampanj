@@ -3,6 +3,7 @@ import styled from "styled-components"
 import ButtonLink from "./buttonLink"
 import Button from "../components/button"
 import Checkbox from "../components/checkbox"
+import media from "styled-media-query"
 
 export default class MobilesubscriptionFormComponent1 extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
-        <StyledInput
+        <StyledInputLong
           type="email"
           name="mail"
           value={this.state.mail}
@@ -51,21 +52,38 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
           data-validate="require email"
         />
         <br />
-        <StyledInput
-          type="text"
-          name="firstName"
-          value={this.state.firstName}
-          onChange={this.handleInputChange}
-          placeholder="Förnamn"
-        />
-        <StyledInput
-          type="text"
-          name="lastName"
-          value={this.state.lastName}
-          onChange={this.handleInputChange}
-          placeholder="Efternamn"
-        />
-        <br />
+        <StyledInputSection>
+          <StyledInputShort
+            type="text"
+            name="firstName"
+            value={this.state.firstName}
+            onChange={this.handleInputChange}
+            placeholder="Förnamn"
+          />
+          <StyledInputShort
+            type="text"
+            name="lastName"
+            value={this.state.lastName}
+            onChange={this.handleInputChange}
+            placeholder="Efternamn"
+          />
+        </StyledInputSection>{" "}
+        <StyledInputSection>
+          <StyledInputShort
+            type="text"
+            name="personnummer"
+            value={this.state.personnummer}
+            onChange={this.handleInputChange}
+            placeholder="Personnummer"
+          />
+          <StyledInputShort
+            type="text"
+            name="startdatum"
+            value={this.state.startdatum}
+            onChange={this.handleInputChange}
+            placeholder="Startdatum"
+          />
+        </StyledInputSection>
         <StyledDiv>
           <StyledLable>
             {" "}
@@ -86,57 +104,40 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
             Företag
           </StyledLable>{" "}
         </StyledDiv>
-        <br />
-        <StyledInput
-          type="text"
-          name="personnummer"
-          value={this.state.personnummer}
-          onChange={this.handleInputChange}
-          placeholder="Personnummer"
-        />
-        <br />
-        <StyledInput
-          type="text"
-          name="startdatum"
-          value={this.state.startdatum}
-          onChange={this.handleInputChange}
-          placeholder="Startdatum"
-        />
         <StyledDiv>
           <StyledLable>
             Leveransadress
             <br style={{ marginBottom: "11px" }} />
-            <StyledInput
+            <StyledInputLong
               type="address"
               name="address"
               value={this.state.address}
               onChange={this.handleInputChange}
               placeholder="Gatuadress"
             />
-            <br />
-            <StyledInput
+            <StyledInputLong
               type="city"
               name="city"
               value={this.state.city}
               onChange={this.handleInputChange}
               placeholder="Postort"
             />
-            <br />
-            <StyledInput
-              type="postalnum"
-              name="postalnum"
-              value={this.state.postalnum}
-              onChange={this.handleInputChange}
-              placeholder="Postnummer"
-            />
-            <StyledInput
-              type="phone"
-              name="phone"
-              value={this.state.phone}
-              onChange={this.handleInputChange}
-              placeholder="Telefonnummer"
-            />
-            <br />
+            <StyledInputSection>
+              <StyledInputShort
+                type="postalnum"
+                name="postalnum"
+                value={this.state.postalnum}
+                onChange={this.handleInputChange}
+                placeholder="Postnummer"
+              />
+              <StyledInputShort
+                type="phone"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleInputChange}
+                placeholder="Telefonnummer"
+              />
+            </StyledInputSection>
           </StyledLable>
         </StyledDiv>
         <StyledButtonLink to={"/ETC_lagom"}>Tillbaka</StyledButtonLink>
@@ -148,7 +149,7 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
   }
 }
 
-const StyledInput = styled.input`
+const StyledInputLong = styled.input`
   margin: 0 23px 10px 22px;
   height: 42px;
   border: 2px solid #e4e4e4;
@@ -156,7 +157,23 @@ const StyledInput = styled.input`
   opacity: 1;
   font-size: 15px;
   padding-left: 8px;
-  padding-right: 80px;
+  padding-right: 22%;
+  ${media.greaterThan("950px")`
+  width: 73%;
+  `}
+`
+const StyledInputShort = styled.input`
+  margin: 0 23px 10px 22px;
+  height: 42px;
+  border: 2px solid #e4e4e4;
+  border-radius: 6px;
+  opacity: 1;
+  font-size: 15px;
+  padding-left: 8px;
+  padding-right: 22%;
+  ${media.greaterThan("950px")`
+  width: 24%;
+  `}
 `
 const StyledLable = styled.label`
   margin: 22px;
@@ -170,4 +187,9 @@ const StyledButtonLink = styled(ButtonLink)`
 const StyledButton = styled(Button)``
 const StyledDiv = styled.div`
   margin-top: 11px;
+`
+const StyledInputSection = styled.section`
+  ${media.greaterThan("950px")`
+  display: flex;
+  `}
 `

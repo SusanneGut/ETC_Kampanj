@@ -69,7 +69,7 @@ export default ({ data, className }) => {
           Kundinformation
         </StyledSubhead>
         <StyledSection2>
-          <OrderFormComponent2 />
+          <StyledOrderForm2 />
         </StyledSection2>
         <StyledHr />
         <StyledVillkor>
@@ -80,17 +80,17 @@ export default ({ data, className }) => {
               dangerouslySetInnerHTML={{ __html: villkortext }}
             ></StyledSpan>
           </StyledLabel>
+          <StyledButton
+            to={"/"}
+            style={{
+              backgroundColor: villkorbutton.buttonbgcolor.hex,
+              borderColor: villkorbutton.buttonbordercolor.hex,
+              color: villkorbutton.buttontextcolor.hex,
+            }}
+          >
+            Slutför köpet
+          </StyledButton>
         </StyledVillkor>
-        <StyledButton
-          to={"/"}
-          style={{
-            backgroundColor: villkorbutton.buttonbgcolor.hex,
-            borderColor: villkorbutton.buttonbordercolor.hex,
-            color: villkorbutton.buttontextcolor.hex,
-          }}
-        >
-          Slutför köpet
-        </StyledButton>
         <StyledHr />
       </StyledOrder>
     </Layout>
@@ -187,16 +187,19 @@ const StyledSubhead = styled.h3`
   padding: 14px 0 14px 22px;
   border-radius: 5px 5px 0 0;
   margin: 22px 22px 0 22px;
+  ${media.greaterThan("950px")`
+  margin: 44px 44px 0 44px;
+  `}
 `
 const StyledSection1 = styled.section`
   background-color: #ffffff;
-  margin: 22px;
-  margin-top: 0;
+  margin: 0 22px 22px 22px;
   padding-top: 22px;
   border-radius: 5px;
   ${media.greaterThan("950px")`
  display: flex;
  flex-direction: row;
+ margin: 0 44px 44px 44px;
   `}
 `
 const StyledSection2 = styled.section`
@@ -205,7 +208,12 @@ const StyledSection2 = styled.section`
   margin-top: 0;
   padding-top: 22px;
   border-radius: 5px;
+  ${media.greaterThan("950px")`
+  margin: 0 44px 44px 44px;
+  `}
 `
+const StyledSection3 = styled.section``
+
 const StyledImage = styled(Img)`
   margin: 0 0 45px 22px;
 
@@ -213,9 +221,10 @@ const StyledImage = styled(Img)`
   flex: 1;
   margin: 50px 0 22px 50px;
    height: 498px; 
-  `}
+  `};
 `
 const StyledOrderForm1 = styled(OrderFormComponent1)``
+const StyledOrderForm2 = styled(OrderFormComponent2)``
 
 const StyledOrderSection = styled.section`
   ${media.greaterThan("950px")`
@@ -238,13 +247,21 @@ const StyledP = styled.p`
 const StyledVillkor = styled.section`
   margin-left: 22px;
   margin-bottom: 22px;
+  ${media.greaterThan("950px")`
+  display: flex
+  `}
 `
 const StyledHr = styled.hr`
   margin: 9px 22px;
   color: #bababa;
 `
 const StyledButton = styled(Button)`
-  margin-left: 221px;
+  float: left;
+  ${media.greaterThan("580px")`
+  float: right;
+  margin-right:5%;
+  margin-bottom: 20%;
+  `}
 `
 const StyledLabel = styled.label``
 const StyledSpan = styled.span`
@@ -254,6 +271,7 @@ const StyledSpan = styled.span`
     a {
       color: #666666;
       padding-left: 22px;
+      padding: 0;
     }
   }
 `
