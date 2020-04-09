@@ -43,6 +43,7 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
+        <form method="POST" action="https://getform.io/f/5a1516c0-9760-4021-93c5-aa1cb0345d03">
         <StyledInputLong
           type="email"
           name="mail"
@@ -141,9 +142,9 @@ export default class MobilesubscriptionFormComponent1 extends React.Component {
           </StyledLable>
         </StyledDiv>
         <StyledButtonLink to={"/ETC_lagom"}>Tillbaka</StyledButtonLink>
-        <StyledButton type="submit" onClick={this.handleSubmit}>
+        <StyledButton type="send" >
           Beställ
-        </StyledButton>
+        </StyledButton></form>
       </div>
     )
   }
@@ -158,8 +159,10 @@ const StyledInputLong = styled.input`
   font-size: 15px;
   padding-left: 8px;
   padding-right: 22%;
+  width: 60%;
+
   ${media.greaterThan("950px")`
-  width: 73%;
+  width: 72%;
   `}
 `
 const StyledInputShort = styled.input`
@@ -178,6 +181,7 @@ const StyledInputShort = styled.input`
 const StyledLable = styled.label`
   margin: 22px;
   font-size: 16px;
+  margin-right: 0;
 `
 const StyledButtonLink = styled(ButtonLink)`
   color: #333333;
