@@ -20,7 +20,6 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <StyledDiv>
-          <Header />
           <main>{children}</main>
           <Footer />
         </StyledDiv>

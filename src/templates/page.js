@@ -6,7 +6,7 @@ import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
-import NavComponent from "../components/navComponent"
+import Header from "../components/Header"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
@@ -15,7 +15,7 @@ export default ({ data, className }) => {
   const navmenu = data.datoCmsPage.navmenu
   return (
     <Layout className={className}>
-      {navmenu && <NavComponent navmenu={navmenu} />}
+      {navmenu && <Header navmenu={navmenu} />}
 
       {content.map((page, i) => {
         return (
