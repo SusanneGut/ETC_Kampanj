@@ -29,8 +29,11 @@ const StyledBurgerMenu = styled.div`
     text-align: center;
     display: inline-block;
     text-decoration: none;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
     color: #d1d1d1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .bm-item:hover {
     color: white;
@@ -39,14 +42,13 @@ const StyledBurgerMenu = styled.div`
     position: absolute;
     width: 20px;
     height: 15px;
-    right: 10vw;
+    right: 0vw;
     top: 3vh;
     ${media.greaterThan("576px")`
-    right: 6vw;
 `} ${media.greaterThan("768px")`
-    top: 5vh;
-    right: 7vw;
 `}
+  }
+
   }
   .bm-burger-bars {
     background: #373a47;
@@ -75,6 +77,7 @@ const StyledBurgerMenu = styled.div`
   }
   .bm-menu-wrap {
   }
+  
 `
 const StyledDiv = styled.div`
   position: sticky;
