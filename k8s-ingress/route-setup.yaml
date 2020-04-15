@@ -28,7 +28,7 @@ spec:
     - match: Host(`<APP_HOST_NAME>`)
       kind: Rule
       middlewares:
-        - name: https_redirect
+        - name: https-redirect
       services:
         - name: kampanj-service
           port: 80
@@ -37,7 +37,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: https_redirect
+  name: https-redirect
 spec:
   redirectScheme:
     scheme: https
