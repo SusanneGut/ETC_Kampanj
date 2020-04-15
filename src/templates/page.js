@@ -22,12 +22,13 @@ export default ({ data, className }) => {
           <StyledPage key={`page-component_${i}`}>
             {page.__typename === "DatoCmsTop" && (
               <TopComponent
+                pretitle={page.pretitle}
+                pretitleColor={page.textcolorpretitle}
                 title={page.title}
                 preamble={page.preamble}
                 textcolor={page.textcolor}
                 backgroundcolor={page.backgroundcolor}
                 backgroundimage={page.backgroundimage}
-                logo={page.logo}
                 buttontext={page.buttontext}
                 buttonlink={page.buttonlink}
                 button={page.buttonstyle}
@@ -103,6 +104,10 @@ export const query = graphql`
       content {
         ... on DatoCmsTop {
           __typename
+          pretitle
+          textcolorpretitle {
+            hex
+          }
           title
           preamble
           textcolor {
