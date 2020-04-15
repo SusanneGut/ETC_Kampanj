@@ -22,7 +22,6 @@ build:
     - docker push $CI_REGISTRY_IMAGE:latest
   only:
     - master
-    - add-scripts-for-cd
 
 .template_deploy_variables: &template_deploy_variables
   APP_URL: "$CI_ENVIRONMENT_URL"
@@ -71,7 +70,6 @@ deploy_staging:
   script: *template_deploy_script
   only:
     - master
-    - add-scripts-for-cd
 
 deploy_live:
   image: alpine:latest
