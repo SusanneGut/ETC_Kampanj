@@ -65,6 +65,8 @@ const StyledNavitem = styled.li`
     widht: 10ch;
     font-size: 16px;
     color: #000000;
+    font-family: "StagSans-book";
+
 
   }
 

@@ -54,6 +54,9 @@ export default ({ data, className }) => {
                 title={page.title}
                 preamble={page.preamble}
                 body={page.body}
+                button={page.buttonstyle}
+                buttonlink={page.buttonlink}
+                buttontext={page.buttontext}
               />
             )}
             {page.__typename === "DatoCmsSubscription" && (
@@ -200,6 +203,26 @@ export const query = graphql`
           }
           backgroundcolor {
             hex
+          }
+          buttontext
+          buttonlink {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
+          }
+          buttonstyle {
+            ... on DatoCmsButton {
+              buttonbgcolor {
+                hex
+              }
+              buttontextcolor {
+                hex
+              }
+              buttonbordercolor {
+                hex
+              }
+            }
           }
         }
         ... on DatoCmsSubscription {
