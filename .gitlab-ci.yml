@@ -41,6 +41,8 @@ build:
   - mkdir -p k8s/.generated k8s-ingress/.generated
   - cp k8s/*.yaml k8s/.generated
   - cp k8s-ingress/*.yaml k8s/.generated
+    # Set the image, built in previous step
+  - sed -ie "s/<DOCKER_TAG>/${DOCKER_TAG}/" k8s/.generated/*.yaml
 
   # Set domain and subdomain, determined by git branch-name
   - echo "CI_ENVIRONMENT_URL=$CI_ENVIRONMENT_URL"
