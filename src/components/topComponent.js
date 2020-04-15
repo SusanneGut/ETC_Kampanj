@@ -12,10 +12,11 @@ const TopComponent = ({
   textcolor,
   backgroundcolor,
   backgroundimage,
-  logo,
   buttonlink,
   buttontext,
   button,
+  pretitle,
+  pretitleColor,
 }) => (
   <div className={className}>
     <div style={{ position: "relative", color: textcolor.hex }}>
@@ -24,17 +25,10 @@ const TopComponent = ({
           fluid={backgroundimage.fluid}
           style={{ padding: "5px" }}
         >
-          {logo && (
-            <StyledLogo
-              style={{
-                marginBottom: "1.45rem",
-                maxWidth: "86px",
-              }}
-            >
-              <Link to={"/"}>
-                <Img fluid={logo.fluid} />
-              </Link>
-            </StyledLogo>
+          {pretitle && (
+            <StyledPreTitle style={{ color: pretitleColor.hex }}>
+              {pretitle}
+            </StyledPreTitle>
           )}
           {title && <StyledTitle>{title}</StyledTitle>}
           {preamble && (
@@ -53,10 +47,10 @@ const TopComponent = ({
         </Backgroundimage>
       ) : (
         <div style={{ backgroundColor: backgroundcolor.hex }}>
-          {logo && (
-            <div style={{ marginBottom: "1.45rem", maxWidth: "50px" }}>
-              <Img fluid={logo.fluid} />{" "}
-            </div>
+          {pretitle && (
+            <StyledPreTitle style={{ color: pretitleColor.hex }}>
+              {pretitle}
+            </StyledPreTitle>
           )}
           {title && <StyledTitle>{title}</StyledTitle>}
           {preamble && (
@@ -77,14 +71,17 @@ const TopComponent = ({
     </div>
   </div>
 )
-const StyledLogo = styled.div`
-  margin-left: 45px;
+
+const StyledPreTitle = styled.h6`
+  padding: 52px 0 0 30px;
+  margin: 0;
 `
 
 const StyledTitle = styled.h1`
-  padding: 253px 46px 0 23px;
-  font-size: 40px;
-  margin-top: 0;
+  padding: 18px 62px 0 30px;
+  font-size: 44px;
+  margin: 0;
+
   ${media.greaterThan("576px")`
  font-size: 60px;
  padding: 0px 50% 0% 10%;`}
@@ -103,11 +100,12 @@ const StyledPreamble = styled.section`
 `}
 `
 const StyledTopComponent = styled(TopComponent)`
+  height: 100%;
   ${media.greaterThan("576px")`
 `}
 `
 const StyledButtonLink = styled(ButtonLink)`
-  margin: 10px 0% 50px 23px;
+  margin: 38px 0% 50px 23px;
 
   ${media.greaterThan("576px")`
 margin: 0% 0% 8% 10%;

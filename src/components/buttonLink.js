@@ -9,10 +9,10 @@ const ButtonLink = styled(props => <Link {...props} />)`
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  font-size: ${props => (props.small ? "8px" : "15px")};
+  font-size: ${props => (props.small ? "8px" : "18px")};
   padding: ${props => (props.small ? "0" : "11px 20px")};
   border-radius: 6px;
-  min-width: ${props => (props.small ? "50px" : "130px")};
+  min-width: ${props => (props.small ? "50px" : "166px")};
   box-sizing: border-box;
 `
 export default ButtonLink
