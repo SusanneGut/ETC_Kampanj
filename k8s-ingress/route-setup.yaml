@@ -1,37 +1,38 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-    name: kampanj-live
-    namespace: default
+  name: kampanj-live
+  namespace: default
 spec:
-    entryPoints:
-        - https
-    routes:
-        - match: Host(`<APP_HOST_NAME>`) && PathPrefix(`/`)
-          kind: Rule
-          services:
-              - name: kampanj-service
-                port: 80
-    tls:
-        certResolver: default
+  entryPoints:
+    - https
+  routes:
+    - match: Host(`<APP_HOST_NAME>`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: kampanj-service
+          port: 80
+  tls:
+    certResolver: default
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-    name: kampanj-live-redirect
-    namespace: default
+  name: kampanj-live-redirect
+  namespace: default
 spec:
-    entryPoints:
-        - http
-    routes:
-        - match: Host(`<APP_HOST_NAME>`)
-          kind: Rule
-          middlewares:
-              - name: redirectscheme
-          services:
-              - name: kampanj-service
-                port: 80
+  entryPoints:
+    - http
+  routes:
+    - match: Host(`<APP_HOST_NAME>`)
+      kind: Rule
+      middlewares:
+        - name: https_redirect
+      services:
+        - name: kampanj-service
+          port: 80
+
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
