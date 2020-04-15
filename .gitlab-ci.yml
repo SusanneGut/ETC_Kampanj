@@ -1,0 +1,87 @@
+variables:
+  DOCKER_TAG: "$CI_COMMIT_SHA"
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: docker:19
+  variables:
+    DOCKER_HOST: tcp://docker:2376
+    DOCKER_TLS_CERTDIR: "/certs"
+  services:
+    - docker:19.03.5-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest -f ./docker/Dockerfile .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - master
+
+.template_deploy_variables: &template_deploy_variables
+  APP_URL: "$CI_ENVIRONMENT_URL"
+
+.template_deploy_before_script: &template_deploy_before_script
+  - echo "before script"
+  - apk update  && apk add --no-cache curl
+  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+  - chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
+  - mkdir -p $HOME/.kube
+  - echo -n $KUBE_CONFIG | base64 -d > $HOME/.kube/config
+  - kubectl config view
+
+.template_deploy_script: &template_deploy_script
+  - echo "CI script"
+  - mkdir -p k8s/.generated k8s-ingress/.generated
+  - cp k8s/*.yaml k8s/.generated
+  - cp k8s-ingress/*.yaml k8s/.generated
+    # Set the image, built in previous step
+  - sed -ie "s/<DOCKER_TAG>/${DOCKER_TAG}/" k8s/.generated/*.yaml
+
+  # Set domain and subdomain, determined by git branch-name
+  - echo "CI_ENVIRONMENT_URL=$CI_ENVIRONMENT_URL"
+  - APP_HOST_NAME="$(echo $CI_ENVIRONMENT_URL | sed 's~http[s]*://~~g')"
+  - echo "APP_HOST_NAME=$APP_HOST_NAME"
+  - sed -ie "s~<APP_HOST_NAME>~${APP_HOST_NAME}~" k8s/.generated/*.yaml
+
+  - kubectl config use-context $KUBE_CONTEXT
+  - echo "Set up deployments"
+  - kubectl --kubeconfig $HOME/.kube/config apply -f k8s/.generated/kampanj.deployment.yaml
+  - echo "Set up services"
+  - kubectl --kubeconfig $HOME/.kube/config apply -f k8s/.generated/kampanj.service.yaml
+  - echo "Set up routes"
+  - kubectl --kubeconfig $HOME/.kube/config apply -f k8s/.generated/route-setup.yaml
+
+deploy_staging:
+  image: alpine:latest
+  stage: deploy
+  environment:
+    name: staging
+    url: https://master.kampanj.ochsavidare.nu
+  variables:
+    <<: *template_deploy_variables
+    KUBE_CONTEXT: do-ams3-etc-staging
+  before_script: *template_deploy_before_script
+  script: *template_deploy_script
+  only:
+    - master
+
+deploy_live:
+  image: alpine:latest
+  stage: deploy
+  environment:
+    name: live
+    url: https://kampanj.etc.se
+  variables:
+    <<: *template_deploy_variables
+    KUBE_CONTEXT: do-ams3-etc-live
+  before_script: *template_deploy_before_script
+  script: *template_deploy_script
+  when: manual
+  only:
+    - master

@@ -6,7 +6,7 @@ import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
-import Header from "../components/Header"
+import Header from "../components/header"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
