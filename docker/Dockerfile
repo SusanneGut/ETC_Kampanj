@@ -30,4 +30,4 @@ RUN chown nginx:nginx /var/cache/nginx
 
 USER nginx
 
-EXPOSE 5000
+EXPOSE 80
