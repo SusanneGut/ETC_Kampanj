@@ -22,7 +22,7 @@ RUN npm run build
 
 FROM nginx:alpine
 
-COPY nginx /etc/nginx/
+COPY ./docker/nginx /etc/nginx/
 COPY --from=build --chown=nginx:nginx /app/public /usr/share/nginx/html
 RUN touch /var/run/nginx.pid && chown nginx:nginx /var/run/nginx.pid
 
