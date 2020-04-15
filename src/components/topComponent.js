@@ -1,10 +1,8 @@
 import React from "react"
-import Img from "gatsby-image"
 import Backgroundimage from "gatsby-background-image"
 import styled from "styled-components"
 import media from "styled-media-query"
 import ButtonLink from "./buttonLink"
-import Link from "../components/link"
 const TopComponent = ({
   className,
   preamble,
@@ -72,12 +70,22 @@ const TopComponent = ({
   </div>
 )
 
-const StyledPreTitle = styled.h6`
+const StyledPreTitle = styled.p`
   padding: 52px 0 0 30px;
   margin: 0;
+  font-family: "StagSans-semibold";
+  font-size: 16px;
+  ${media.greaterThan("576px")`
+ font-size: 28px;
+ padding: 130px 0 0 10%;`}
+  ${media.greaterThan("950px")`
+ font-size: 28px;
+ padding: 130px 0 0 10%;
+`}
 `
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.p`
+  font-family: "Stag-semibold";
   padding: 18px 62px 0 30px;
   font-size: 44px;
   margin: 0;
@@ -106,6 +114,7 @@ const StyledTopComponent = styled(TopComponent)`
 `
 const StyledButtonLink = styled(ButtonLink)`
   margin: 38px 0% 50px 23px;
+  font-family: "StagSans-medium";
 
   ${media.greaterThan("576px")`
 margin: 0% 0% 8% 10%;
