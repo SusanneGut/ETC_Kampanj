@@ -23,11 +23,6 @@ RUN npm run build
 FROM nginx:alpine
 
 COPY ./docker/nginx /etc/nginx/
-COPY --from=build --chown=nginx:nginx /app/public /usr/share/nginx/html
-RUN touch /var/run/nginx.pid && chown nginx:nginx /var/run/nginx.pid
-
-RUN chown nginx:nginx /var/cache/nginx
-
-USER nginx
+COPY --from=build /app/public /usr/share/nginx/html
 
 EXPOSE 80
