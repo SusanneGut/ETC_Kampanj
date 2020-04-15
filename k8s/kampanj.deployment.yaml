@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kampanj
+  labels:
+    app: kampanj
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kampanj
+  template:
+    metadata:
+      labels:
+        app: kampanj
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      restartPolicy: Always
+      containers:
+        - name: kampanj
+          image: registry.gitlab.com/etcitteam/utveckling/kampanj-web-app:<DOCKER_TAG>
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            tcpSocket:
+              port: 80
