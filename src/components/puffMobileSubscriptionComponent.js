@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import ButtonLink from "./buttonLink"
 import media from "styled-media-query"
+import Link from "gatsby-link"
 
 const PuffMobileSubscriptionComponent = ({
   className,
@@ -12,23 +13,41 @@ const PuffMobileSubscriptionComponent = ({
 }) => (
   <StyledPuff className={className}>
     <StyledDiv>
-      {puff.img && <StyledImage fluid={puff.img.fluid} />}
       <StyledMain>
-        {puff.title && <StyledTitle>{puff.title}</StyledTitle>}
-        {puff.preamble && (
-          <StyledText dangerouslySetInnerHTML={{ __html: puff.preamble }} />
+        {puff.title && (
+          <StyledTitle style={{ color: puff.textcolortitle.hex }}>
+            {puff.title}
+          </StyledTitle>
         )}
-        {puff.price && <StyledPrice>{puff.price} kr/mån</StyledPrice>}
-
+        {puff.preamble && (
+          <StyledText
+            style={{ color: puff.textcolorpreamble.hex }}
+            dangerouslySetInnerHTML={{ __html: puff.preamble }}
+          />
+        )}
+        <StyledHr />
+        {puff.content &&
+          puff.content.map(pricesection => (
+            <StyledPriceSection style={{ color: puff.textcolorprice.hex }}>
+              {pricesection.lineitem}
+            </StyledPriceSection>
+          ))}
+        {puff.price && (
+          <StyledPrice style={{ color: puff.textcolorprice.hex }}>
+            {puff.price} kr/mån
+          </StyledPrice>
+        )}
         <StyledButtonLink
-          small
           to={"/" + puff.slug}
           backgroundColor={button.buttonbgcolor.hex}
           textColor={button.buttontextcolor.hex}
           borderColor={button.buttonbordercolor.hex}
         >
           {buttontext}
-        </StyledButtonLink>
+        </StyledButtonLink>{" "}
+        <StyledLink to={"/" + puff.textline.slug}>
+          {puff.textline.articletitle}
+        </StyledLink>
       </StyledMain>
     </StyledDiv>
   </StyledPuff>
@@ -36,6 +55,8 @@ const PuffMobileSubscriptionComponent = ({
 
 const StyledPuff = styled.div`
   width: 100%;
+  line-height: 150%;
+  padding-bottom: 9%;
 `
 const StyledDiv = styled.section`
   margin: 2%;
@@ -53,50 +74,59 @@ height: 400px;
 `}
 `
 const StyledMain = styled.div`
-  padding: 0% 5% 5% 5%;
+  padding: 30px;
   flex: 0 1 2 3;
-  max-width: 70%;
   ${media.greaterThan("576px")`
 `}
 `
-const StyledImage = styled(Img)`
-  padding: 0;
-  max-width: 20%;
-  flex: 4;
-  border-radius: 8px 0 0 8px;
-  ${media.greaterThan("576px")`
-max-width: 100%;
-border-radius: 8px 8px 0 0;
-max-height:150px;
-`}
-`
-const StyledTitle = styled.h5`
-  margin-bottom: 1%;
+const StyledTitle = styled.h2`
+  font-family: "Stag-semibold";
+  font-size: 22px;
+  margin: 0;
   ${media.greaterThan("576px")`
 font-size: 15px;
 `}
 `
 const StyledText = styled.span`
   p {
-    font-size: 10px;
+    font-size: 16px;
+    font-family: "StagSans-book";
   }
   ${media.greaterThan("576px")`
-p {font-size: 11px;
+p {font-size: 20px;
      }
 `}
 `
-const StyledPrice = styled.h5`
-margin 0;
-${media.greaterThan("576px")`
-font-size: 16px;
+const StyledHr = styled.hr`
+  height: 1px;
+  color: #dfe4ea;
+`
+
+const StyledPriceSection = styled.section`
+  font-family: "StagSans-medium";
+  font-size: 16px;
+`
+
+const StyledPrice = styled.h1`
+  font-family: "Stag-semibold";
+  font-size: 36px;
+  ${media.greaterThan("576px")`
 `}
 `
 const StyledButtonLink = styled(ButtonLink)`
+  width: 100%;
+  font-family: "StagSans-medium";
+  font-size: 18px;
+  margin-bottom: 30px;
   ${media.greaterThan("576px")`
 padding: 6px;
-width: 100px;
 font-size: 10px;
 `}
+`
+const StyledLink = styled(Link)`
+  font-family: "StagSans-medium";
+  font-size: 16px;
+  text-decoration: none;
 `
 
 export default PuffMobileSubscriptionComponent

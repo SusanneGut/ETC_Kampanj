@@ -88,15 +88,15 @@ export const query = graphql`
   query($slug: String!) {
     datoCmsMobilesubscription(slug: { eq: $slug }) {
       title
-      body
-      img {
-        fluid(maxWidth: 400, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsFluid
+      preamble
+      price
+      slug
+      textline {
+        ... on DatoCmsArticle {
+          articletitle
+          slug
         }
       }
-      subtitle
-      default
-      price
       content {
         ... on DatoCmsPricedetail {
           lineitem

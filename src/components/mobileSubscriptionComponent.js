@@ -7,18 +7,28 @@ const MobileSubscriptionComponent = ({
   className,
   title,
   preamble,
+  textcolor,
   backgroundcolor,
   buttontext,
   button,
   listofmobilepuffs,
 }) => (
   <div className={className} style={{ backgroundColor: backgroundcolor.hex }}>
-    <div>{title && <StyledTitle>{title}</StyledTitle>}</div>
-    <div>
-      {preamble && (
-        <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
-      )}
-    </div>
+    <StyledSection>
+      <div>
+        {title && (
+          <StyledTitle style={{ color: textcolor.hex }}>{title}</StyledTitle>
+        )}
+      </div>
+      <div>
+        {preamble && (
+          <StyledPreamble
+            dangerouslySetInnerHTML={{ __html: preamble }}
+            style={{ color: textcolor.hex }}
+          />
+        )}
+      </div>
+    </StyledSection>
     {listofmobilepuffs.map(puff => (
       <PuffMobileSubscriptionComponent
         puff={puff}
@@ -29,24 +39,24 @@ const MobileSubscriptionComponent = ({
   </div>
 )
 
-const StyledTitle = styled.h3`
-  margin-bottom: 0;
-  margin-left: 2%;
+const StyledTitle = styled.h1`
+  font-family: "Stag-semibold";
   ${media.greaterThan("576px")`
 font-size: 22px;
 `}
 `
-const StyledPreamble = styled.h5`
-  margin-top: 0;
-  margin-left: 2%;
+const StyledPreamble = styled.p`
+  font-family: "StagSans-book";
+  font-size: 16px;
+
   ${media.greaterThan("576px")`
-font-size: 16px;
 `}
 `
+const StyledSection = styled.section`
+  text-align: center;
+`
+
 const StyledMobileSubscriptionComponent = styled(MobileSubscriptionComponent)`
-  color: #333333;
-  background-color: #bdbdbd;
-  padding: 3% 5%;
-  height: 600px;
+  padding: 3% 9%;
 `
 export default StyledMobileSubscriptionComponent
