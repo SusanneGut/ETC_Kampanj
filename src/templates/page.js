@@ -13,6 +13,7 @@ import styled from "styled-components"
 export default ({ data, className }) => {
   const content = data.datoCmsPage.content
   const navmenu = data.datoCmsPage.navmenu
+
   return (
     <Layout className={className}>
       {navmenu && <Header navmenu={navmenu} />}
@@ -63,6 +64,7 @@ export default ({ data, className }) => {
               <MobileSubscriptionComponent
                 title={page.title}
                 preamble={page.preamble}
+                textcolor={page.textcolor}
                 backgroundcolor={page.bgcolor}
                 buttontext={page.buttontext}
                 button={page.buttonstyle}
@@ -232,6 +234,10 @@ export const query = graphql`
           bgcolor {
             hex
           }
+
+          textcolor {
+            hex
+          }
           buttontext
           buttonstyle {
             ... on DatoCmsButton {
@@ -250,16 +256,30 @@ export const query = graphql`
             ... on DatoCmsMobilesubscription {
               title
               preamble
-              img {
-                fluid(
-                  maxWidth: 100
-                  imgixParams: { fm: "jpg", auto: "compress" }
-                ) {
-                  ...GatsbyDatoCmsFluid
-                }
-              }
               price
               slug
+              textcolortitle {
+                hex
+              }
+              textcolorpreamble {
+                hex
+              }
+              textcolorprice {
+                hex
+              }
+              textline {
+                ... on DatoCmsArticle {
+                  articletitle
+                  slug
+                }
+              }
+
+              content {
+                ... on DatoCmsPricedetail {
+                  lineitem
+                  itemprice
+                }
+              }
             }
           }
         }
