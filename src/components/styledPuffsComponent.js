@@ -79,7 +79,6 @@ const StyledPuffSmall = styled(PuffSmallComponent)`
 `}
 `
 const StyledPuffSingle = styled(PuffSingleComponent)`
-  margin-top: -5%;
   padding: 0 23px 23px 23px;
   ${media.greaterThan("950px")`
   position: relative;

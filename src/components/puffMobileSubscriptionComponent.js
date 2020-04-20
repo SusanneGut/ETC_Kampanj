@@ -1,5 +1,4 @@
 import React from "react"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import ButtonLink from "./buttonLink"
 import media from "styled-media-query"
@@ -10,6 +9,7 @@ const PuffMobileSubscriptionComponent = ({
   puff,
   buttontext,
   button,
+  buttonlink,
 }) => (
   <StyledPuff className={className}>
     <StyledDiv>
@@ -41,17 +41,21 @@ const PuffMobileSubscriptionComponent = ({
             </StyledPrice>
           )}
         </StyledPriceSection>
-        <StyledButtonLink
-          to={"/" + "order_mobil"}
-          backgroundColor={button.buttonbgcolor.hex}
-          textColor={button.buttontextcolor.hex}
-          borderColor={button.buttonbordercolor.hex}
-        >
-          {buttontext}
-        </StyledButtonLink>{" "}
-        <StyledLink to={"/" + puff.textline.slug}>
-          {puff.textline.articletitle}
-        </StyledLink>
+        {button && (
+          <StyledButtonLink
+            to={"/"}
+            backgroundColor={button.buttonbgcolor.hex}
+            textColor={button.buttontextcolor.hex}
+            borderColor={button.buttonbordercolor.hex}
+          >
+            {buttontext}
+          </StyledButtonLink>
+        )}
+        {puff.textline && (
+          <StyledLink to={"/" + puff.textline.slug}>
+            {puff.textline.articletitle}
+          </StyledLink>
+        )}
       </StyledMain>
     </StyledDiv>
   </StyledPuff>
@@ -137,7 +141,7 @@ const StyledButtonLink = styled(ButtonLink)`
   font-family: "StagSans-medium";
   font-size: 18px;
   margin-bottom: 30px;
-  ${media.greaterThan("910px")`
+  ${media.greaterThan("950px")`
 
 `}
 `

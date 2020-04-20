@@ -6,6 +6,7 @@ import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
+import FairphoneComponent from "../components/fairphoneComponent"
 import Header from "../components/header"
 import { graphql } from "gatsby"
 import styled from "styled-components"
@@ -68,7 +69,27 @@ export default ({ data, className }) => {
                 backgroundcolor={page.bgcolor}
                 buttontext={page.buttontext}
                 button={page.buttonstyle}
+                buttonlink={page.buttonlink}
                 listofmobilepuffs={page.listofmobilepuffs}
+              />
+            )}
+            {page.__typename === "DatoCmsFairphone" && (
+              <FairphoneComponent
+                image={page.image}
+                imgbackgroundcolor={page.imagebackgroundcolor}
+                title={page.title}
+                titlecolor={page.titlecolor}
+                text={page.text}
+                textcolor={page.textcolor}
+                bulletlist={page.bulletlist}
+                bulletlistcolor={page.bullettextcolor}
+                price={page.price}
+                colorprice={page.colorprice}
+                button={page.buttonstyle}
+                buttontext={page.buttontext}
+                buttonlink={page.buttonlink}
+                textlink={page.textlink}
+                colortextlink={page.colortextlink}
               />
             )}
             {page.__typename === "DatoCmsNewsletter" && (
@@ -239,6 +260,15 @@ export const query = graphql`
             hex
           }
           buttontext
+          buttonlink {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
+            ... on DatoCmsOrder {
+              slug
+            }
+          }
           buttonstyle {
             ... on DatoCmsButton {
               buttonbgcolor {
@@ -281,6 +311,66 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+
+        ... on DatoCmsFairphone {
+          __typename
+          image {
+            fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          imagebackgroundcolor {
+            hex
+          }
+          title
+          titlecolor {
+            hex
+          }
+          text
+          textcolor {
+            hex
+          }
+          bulletlist
+          bullettextcolor {
+            hex
+          }
+          price
+          colorprice {
+            hex
+          }
+          buttonstyle {
+            ... on DatoCmsButton {
+              buttonbgcolor {
+                hex
+              }
+              buttontextcolor {
+                hex
+              }
+              buttonbordercolor {
+                hex
+              }
+            }
+          }
+          buttontext
+          buttonlink {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
+            ... on DatoCmsOrder {
+              slug
+            }
+          }
+          textlink {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
+          }
+          colortextlink {
+            hex
           }
         }
         ... on DatoCmsNewsletter {
