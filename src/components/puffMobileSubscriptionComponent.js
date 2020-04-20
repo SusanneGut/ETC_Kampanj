@@ -14,31 +14,35 @@ const PuffMobileSubscriptionComponent = ({
   <StyledPuff className={className}>
     <StyledDiv>
       <StyledMain>
-        {puff.title && (
-          <StyledTitle style={{ color: puff.textcolortitle.hex }}>
-            {puff.title}
-          </StyledTitle>
-        )}
-        {puff.preamble && (
-          <StyledText
-            style={{ color: puff.textcolorpreamble.hex }}
-            dangerouslySetInnerHTML={{ __html: puff.preamble }}
-          />
-        )}
+        <StyledTextSection>
+          {puff.title && (
+            <StyledTitle style={{ color: puff.textcolortitle.hex }}>
+              {puff.title}
+            </StyledTitle>
+          )}
+          {puff.preamble && (
+            <StyledText
+              style={{ color: puff.textcolorpreamble.hex }}
+              dangerouslySetInnerHTML={{ __html: puff.preamble }}
+            />
+          )}
+        </StyledTextSection>
         <StyledHr />
-        {puff.content &&
-          puff.content.map(pricesection => (
-            <StyledPriceSection style={{ color: puff.textcolorprice.hex }}>
-              {pricesection.lineitem}
-            </StyledPriceSection>
-          ))}
-        {puff.price && (
-          <StyledPrice style={{ color: puff.textcolorprice.hex }}>
-            {puff.price} kr/mån
-          </StyledPrice>
-        )}
+        <StyledPriceSection>
+          {puff.content &&
+            puff.content.map(pricesection => (
+              <StyledPriceList style={{ color: puff.textcolorprice.hex }}>
+                {pricesection.lineitem}
+              </StyledPriceList>
+            ))}
+          {puff.price && (
+            <StyledPrice style={{ color: puff.textcolorprice.hex }}>
+              {puff.price} kr/mån
+            </StyledPrice>
+          )}
+        </StyledPriceSection>
         <StyledButtonLink
-          to={"/" + puff.slug}
+          to={"/" + "order_mobil"}
           backgroundColor={button.buttonbgcolor.hex}
           textColor={button.buttontextcolor.hex}
           borderColor={button.buttonbordercolor.hex}
@@ -62,29 +66,28 @@ const StyledDiv = styled.section`
   margin: 2%;
   background-color: white;
   border-radius: 8px;
-  display: flex;
-  flex-direction: row;
   max-width: 100%;
-  ${media.greaterThan("576px")`
-max-width: 29%;
-float: left;
-flex-direction: column;
-margin: 2%;
-height: 400px;
+  ${media.greaterThan("910px")`
+  min-height: 100%;
+  margin: 5%;        
 `}
 `
 const StyledMain = styled.div`
   padding: 30px;
-  flex: 0 1 2 3;
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("910px")`
 `}
 `
+const StyledTextSection = styled.section`
+  ${media.greaterThan("910px")`
+min-height: 190px;
+`}
+`
+
 const StyledTitle = styled.h2`
   font-family: "Stag-semibold";
   font-size: 22px;
   margin: 0;
-  ${media.greaterThan("576px")`
-font-size: 15px;
+  ${media.greaterThan("910px")`
 `}
 `
 const StyledText = styled.span`
@@ -92,25 +95,41 @@ const StyledText = styled.span`
     font-size: 16px;
     font-family: "StagSans-book";
   }
-  ${media.greaterThan("576px")`
-p {font-size: 20px;
+  ${media.greaterThan("910px")`
+p {font-size: 18px;
      }
 `}
 `
 const StyledHr = styled.hr`
-  height: 1px;
-  color: #dfe4ea;
+  border-top: 1px solid #dfe4ea;
+`
+const StyledPriceSection = styled.section`
+  ${media.greaterThan("910px")`
+min-height: 250px;
+`}
 `
 
-const StyledPriceSection = styled.section`
+const StyledPriceList = styled.div`
   font-family: "StagSans-medium";
   font-size: 16px;
+  ${media.greaterThan("910px")`
+  font-size: 12px;
+  
+`}
+  ${media.greaterThan("1100px")`
+font-size: 16px;
+`}
 `
 
 const StyledPrice = styled.h1`
   font-family: "Stag-semibold";
   font-size: 36px;
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("910px")`
+  font-size: 35px;
+  
+`}
+  ${media.greaterThan("1400px")`
+  font-size: 52px;
 `}
 `
 const StyledButtonLink = styled(ButtonLink)`
@@ -118,15 +137,17 @@ const StyledButtonLink = styled(ButtonLink)`
   font-family: "StagSans-medium";
   font-size: 18px;
   margin-bottom: 30px;
-  ${media.greaterThan("576px")`
-padding: 6px;
-font-size: 10px;
+  ${media.greaterThan("910px")`
+
 `}
 `
 const StyledLink = styled(Link)`
   font-family: "StagSans-medium";
   font-size: 16px;
   text-decoration: none;
+  :link {
+    color: #3f1a89;
+  }
 `
 
 export default PuffMobileSubscriptionComponent

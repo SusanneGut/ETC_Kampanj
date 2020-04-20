@@ -29,31 +29,47 @@ const MobileSubscriptionComponent = ({
         )}
       </div>
     </StyledSection>
-    {listofmobilepuffs.map(puff => (
-      <PuffMobileSubscriptionComponent
-        puff={puff}
-        buttontext={buttontext}
-        button={button}
-      />
-    ))}
+    <StyledPuff>
+      {listofmobilepuffs.map(puff => (
+        <PuffMobileSubscriptionComponent
+          puff={puff}
+          buttontext={buttontext}
+          button={button}
+        />
+      ))}
+    </StyledPuff>
   </div>
 )
 
 const StyledTitle = styled.h1`
   font-family: "Stag-semibold";
-  ${media.greaterThan("576px")`
-font-size: 22px;
+  font-size: 36px;
+  ${media.greaterThan("910px")`
+font-size: 56px;
+margin:0;
 `}
 `
 const StyledPreamble = styled.p`
   font-family: "StagSans-book";
   font-size: 16px;
 
-  ${media.greaterThan("576px")`
+  ${media.greaterThan("910px")`
+  font-size: 18px;
+  padding: 0 20%;
+
 `}
 `
 const StyledSection = styled.section`
   text-align: center;
+  ${media.greaterThan("910px")`
+`}
+`
+const StyledPuff = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${media.greaterThan("910px")`
+  flex-direction:row;
+`}
 `
 
 const StyledMobileSubscriptionComponent = styled(MobileSubscriptionComponent)`
