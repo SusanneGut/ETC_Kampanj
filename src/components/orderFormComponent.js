@@ -575,4 +575,24 @@ const Summary = styled.p`
   color: #18214d;
 `
 
-const StyledButton = styled(Button)``
+const StyledButton = styled.button`
+  border: none;
+  padding: 1em;
+  background: #3f1a89;
+  border-radius: 8px;
+  color: white;
+
+  text-align: center;
+  font-family: StagSans-medium;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: -0.09px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+
+  ${media.greaterThan("576px")`
+    width: auto;
+    min-width: 250px;
+  `}
+`
