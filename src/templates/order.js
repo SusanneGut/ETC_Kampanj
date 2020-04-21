@@ -63,7 +63,7 @@ export default ({ data, className }) => {
                 { id: "1", title: "En testtelefon", price: 5549 },
               ]}
               redirectToAfterSubmit="/form-submitted/"
-              linkTerms="/terms-and-conditions/"
+              linkTerms="/anvandaravtal/"
               linkRecycling="/phone-recycling/"
             />
           </StyledOrderSection>
