@@ -379,7 +379,6 @@ export default class OrderFormComponent extends React.Component {
               </StyledLabel>
             </Row>
             <Row justifyContent="flex-end">
-              <div />
               <StyledButton type="submit">Beställ</StyledButton>
             </Row>
           </Column>
