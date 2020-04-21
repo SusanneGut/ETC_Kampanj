@@ -228,7 +228,7 @@ export default class OrderFormComponent extends React.Component {
               <Column spacing="20px">
                 <StyledLegend>Leverans</StyledLegend>
 
-                <Row spacing="30px">
+                <ResponsiveRow spacing="30px" spacingCollapsed="0px">
                   <Row spacing="10px" alignItems="center">
                     <StyledRadioButtonInput
                       type="radio"
@@ -253,9 +253,9 @@ export default class OrderFormComponent extends React.Component {
                     />
                     <StyledLabel htmlFor="company">Företag</StyledLabel>
                   </Row>
-                </Row>
+                </ResponsiveRow>
 
-                <Row spacing="30px">
+                <ResponsiveRow spacing="30px" spacingCollapsed="20px">
                   <Column>
                     <StyledLabel htmlFor="förnamn">Förnamn</StyledLabel>
                     <StyledInput
@@ -276,7 +276,7 @@ export default class OrderFormComponent extends React.Component {
                       required
                     />
                   </Column>
-                </Row>
+                </ResponsiveRow>
                 <div>
                   <StyledLabel htmlFor="personnummer_eller_organisationsnummer">
                     Personnummer / organisationsnummer
@@ -302,7 +302,7 @@ export default class OrderFormComponent extends React.Component {
                     required
                   />
                 </div>
-                <Row spacing="30px">
+                <ResponsiveRow spacing="30px" spacingCollapsed="20px">
                   <Column>
                     <StyledLabel htmlFor="postnummer">Postnummer</StyledLabel>
                     <StyledInput
@@ -323,8 +323,8 @@ export default class OrderFormComponent extends React.Component {
                       required
                     />
                   </Column>
-                </Row>
-                <Row spacing="30px">
+                </ResponsiveRow>
+                <ResponsiveRow spacing="30px" spacingCollapsed="20px">
                   <Column>
                     <StyledLabel htmlFor="telefonnummer">
                       Telefonnummer
@@ -349,7 +349,7 @@ export default class OrderFormComponent extends React.Component {
                       required
                     />
                   </Column>
-                </Row>
+                </ResponsiveRow>
               </Column>
             </StyledFieldset>
             <hr />
@@ -432,10 +432,27 @@ const Row = props => (
   </StyledRow>
 )
 
+const ResponsiveRow = props => (
+  <StyledResponsiveRow
+    alignItems={props.alignItems}
+    justifyContent={props.justifyContent}
+  >
+    {intersperse(
+      <Spacer width={props.spacing} heightCollapsed={props.spacingCollapsed} />,
+      props.children
+    ).map((child, i) => React.cloneElement(child, { key: `element-${i}` }))}
+  </StyledResponsiveRow>
+)
+
 const Spacer = styled.div`
-  width: ${props => props.width || "auto"};
-  height: ${props => props.height || "auto"};
+  width: ${props => props.widthCollapsed || props.width || "auto"};
+  height: ${props => props.heightCollapsed || props.height || "auto"};
   flex-shrink: 0;
+
+  ${media.greaterThan("768px")`
+    width: ${props => props.width || "auto"};
+    height: ${props => props.height || "auto"};
+  `}
 `
 
 const intersperse = (separator, list) =>
@@ -495,6 +512,14 @@ const StyledRow = styled.div`
   flex-grow: 1;
   align-items: ${props => props.alignItems || "auto"};
   justify-content: ${props => props.justifyContent || "normal"};
+`
+
+const StyledResponsiveRow = styled(StyledRow)`
+  flex-direction: column;
+
+  ${media.greaterThan("768px")`
+    flex-direction: row;
+  `}
 `
 
 const StyledFieldset = styled.fieldset`
