@@ -58,7 +58,10 @@ export default ({ data, className }) => {
             <StyledP>{sectiontext}</StyledP>
             <StyledOrderForm
               plans={[{ id: "1", title: "Ett testabbonemang", price: 299 }]}
-              phones={[{ id: "1", title: "En testtelefon", price: 5549 }]}
+              phones={[
+                { id: "0", title: "Ingen telefon", price: 0 },
+                { id: "1", title: "En testtelefon", price: 5549 },
+              ]}
               redirectToAfterSubmit="/form-submitted/"
               linkTerms="/terms-and-conditions/"
               linkRecycling="/phone-recycling/"
