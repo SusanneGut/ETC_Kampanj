@@ -427,7 +427,7 @@ const Row = props => (
   >
     {intersperse(
       <Spacer width={props.spacing} />,
-      props.children
+      React.Children.toArray(props.children)
     ).map((child, i) => React.cloneElement(child, { key: `element-${i}` }))}
   </StyledRow>
 )
@@ -439,7 +439,7 @@ const ResponsiveRow = props => (
   >
     {intersperse(
       <Spacer width={props.spacing} heightCollapsed={props.spacingCollapsed} />,
-      props.children
+      React.Children.toArray(props.children)
     ).map((child, i) => React.cloneElement(child, { key: `element-${i}` }))}
   </StyledResponsiveRow>
 )
@@ -456,7 +456,7 @@ const Spacer = styled.div`
 `
 
 const intersperse = (separator, list) =>
-  list.length < 2 ? list : [].concat(...list.map(e => [separator, e])).slice(1)
+  [].concat(...list.map(e => [separator, e])).slice(1)
 
 const StyledLabel = styled.label`
   color: #3e4462;
