@@ -5,8 +5,7 @@ import Img from "gatsby-image"
 import Backgroundimage from "gatsby-background-image"
 import Link from "../components/link"
 import { graphql } from "gatsby"
-import OrderFormComponent1 from "../components/orderFormComponent1"
-import OrderFormComponent2 from "../components/orderFormComponent2"
+import OrderFormComponent from "../components/orderFormComponent.js"
 import Button from "../components/button"
 import media from "styled-media-query"
 
@@ -57,20 +56,19 @@ export default ({ data, className }) => {
           <StyledOrderSection>
             <StyledH2>{sectiontitle}</StyledH2>
             <StyledP>{sectiontext}</StyledP>
-            <StyledOrderForm1
-              id="form"
-              content={data.datoCmsOrder.content}
-              button={data.datoCmsOrder.buttonstyle}
-              buttontext={data.datoCmsOrder.buttontext}
-            ></StyledOrderForm1>
+            <StyledOrderForm
+              plans={[{ id: "1", title: "Ett testabbonemang", price: 299 }]}
+              phones={[{ id: "1", title: "En testtelefon", price: 5549 }]}
+              redirectToAfterSubmit="/form-submitted/"
+              linkTerms="/terms-and-conditions/"
+              linkRecycling="/phone-recycling/"
+            />
           </StyledOrderSection>
         </StyledSection1>
         <StyledSubhead style={{ color: "white", backgroundColor: "#85A475" }}>
           Kundinformation
         </StyledSubhead>
-        <StyledSection2>
-          <StyledOrderForm2 />
-        </StyledSection2>
+        <StyledSection2></StyledSection2>
         <StyledHr />
         <StyledVillkor>
           <StyledLabel>
@@ -223,8 +221,7 @@ const StyledImage = styled(Img)`
    height: 498px; 
   `};
 `
-const StyledOrderForm1 = styled(OrderFormComponent1)``
-const StyledOrderForm2 = styled(OrderFormComponent2)``
+const StyledOrderForm = styled(OrderFormComponent)``
 
 const StyledOrderSection = styled.section`
   ${media.greaterThan("950px")`
