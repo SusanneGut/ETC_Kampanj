@@ -317,7 +317,7 @@ export const query = graphql`
         ... on DatoCmsFairphone {
           __typename
           image {
-            fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 500) {
               ...GatsbyDatoCmsFluid
             }
           }
