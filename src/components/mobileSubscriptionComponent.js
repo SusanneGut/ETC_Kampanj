@@ -61,8 +61,6 @@ const StyledPreamble = styled.p`
 `
 const StyledSection = styled.section`
   text-align: center;
-  ${media.greaterThan("910px")`
-`}
 `
 const StyledPuff = styled.div`
   display: flex;

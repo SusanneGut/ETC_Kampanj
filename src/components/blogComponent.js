@@ -40,14 +40,16 @@ const BlogComponent = ({
             {puff.publicationdate && (
               <StyledArticleDate>{puff.publicationdate}</StyledArticleDate>
             )}
-            {puff.articletitle && (
-              <StyledArticleTitle>{puff.articletitle}</StyledArticleTitle>
-            )}
-            {puff.preamble && (
-              <StyledArticlePreamble
-                dangerouslySetInnerHTML={{ __html: puff.preamble }}
-              ></StyledArticlePreamble>
-            )}{" "}
+            <StyledArticleText>
+              {puff.articletitle && (
+                <StyledArticleTitle>{puff.articletitle}</StyledArticleTitle>
+              )}
+              {puff.preamble && (
+                <StyledArticlePreamble
+                  dangerouslySetInnerHTML={{ __html: puff.preamble }}
+                ></StyledArticlePreamble>
+              )}{" "}
+            </StyledArticleText>
             {textline && (
               <StyledLink to={"/" + puff.slug} style={{ color: textlinecolor }}>
                 {textline}
@@ -63,6 +65,9 @@ const BlogComponent = ({
 const StyledBlog = styled.div`
   padding: 30px;
   line-height: 150%;
+  ${media.greaterThan("950px")`
+   padding: 30px 10%;
+`}
 `
 
 const StyledTitle = styled.h1`
@@ -82,10 +87,30 @@ const StyledPreamble = styled.p`
   line-height: 150%;
   ${media.greaterThan("950px")`
     font-size:18px;
+    padding: 0 20%;
+
 `}
 `
-const StyledPuffSection = styled.section``
-const StyledArticlePuff = styled.section``
+const StyledArticleText = styled.section`
+  ${media.greaterThan("950px")`
+  min-height:200px;
+`}
+  ${media.greaterThan("1066px")`
+  min-height:180px;
+`}
+`
+
+const StyledPuffSection = styled.section`
+  ${media.greaterThan("950px")`
+  display:flex;
+`}
+`
+const StyledArticlePuff = styled.section`
+  ${media.greaterThan("950px")`
+  width: 30%;
+  padding: 20px;            
+`}
+`
 const StyledImageSection = styled.section``
 
 const StyledImage = styled(Img)`
@@ -108,10 +133,11 @@ const StyledArticleTitle = styled.h2`
 const StyledArticlePreamble = styled.p`
   font-size: 16px;
   font-family: "StagSans-book";
-  margin: 0;
-  p {
-    margin: 10px 0;
-  }
+
+  ${media.greaterThan("950px")`
+  font-size: 18px;
+
+  `}
 `
 const StyledLink = styled(Link)`
   font-family: "StagSans-medium";
