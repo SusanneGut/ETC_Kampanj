@@ -7,6 +7,7 @@ import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
 import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 import FairphoneComponent from "../components/fairphoneComponent"
+import BlogComponent from "../components/blogComponent"
 import Header from "../components/header"
 import { graphql } from "gatsby"
 import styled from "styled-components"
@@ -90,6 +91,18 @@ export default ({ data, className }) => {
                 buttonlink={page.buttonlink}
                 textlink={page.textlink}
                 colortextlink={page.colortextlink}
+              />
+            )}
+            {page.__typename === "DatoCmsBlog" && (
+              <BlogComponent
+                title={page.title}
+                titlecolor={page.titlecolor}
+                preamble={page.preamble}
+                preamblecolor={page.preamblecolor}
+                textline={page.textline}
+                textlinecolor={page.textlinecolor}
+                articlelink={page.articlelink}
+                backgroundcolor={page.backgroundcolor}
               />
             )}
             {page.__typename === "DatoCmsNewsletter" && (
@@ -371,6 +384,41 @@ export const query = graphql`
           }
           colortextlink {
             hex
+          }
+        }
+
+        ... on DatoCmsBlog {
+          __typename
+          title
+          titlecolor {
+            hex
+          }
+          preamble
+          preamblecolor {
+            hex
+          }
+          textline
+          textlinecolor {
+            hex
+          }
+          backgroundcolor {
+            hex
+          }
+          articlelink {
+            ... on DatoCmsArticle {
+              publicationdate
+              articletitle
+              slug
+              preamble
+              img {
+                fluid(
+                  maxWidth: 500
+                  imgixParams: { fm: "jpg", auto: "compress" }
+                ) {
+                  ...GatsbyDatoCmsFluid
+                }
+              }
+            }
           }
         }
         ... on DatoCmsNewsletter {
