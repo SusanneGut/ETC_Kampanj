@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "../components/layout"
-import StyledPuffsComponent from "../components/styledPuffsComponent"
 import TopComponent from "../components/topComponent"
 import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
@@ -34,18 +33,6 @@ export default ({ data, className }) => {
                 backgroundimage={page.backgroundimage}
                 buttontext={page.buttontext}
                 buttonlink={page.buttonlink}
-                button={page.buttonstyle}
-              />
-            )}
-            {page.__typename === "DatoCmsPuffsfield" && (
-              <StyledPuffsComponent
-                backgroundcolor={page.bgcolor}
-                buttontext={page.buttontext}
-                listofpuffs={page.listofpuffs}
-                articletitle={page.articletitle}
-                preamble={page.preamble}
-                slug={page.slug}
-                img={page.img}
                 button={page.buttonstyle}
               />
             )}
