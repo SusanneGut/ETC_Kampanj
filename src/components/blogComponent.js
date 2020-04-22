@@ -70,11 +70,12 @@ const StyledBlog = styled.div`
 `}
 `
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.p`
   font-size: 36px;
   font-family: "Stag-semibold";
   text-align: center;
   line-height: 100%;
+  margin: 8px 0;
   ${media.greaterThan("950px")`
     font-size: 52px;
    padding: 0 16%;
@@ -117,7 +118,7 @@ const StyledImage = styled(Img)`
   height: 250px;
 `
 const StyledTextSection = styled.section`
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 `
 const StyledArticleDate = styled.p`
   color: #48af5d;
@@ -125,7 +126,7 @@ const StyledArticleDate = styled.p`
   font-size: 16px;
 `
 
-const StyledArticleTitle = styled.h2`
+const StyledArticleTitle = styled.p`
   font-size: 22px;
   font-family: "StagSans-semibold";
   margin: 0;

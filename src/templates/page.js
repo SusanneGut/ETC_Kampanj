@@ -7,6 +7,7 @@ import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 import FairphoneComponent from "../components/fairphoneComponent"
 import BlogComponent from "../components/blogComponent"
+import MobileNewsComponent from "../components/mobileNewsComponent"
 import Header from "../components/header"
 import { graphql } from "gatsby"
 import styled from "styled-components"
@@ -92,6 +93,18 @@ export default ({ data, className }) => {
                 backgroundcolor={page.backgroundcolor}
               />
             )}
+            {page.__typename === "DatoCmsMobilenews" && (
+              <MobileNewsComponent
+                backgroundcolor={page.backgroundcolor}
+                title={page.title}
+                titlecolor={page.titlecolor}
+                text={page.text}
+                textcolor={page.textcolor}
+                image={page.image}
+                imagetextcolor={page.imagetextcolor}
+                imagetext={page.imagetext}
+              />
+            )}
             {page.__typename === "DatoCmsNewsletter" && (
               <NewsSubscriptionComponent
                 textcolor={page.textcolor}
@@ -173,42 +186,28 @@ export const query = graphql`
             }
           }
         }
-        ... on DatoCmsPuffsfield {
+        ... on DatoCmsMobilenews {
           __typename
-          bgcolor {
+          backgroundcolor {
             hex
           }
-          buttontext
-          buttonstyle {
-            ... on DatoCmsButton {
-              buttonbgcolor {
-                hex
-              }
-              buttontextcolor {
-                hex
-              }
-              buttonbordercolor {
-                hex
-              }
-            }
+          title
+          titlecolor {
+            hex
           }
-          listofpuffs {
-            ... on DatoCmsArticle {
-              bgcolor {
-                hex
-              }
-              articletitle
-              preamble
-              slug
-              img {
-                fluid(
-                  maxWidth: 100
-                  imgixParams: { fm: "jpg", auto: "compress" }
-                ) {
-                  ...GatsbyDatoCmsFluid
-                }
-              }
+          text
+          textcolor {
+            hex
+          }
+          image {
+            fluid(maxWidth: 400, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
             }
+            title
+          }
+          imagetext
+          imagetextcolor {
+            hex
           }
         }
         ... on DatoCmsMain {
