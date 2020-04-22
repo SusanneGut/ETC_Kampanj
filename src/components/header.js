@@ -41,14 +41,16 @@ const StyledHeader = styled.div`
     padding-left: 10%;
   `}
 `
+
 const StyledNavmenu = styled.ul`
   display: none;
+
   ${media.greaterThan("950px")`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  margin: 15px 30px; 0 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 15px 30px; 0 0;
   `}
 `
 
