@@ -7,7 +7,7 @@ import media from "styled-media-query"
 import NavComponent from "./navComponent"
 const Header = ({ navmenu }) => (
   <StyledHeader>
-    <Link style={{ width: "110px" }} to={"/"}>
+    <Link to={"/"}>
       <StyledLogo src={logo} />
     </Link>
     <StyledNavmenu>
@@ -24,20 +24,21 @@ const Header = ({ navmenu }) => (
 )
 
 const StyledLogo = styled.img`
-  height: 100%;
-  margin-left 30px;
-  ${media.greaterThan("950px")`
-  height: 100%;
-  margin-left 30px;
-  `}
+  height: 95px;
+  width: 95px;
+  position: relative;
+  z-index: 1;
 `
 const StyledHeader = styled.div`
+  padding-right: 30px;
+  padding-left: 30px;
   height: 80px;
   white-space: nowrap;
   display: flex;
-  margin-right: 30px;
+
   ${media.greaterThan("950px")`
-  
+    padding-right: 10%;
+    padding-left: 10%;
   `}
 `
 const StyledNavmenu = styled.ul`
