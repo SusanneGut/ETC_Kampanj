@@ -28,32 +28,69 @@ export default class Form extends React.Component {
       <div>
         <h4 id="form-mobil"></h4>
 
-        <form action="https://gansub.com/s/sUMnC7kSJ/" method="POST">
-          <div style={{ paddingBottom: "30px" }}>
+        <StyledSubscriptionForm
+          action="https://gansub.com/s/sUMnC7kSJ/"
+          method="POST"
+        >
+          <StyledSection>
             <lable for="email" />
             <StyledInput
               type="text"
               id="email"
               name="email"
-              placeholder="Mejl"
+              placeholder="Skriv in din e-postadress"
             />
             <input type="hidden" name="gan_repeat_email" />
-          </div>
-          <div>
-            <Button transparentWhite type="submit" value="Till ETC.se">
-              Prenumerera
-            </Button>
-          </div>
-        </form>
+          </StyledSection>
+          <StyledButton type="submit" value="Till ETC.se">
+            Prenumerera
+          </StyledButton>
+        </StyledSubscriptionForm>
       </div>
     )
   }
 }
 
+const StyledSubscriptionForm = styled.div`
+  ${media.greaterThan("790px")`
+    display:flex;
+    align-items: center;
+  justify-content: center;
+  margin-bottom:64px;
+
+`}
+`
+
+const StyledSection = styled.section`
+  padding-bottom: 30px;
+  ${media.greaterThan("790px")`
+  padding-bottom: 0;
+
+`}
+`
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  ${media.greaterThan("790px")`
+  max-width: 358px;
+  margin-left:30px;
+  height: 60px;
+  padding: 18px 30px;
+`}
+`
 const StyledInput = styled.input`
-  border-radius: 6px;
+  border-radius: 8px;
   box-sizing: border-box;
-  height: 42px;
-  padding: 0 50px 0 20px;
+  height: 60px;
   font-size: 16px;
+  width: 100%;
+  border: none;
+  padding: 22px 25px;
+  ::placeholder {
+    color: #3e4462;
+  }
+  ${media.greaterThan("790px")`
+  width: 358px;
+
+`}
 `

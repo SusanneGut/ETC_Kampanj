@@ -51,7 +51,7 @@ const MainComponent = ({
 const StyledBody = styled.div`
   display: flex;
   flex-direction: column;
-  ${media.greaterThan("950px")`
+  ${media.greaterThan("1100px")`
 padding: 10% 10% 30px 10%;
 `};
 `
@@ -75,7 +75,7 @@ const StyledImg = styled(Img)`
 const StyledIntro = styled.div`
   margin: 0 30px 30px 30px;
   ${media.greaterThan("950px")`
-  padding-right:40px;;
+  padding-right:0;
   flex: 3;
   `}
 `

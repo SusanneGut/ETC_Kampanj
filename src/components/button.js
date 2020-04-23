@@ -7,21 +7,22 @@ const Button = styled.button`
     props.transparentGrey ||
     props.transparentYellow
       ? "transparent"
-      : "#E3000B"};
+      : "#48AF5D"};
   color: ${props => (props.transparentRed ? "#E3000B" : "white")};
   color: ${props => (props.transparentGrey ? "#686868" : "white")};
   color: ${props => (props.transparentYellow ? "#FFDD00" : "white")};
 
-  font-size: ${props => (props.small ? "8px" : "15px")};
-  padding: ${props => (props.small ? "0" : "11px 20px")};
-  border-radius: 6px;
+  font-size: ${props => (props.small ? "8px" : "20px")};
+  padding: ${props => (props.small ? "0" : "21px 30px")};
+  border-radius: 8px;
   min-width: ${props => (props.small ? "50px" : "130px")};
 
   border: ${props =>
-    props.transparentGrey ? "2px solid #BDBDBD" : "2px solid #E3000B"};
+    props.transparentGrey ? "2px solid #BDBDBD" : "2px solid #48AF5D"};
   border: ${props =>
-    props.transparentYellow ? "2px solid #FFDD00" : "2px solid #E3000B"};
+    props.transparentYellow ? "2px solid #FFDD00" : "2px solid #48AF5D"};
   box-sizing: border-box;
+  font-family: "StagSans-medium";
 `
 
 export default Button
