@@ -105,7 +105,7 @@ p {font-size: 18px;
 `}
 `
 const StyledHr = styled.hr`
-  border-top: 1px solid #dfe4ea;
+  height: 1px solid #dfe4ea;
 `
 const StyledPriceSection = styled.section`
   ${media.greaterThan("910px")`
