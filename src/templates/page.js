@@ -3,12 +3,12 @@ import Layout from "../components/layout"
 import TopComponent from "../components/topComponent"
 import MainComponent from "../components/mainComponent"
 import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
-import BottomComponent from "../components/bottomComponent"
 import MobileSubscriptionComponent from "../components/mobileSubscriptionComponent"
 import FairphoneComponent from "../components/fairphoneComponent"
 import BlogComponent from "../components/blogComponent"
 import MobileNewsComponent from "../components/mobileNewsComponent"
 import Header from "../components/header"
+import Footer from "../components/footer"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
@@ -115,12 +115,14 @@ export default ({ data, className }) => {
                 backgroundcolor={page.backgroundcolor}
               />
             )}
-            {page.__typename === "DatoCmsBottom" && (
-              <BottomComponent
-                bgcolor={page.bgcolor}
+            {page.__typename === "DatoCmsFooter" && (
+              <Footer
+                backgroundcolor={page.backgroundcolor}
+                hrcolor={page.hrcolor}
                 textcolor={page.textcolor}
+                link={page.link}
+                policylink={page.policylink}
                 logo={page.logo}
-                contact={page.contact}
               />
             )}
           </StyledPage>
@@ -424,19 +426,33 @@ export const query = graphql`
             hex
           }
         }
-        ... on DatoCmsBottom {
+        ... on DatoCmsFooter {
           __typename
+          backgroundcolor {
+            hex
+          }
+          hrcolor {
+            hex
+          }
+          textcolor {
+            hex
+          }
           logo {
             fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsFluid
             }
           }
-          contact
-          bgcolor {
-            hex
+          link {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
           }
-          textcolor {
-            hex
+          policylink {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
           }
         }
       }

@@ -21,7 +21,6 @@ const Layout = ({ children }) => (
       <>
         <StyledDiv>
           <main>{children}</main>
-          <Footer />
         </StyledDiv>
       </>
     )}
