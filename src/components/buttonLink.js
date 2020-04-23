@@ -11,7 +11,7 @@ const ButtonLink = styled(props => <Link {...props} />)`
   text-align: center;
   font-size: ${props => (props.small ? "8px" : "18px")};
   padding: ${props => (props.small ? "0" : "15px 18px 10px 18px")};
-  border-radius: 6px;
+  border-radius: 8px;
   min-width: ${props => (props.small ? "50px" : "166px")};
   box-sizing: border-box;
 `

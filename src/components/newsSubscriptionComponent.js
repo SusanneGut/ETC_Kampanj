@@ -13,55 +13,67 @@ const NewsSubscriptionComponent = ({
   backgroundcolor,
   headtext,
 }) => (
-  <div
+  <StyledSection
     className={className}
     style={{
       color: textcolor.hex,
-      textAlign: "center",
       backgroundColor: backgroundcolor.hex,
     }}
   >
     {bgimage ? (
       <StyledBackgroundImage fluid={bgimage.fluid}>
-        {headtext && <StyledH4>{headtext}</StyledH4>}
+        {headtext && <StyledHeadText>{headtext}</StyledHeadText>}
         {title && <StyledTitle>{title}</StyledTitle>}
-        {preamble && <StyledP dangerouslySetInnerHTML={{ __html: preamble }} />}
-        <NewsletterFormComponent />
+        {preamble && (
+          <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
+        )}
+        <StyledNewsletterFormComponent />
       </StyledBackgroundImage>
     ) : (
       <StyledDiv style={{ backgroundColor: backgroundcolor.hex }}>
-        {headtext && <StyledH4>{headtext}</StyledH4>}
+        {headtext && <StyledHeadText>{headtext}</StyledHeadText>}
         {title && <StyledTitle>{title}</StyledTitle>}
-        {preamble && <StyledP dangerouslySetInnerHTML={{ __html: preamble }} />}
-        <NewsletterFormComponent />
+        {preamble && (
+          <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
+        )}
+        <StyledNewsletterFormComponent />
       </StyledDiv>
     )}
-  </div>
+  </StyledSection>
 )
 
-const StyledH4 = styled.h4``
+const StyledSection = styled.section`
+  text-align: center;
+`
 
-const StyledTitle = styled.h1`
-  font-size: 35px;
-  min-width: 285px;
-  ${media.greaterThan("576px")`
-`}
-`
-const StyledP = styled.p`
-  font-size: 15px;
-  min-widht: 270px;
-  margin-bottom: 30px;
-`
-const StyledDiv = styled.div`
-  padding: 5%;
-  ${media.greaterThan("576px")`
-padding: 10%;
-`}
-`
 const StyledBackgroundImage = styled(Backgroundimage)`
   padding: 5% 10%;
   ${media.greaterThan("576px")`
 padding: 5% 20%;
 `}
 `
+const StyledDiv = styled.div`
+  padding: 30px;
+`
+const StyledHeadText = styled.h4``
+
+const StyledTitle = styled.p`
+  font-size: 36px;
+  font-family: "Stag-semibold";
+  margin: 23px 0;
+
+  ${media.greaterThan("790px")`
+  font-size: 52px;
+`}
+`
+const StyledPreamble = styled.p`
+  font-size: 16px;
+  ${media.greaterThan("790px")`
+  font-size: 18px;
+  padding:0 20%;
+`}
+`
+
+const StyledNewsletterFormComponent = styled(NewsletterFormComponent)``
+
 export default NewsSubscriptionComponent
