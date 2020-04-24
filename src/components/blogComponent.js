@@ -131,7 +131,7 @@ const StyledArticleTitle = styled.p`
   font-family: "StagSans-semibold";
   margin: 0;
 `
-const StyledArticlePreamble = styled.p`
+const StyledArticlePreamble = styled.div`
   font-size: 16px;
   font-family: "StagSans-book";
 
