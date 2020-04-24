@@ -17,7 +17,7 @@ export default ({ data, className }) => {
   const ordercompletelink = data.datoCmsOrder.ordercompletelink
   const content = data.datoCmsOrder.content
   const plans = content.filter(
-    plan => plan.__typename === "DatoCmsPhoneselection"
+    plan => plan.__typename === "DatoCmsSubscriptionselection"
   )
   const phones = content.filter(
     phone => phone.__typename === "DatoCmsPhoneselection"
