@@ -15,7 +15,10 @@ const Footer = ({
 }) => (
   <StyledFooter
     className={className}
-    style={{ backgroundColor: backgroundcolor.hex, color: textcolor.hex }}
+    style={{
+      backgroundColor: backgroundcolor.hex,
+      color: textcolor.hex,
+    }}
   >
     <StyledList>
       {link.map(item => (

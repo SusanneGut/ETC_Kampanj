@@ -43,7 +43,7 @@ const PuffMobileSubscriptionComponent = ({
         </StyledPriceSection>
         {button && (
           <StyledButtonLink
-            to={"/"}
+            to={"/order_mobil"}
             backgroundColor={button.buttonbgcolor.hex}
             textColor={button.buttontextcolor.hex}
             borderColor={button.buttonbordercolor.hex}

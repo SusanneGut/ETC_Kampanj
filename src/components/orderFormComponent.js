@@ -167,7 +167,7 @@ export default class OrderFormComponent extends React.Component {
 
                 <div>
                   <StyledLabel htmlFor="startdatum">
-                    Startdatum för abbonemang
+                    Startdatum för abonnemang
                   </StyledLabel>
                   <StyledInput
                     type="date"
@@ -198,7 +198,7 @@ export default class OrderFormComponent extends React.Component {
                   onChange={this.handleInputChange}
                   required
                 >
-                  <option value="">Val av abbonemang</option>
+                  <option value="">Val av abonnemang</option>
                   {this.props.plans.map(plan => (
                     <option key={plan.id} value={plan.id}>
                       {plan.title}
