@@ -24,6 +24,8 @@ export default class OrderFormComponent extends React.Component {
       errorString: null,
       formData: {
         behåll_nummer: false,
+        abonnemang: "",
+        telefon: "",
         återvinn_gammal_telefon: false,
         email: "",
         förnamn: "",
@@ -59,13 +61,15 @@ export default class OrderFormComponent extends React.Component {
 
     this.setState({ status: status.POSTING })
 
+    const humanizedFormData = this.humanizeFormData(this.state.formData)
+
     fetch(event.target.action, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(this.state.formData),
+      body: JSON.stringify(humanizedFormData),
     })
       .then(response => response.json())
       .then(data => {
@@ -76,6 +80,31 @@ export default class OrderFormComponent extends React.Component {
         console.error("Error:", error)
         this.setState({ status: status.ERROR, errorString: error })
       })
+  }
+
+  /**
+   * Sets the selected phones/plans values to their respective titles instead of using their id:s.
+   */
+  humanizeFormData(formData) {
+    const defaultObject = { title: "Något gick fel" }
+    return {
+      ...formData,
+      telefon: (
+        this.props.phones.find(phone => phone.id === formData["telefon"]) ||
+        defaultObject
+      ).title,
+      abonnemang: (
+        this.props.plans.find(plan => plan.id === formData["abonnemang"]) ||
+        defaultObject
+      ).title,
+      behåll_nummer: formData["behåll_nummer"] ? "Ja" : "Nej",
+      återvinn_gammal_telefon: formData["återvinn_gammal_telefon"]
+        ? "Ja"
+        : "Nej",
+      jag_godkänner_villkoren: formData["jag_godkänner_villkoren"]
+        ? "Ja"
+        : "Nej",
+    }
   }
 
   render() {
@@ -122,7 +151,7 @@ export default class OrderFormComponent extends React.Component {
     })
 
     const {
-      plan: selectedPlanId,
+      abonnemang: selectedPlanId,
       telefon: selectedPhoneId,
     } = this.state.formData
     const selectedPlan = this.props.plans.find(
@@ -193,7 +222,7 @@ export default class OrderFormComponent extends React.Component {
                 </StyledSelect>
 
                 <StyledSelect
-                  name="plan"
+                  name="abonnemang"
                   value={this.state.formData.plan}
                   onChange={this.handleInputChange}
                   required
