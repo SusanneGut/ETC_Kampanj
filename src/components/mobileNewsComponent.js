@@ -64,7 +64,7 @@ const StyledTitle = styled.p`
 
 `}
 `
-const StyledText = styled.p`
+const StyledText = styled.div`
   font-family: "StagSans-book";
   font-size: 16px;
   ${media.greaterThan("950px")`

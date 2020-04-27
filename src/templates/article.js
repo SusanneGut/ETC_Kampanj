@@ -215,7 +215,7 @@ const StyledDate = styled.p`
   font-family: "StagSans-medium";
   font-size: 14px;
 `
-const StyledPreamble = styled.p`
+const StyledPreamble = styled.div`
   font-size: 22px;
   color: #18214d;
   font-family: "StagSans-medium";
@@ -228,7 +228,7 @@ const StyledPreamble = styled.p`
 `
 const StyledSection = styled.section``
 
-const StyledText = styled.p`
+const StyledText = styled.div`
   p {
     margin: 0;
     color: #3e4462;

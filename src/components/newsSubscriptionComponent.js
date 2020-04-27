@@ -66,7 +66,7 @@ const StyledTitle = styled.p`
   font-size: 52px;
 `}
 `
-const StyledPreamble = styled.p`
+const StyledPreamble = styled.div`
   font-size: 16px;
   ${media.greaterThan("790px")`
   font-size: 18px;
