@@ -7,6 +7,9 @@ import Video from "../components/video"
 import Layout from "../components/layout"
 import Sharebuttons from "../components/shareButtons"
 import Link from "../components/link"
+import Header from "../components/header"
+import NewsSubscriptionComponent from "../components/newsSubscriptionComponent"
+import Footer from "../components/footer"
 
 export default ({ data, className }) => {
   const title = data.datoCmsArticle.articletitle
@@ -14,35 +17,33 @@ export default ({ data, className }) => {
   const image = data.datoCmsArticle.img
   const content = data.datoCmsArticle.content
   const slug = data.datoCmsArticle.slug
-  const logo = data.datoCmsArticle.logo
   const backgroundcolor = data.datoCmsArticle.bgcolor.hex
+  const navmenu = data.datoCmsArticle.navmenu
+  const publicationdate = data.datoCmsArticle.publicationdate
   return (
     <Layout className={className}>
+      {navmenu && <Header navmenu={navmenu} />}
       <StyledArticle style={{ backgroundColor: backgroundcolor }}>
-        {logo && (
-          <StyledLogo style={{ maxWidth: "86px" }}>
-            <Link to={"/"}>
-              <Img fluid={logo.fluid}></Img>
-            </Link>
-          </StyledLogo>
-        )}
         <StyledTop>
-          {title && <StyledH1>{title}</StyledH1>}
-          <StyledHr />
+          {title && <StyledTitle>{title}</StyledTitle>}
+          {publicationdate && <StyledDate>{publicationdate}</StyledDate>}
+          <Sharebuttons slug={slug} />{" "}
+        </StyledTop>
+        {image && <TopImg fluid={image.fluid} />}
+        <StyledDiv style={{ backgroundColor: backgroundcolor }}>
+          {" "}
           {preamble && (
             <StyledPreamble dangerouslySetInnerHTML={{ __html: preamble }} />
           )}
-        </StyledTop>
-        <StyledShareButtons slug={slug} />{" "}
-        {image && <TopImg fluid={image.fluid} />}
-        <StyledDiv style={{ backgroundColor: backgroundcolor }}>
           {content.map(article => {
             return (
               <StyledSection>
                 {article.img && <StyledImg fluid={article.img.fluid} />}
-                {article.subtitle && <p>{article.subtitle}</p>}
+                {article.subtitle && (
+                  <StyledSubtitle>{article.subtitle}</StyledSubtitle>
+                )}
                 {article.body && (
-                  <StyledBody
+                  <StyledText
                     dangerouslySetInnerHTML={{ __html: article.body }}
                   />
                 )}
@@ -58,7 +59,36 @@ export default ({ data, className }) => {
               </StyledSection>
             )
           })}
+          <Sharebuttons slug={slug} />{" "}
         </StyledDiv>
+        {content
+          .filter(item => item.__typename === "DatoCmsNewsletter")
+          .map(item => {
+            return (
+              <NewsSubscriptionComponent
+                textcolor={item.textcolor}
+                bgimage={item.bgimage}
+                headtext={item.headtext}
+                title={item.title}
+                preamble={item.preamble}
+                backgroundcolor={item.backgroundcolor}
+              />
+            )
+          })}
+        {content
+          .filter(item => item.__typename === "DatoCmsFooter")
+          .map(item => {
+            return (
+              <Footer
+                backgroundcolor={item.backgroundcolor}
+                hrcolor={item.hrcolor}
+                textcolor={item.textcolor}
+                link={item.link}
+                policylink={item.policylink}
+                logo={item.logo}
+              />
+            )
+          })}{" "}
       </StyledArticle>
     </Layout>
   )
@@ -67,13 +97,15 @@ export default ({ data, className }) => {
 export const query = graphql`
   query($slug: String!) {
     datoCmsArticle(slug: { eq: $slug }) {
-      slug
-      logo {
-        fluid(maxWidth: 400, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsFluid
+      navmenu {
+        ... on DatoCmsArticle {
+          articletitle
+          slug
         }
       }
+      slug
       articletitle
+      publicationdate
       preamble
       img {
         fluid(maxWidth: 400, imgixParams: { fm: "jpg", auto: "compress" }) {
@@ -102,71 +134,119 @@ export const query = graphql`
             providerUid
           }
         }
+        ... on DatoCmsNewsletter {
+          __typename
+          title
+          preamble
+          bgimage {
+            fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          backgroundcolor {
+            hex
+          }
+          textcolor {
+            hex
+          }
+        }
+        ... on DatoCmsFooter {
+          __typename
+          backgroundcolor {
+            hex
+          }
+          hrcolor {
+            hex
+          }
+          textcolor {
+            hex
+          }
+          logo {
+            fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          link {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
+          }
+          policylink {
+            ... on DatoCmsArticle {
+              articletitle
+              slug
+            }
+          }
+        }
       }
     }
   }
 `
 const StyledArticle = styled.div`
-  color: #333333;
-  padding: 1% 0% 10% 0%;
-  overflow: scroll;
   position: relative;
 `
-const StyledLogo = styled.div`
-  margin-left: 45px;
-`
 const StyledTop = styled.div`
-  color: #33333;
-  flex: 0 1 2 3;
-  margin: 45px 43px 0 45px;
+  padding: 0 30px;
+  ${media.greaterThan("950px")`
+  padding: 0 23%;
 
-  h2 {
-    margin-bottom: 5%;
-  }
+`}
 `
-const StyledH1 = styled.h1`
-  font-size: 40px;
+const StyledTitle = styled.p`
+  font-size: 36px;
+  font-family: "Stag-semibold";
+  color: #18214d;
+  margin: 0;
+  padding-top: 60px;
   ${media.greaterThan("576px")`
  font-size: 60px;
 `}
 `
-const StyledHr = styled.hr`
-  width: 30%;
-  margin-left: 0;
-  background-color: #e3000b;
-  height: 8px;
-  border-style: none;
-  margin: 0;
+const TopImg = styled(Img)`
+  max-height: 255px;
+  ${media.greaterThan("950px")`
+  max-height: 567px;
+  margin: 0 17%;
+`}
 `
-const StyledPreamble = styled.h4`
-  font-size: 18px;
+const StyledDate = styled.p`
+  color: #48af5d;
+  font-family: "StagSans-medium";
+  font-size: 14px;
+`
+const StyledPreamble = styled.p`
+  font-size: 22px;
+  color: #18214d;
+  font-family: "StagSans-medium";
+  padding-right: 57px;
+  line-height: 150%;
+
   ${media.greaterThan("576px")`
  font-size: 20px;
 `}
 `
-const StyledShareButtons = styled(Sharebuttons)``
+const StyledSection = styled.section``
 
-const TopImg = styled(Img)`
-  flex: 4;
-  margin: 0;
-  padding: 0;
-  max-height: 214px;
-`
-const StyledSection = styled.section`
-  font-size: 15px;
-`
-const StyledBody = styled.p`
-  margin-bottom: 35px;
+const StyledText = styled.p`
   p {
     margin: 0;
+    color: #3e4462;
+    font-size: 16px;
+    font-family: "StagSans-book";
+    line-height: 150%;
   }
 `
+const StyledSubtitle = styled.p`
+  color: #3f1a89;
+  font-size: 21px;
+  font-family: "StagSans-medium";
+  margin: 0;
+`
+
 const StyledVideo = styled(Video)`
   width: 70%;
   margin-bottom: 35px;
-  ${media.greaterThan("576px")`
- 
-`}
 `
 const StyledImg = styled(Img)`
   flex: 4;
@@ -176,8 +256,9 @@ const StyledImg = styled(Img)`
   padding: 0;
 `
 const StyledDiv = styled.div`
-  margin: -5% 23px 23px 23px;
-  position: absolute;
-  padding: 21px;
-  padding-top: 2%;
+  padding: 30px 30px 0 30px;
+  ${media.greaterThan("950px")`
+    padding: 30px 23% 0 23%;
+
+  `}
 `

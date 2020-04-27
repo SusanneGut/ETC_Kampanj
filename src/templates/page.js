@@ -411,7 +411,6 @@ export const query = graphql`
         }
         ... on DatoCmsNewsletter {
           __typename
-          headtext
           title
           preamble
           bgimage {
