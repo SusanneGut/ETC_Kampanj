@@ -68,6 +68,8 @@ const StyledTitle = styled.p`
 `
 const StyledPreamble = styled.div`
   font-size: 16px;
+  font-family: "StagSans-book";
+  line-height: 150%;
   ${media.greaterThan("790px")`
   font-size: 18px;
   padding:0 20%;

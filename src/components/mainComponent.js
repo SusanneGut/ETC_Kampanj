@@ -92,6 +92,7 @@ const StyledH1 = styled.h1`
 const StyledPreamble = styled.div`
   font-family: "StagSans-book";
   font-size: 16px;
+  line-height: 150%;
 `
 
 const StyledButtonLink = styled(ButtonLink)`
@@ -107,6 +108,7 @@ const StyledHr = styled.hr`
 
 const StyledText = styled.div`
   margin: 0 30px 30px 30px;
+  line-height: 150%;
   .head {
     font-size: 20px;
     color: #48af5d;
