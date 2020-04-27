@@ -30,6 +30,16 @@ module.exports = {
         // Add any options here
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `ETC Mobil`,
+        short_name: `ETC Mobil`,
+        start_url: `/mobil`,
+        display: `standalone`,
+        icon: `src/images/logo.jpg`,
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -1,5 +1,5 @@
 import React from "react"
-import logo from "../images/ETC-logo.png"
+import logo from "../images/logo.png"
 import styled from "styled-components"
 import Link from "gatsby-link"
 import uuid from "uuid"
