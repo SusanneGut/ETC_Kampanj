@@ -81,7 +81,7 @@ const StyledTitle = styled.p`
    padding: 0 16%;
 `}
 `
-const StyledPreamble = styled.p`
+const StyledPreamble = styled.div`
   font-size: 16px;
   font-family: "StagSans-book";
   text-align: center;

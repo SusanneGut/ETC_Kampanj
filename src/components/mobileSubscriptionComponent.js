@@ -49,7 +49,7 @@ font-size: 56px;
 margin:0;
 `}
 `
-const StyledPreamble = styled.p`
+const StyledPreamble = styled.div`
   font-family: "StagSans-book";
   font-size: 16px;
 
