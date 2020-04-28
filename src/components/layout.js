@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
 import styled from "styled-components"
-
+import { Helmet } from "react-helmet"
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -16,10 +16,12 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <Helmet>
+          <title>{data.site.siteMetadata.title}</title>{" "}
+        </Helmet>
         <StyledDiv>
-          <title>{data.site.siteMetadata.title}</title>
           <main>{children}</main>
-        </StyledDiv>
+        </StyledDiv>{" "}
       </>
     )}
   />
