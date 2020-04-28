@@ -1,10 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
-import Footer from "./footer"
 import styled from "styled-components"
-import media from "styled-media-query"
-import Header from "../components/header"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -20,6 +17,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <StyledDiv>
+          <title>{data.site.siteMetadata.title}</title>
           <main>{children}</main>
         </StyledDiv>
       </>

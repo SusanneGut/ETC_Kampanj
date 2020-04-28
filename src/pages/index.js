@@ -5,8 +5,7 @@ const Index = () => (
   <Layout>
     <h1>No page here yet.</h1>
     <p>
-      Maybe you want to visit <Link to={"/mobil"}>ETC Mobil</Link> or{" "}
-      <Link to={"/kaffe"}>ETC Kaffe</Link>
+      Maybe you want to visit <Link to={"/mobil"}>ETC Mobil</Link>
     </p>
   </Layout>
 )

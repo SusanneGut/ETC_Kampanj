@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `ETC Kampanj`,
+    title: `ETC Mobil`,
     description: `Kampanjsidor`,
     author: `ETC Utveckling`,
   },
