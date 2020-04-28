@@ -52,7 +52,7 @@ const StyledBody = styled.div`
   display: flex;
   flex-direction: column;
   ${media.greaterThan("1100px")`
-padding: 10% 10% 30px 10%;
+padding: 30px 10% 30px 10%;
 `};
 `
 

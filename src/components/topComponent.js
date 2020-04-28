@@ -17,11 +17,18 @@ const TopComponent = ({
   pretitleColor,
 }) => (
   <div className={className}>
-    <div style={{ position: "relative", color: textcolor.hex }}>
+    <div
+      style={{
+        position: "relative",
+        color: textcolor.hex,
+      }}
+    >
       {backgroundimage ? (
         <Backgroundimage
           fluid={backgroundimage.fluid}
-          style={{ padding: "5px" }}
+          style={{
+            padding: "5px",
+          }}
         >
           {pretitle && (
             <StyledPreTitle style={{ color: pretitleColor.hex }}>
@@ -77,10 +84,9 @@ const StyledPreTitle = styled.p`
   font-size: 16px;
   ${media.greaterThan("576px")`
  font-size: 28px;
- padding: 130px 0 0 10%;`}
+ padding: 60px 0 0 10%;`}
   ${media.greaterThan("950px")`
  font-size: 28px;
- padding: 130px 0 0 10%;
 `}
 `
 
