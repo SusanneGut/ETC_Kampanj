@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `ETC Kampanj`,
     description: `Kampanjsidor`,
-    author: `ETC IT`,
+    author: `ETC Utveckling`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
