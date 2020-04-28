@@ -7,7 +7,7 @@ import media from "styled-media-query"
 import NavComponent from "./navComponent"
 const Header = ({ navmenu }) => (
   <StyledHeader>
-    <Link to={"/"}>
+    <Link to={"/mobil"}>
       <StyledLogo src={logo} />
     </Link>
     <StyledNavmenu>
