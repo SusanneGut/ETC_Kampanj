@@ -51,7 +51,7 @@ export default ({ data, className }) => {
                   <StyledVideo
                     videoTitle={article.video.title}
                     videoSrcURL={
-                      "https://www.youtube.com/embed/" +
+                      "https://player.vimeo.com/video/" +
                       article.video.providerUid
                     }
                   />
@@ -132,6 +132,7 @@ export const query = graphql`
             url
             title
             providerUid
+            provider
           }
         }
         ... on DatoCmsNewsletter {
