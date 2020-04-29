@@ -13,7 +13,7 @@ const NavComponent = ({ className, navmenu }) => {
           {navmenu.map(navitem => (
             <Link to={"/" + navitem.slug} key={uuid.v4()}>
               {navitem.articletitle}
-              <hr />
+              <hr style={{ color: "#777A89" }} />
             </Link>
           ))}
         </BurgerMenu>
@@ -30,13 +30,13 @@ const StyledBurgerMenu = styled.div`
     display: inline-block;
     text-decoration: none;
     margin-bottom: 2vh;
-    color: #d1d1d1;
+    color: #3F1A89;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
   .bm-item:hover {
-    color: white;
+    color: #777A89;
   }
   .bm-burger-button {
     position: absolute;
@@ -44,11 +44,7 @@ const StyledBurgerMenu = styled.div`
     height: 15px;
     right: 0vw;
     top: 3vh;
-    ${media.greaterThan("576px")`
-`} ${media.greaterThan("768px")`
-`}
   }
-
   }
   .bm-burger-bars {
     background: #373a47;
@@ -61,15 +57,16 @@ const StyledBurgerMenu = styled.div`
     background: #bdc3c7;
   }
   .bm-menu {
-    background: #3e3e3e;
+    background: #FFFFFF;
     padding: 2.5em 1.5em 0;
-    font-size: 15px;
+    font-size: 28px;
+
   }
   .bm-morph-shape {
     fill: #373a47;
   }
   .bm-item-list {
-    background: #3e3e3e;
+    background: #FFFFFF;
   }
 
   .bm-overlay {
@@ -83,4 +80,5 @@ const StyledDiv = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
+  font-family: "StagSans-medium";
 `
